@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">    
+    <link rel="stylesheet" href="../css/verbos.css">
+    <title>Verbos</title>
+</head>
+<body>
+    <div class="titulo">
+        <h1>LURAYIRINAKA : VERBOS</h1>
+        <button id="button" class="button" onclick="startDownload()">Descargar</button>
+    </div>
+
+    <div class="contenido">
+        <div class="row">
+            <div class="col-12">
+                <div class="table-container">
+                    <table class="table" id="table">
+                        <thead class="thead">
+                        <tr class="encabezado">
+                            <th scope="col">N°</th>
+                            <th scope="col">Castellano</th>
+                            <th scope="col">Aymara</th>
+                            <th scope="col">Ejemplo S + C + V</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>Comer</td>
+                            <td>Manq'aña</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">2</th>
+                            <td>Leer</td>
+                            <td>Ullaña</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td>Escribir</td>
+                            <td>Qillqaña</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">4</th>
+                            <td>Correr</td>
+                            <td>T'ijuña / Jalaña</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">5</th>
+                            <td>Tomar</td>
+                            <td>Umaña</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">6</th>
+                            <td>Peinar</td>
+                            <td>Sanusiña / Chhaxrasiña</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">7</th>
+                            <td>Trabajar</td>
+                            <td>Irnaqaña</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">8</th>
+                            <td>Cantar</td>
+                            <td>Jaylliña</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">9</th>
+                            <td>Bailar</td>
+                            <td>Thuqhuña</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">10</th>
+                            <td>Nadar</td>
+                            <td>Tuyuña</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">11</th>
+                            <td>Caminar</td>
+                            <td>Sarnaqaña</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">12</th>
+                            <td>Cocinar</td>
+                            <td>Phayaña</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">13</th>
+                            <td>Llamar / Hablar</td>
+                            <td>Arxayaña / Jawsaña</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">14</th>
+                            <td>Pintar</td>
+                            <td>Saminchaña</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">15</th>
+                            <td>Dormir</td>
+                            <td>Ikiña</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">16</th>
+                            <td>Llorar</td>
+                            <td>Jachaña</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">17</th>
+                            <td>Besar</td>
+                            <td>Jamp'atiña</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">18</th>
+                            <td>Hablar</td>
+                            <td>Aesuña / Parlaña</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">19</th>
+                            <td>Fumar</td>
+                            <td>Pitaña</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">20</th>
+                            <td>Jugar</td>
+                            <td>Anataña</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">21</th>
+                            <td>Aprender / Estudiar</td>
+                            <td>Yatiqaña</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">22</th>
+                            <td>Mirar / Observar</td>
+                            <td>Uñch'ukiña</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">23</th>
+                            <td>Escuchar / Oir</td>
+                            <td>Ist'aña</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">24</th>
+                            <td>Reir</td>
+                            <td>Laruña</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">25</th>
+                            <td>Comprar</td>
+                            <td>Alaña</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">26</th>
+                            <td>Pensar</td>
+                            <td>Lup'iña</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">27</th>
+                            <td>Curar</td>
+                            <td>Qullaña</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">28</th>
+                            <td>Gritar</td>
+                            <td>Warariña</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">29</th>
+                            <td>Querer / Amar</td>
+                            <td>Munaña</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">30</th>
+                            <td>Bañarse</td>
+                            <td>Jarisiña</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">31</th>
+                            <td>Pastear</td>
+                            <td>Awatiña</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">32</th>
+                            <td>Abrazar</td>
+                            <td>Qhumantaña</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">33</th>
+                            <td>Construir</td>
+                            <td>Utachaña</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">34</th>
+                            <td>Enseñar</td>
+                            <td>Yatichaña</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">35</th>
+                            <td>Barrer</td>
+                            <td>Pichaña</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">36</th>
+                            <td>Vender</td>
+                            <td>Aljaña</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">37</th>
+                            <td>Contar</td>
+                            <td>Jakhuña</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">38</th>
+                            <td>Pelear</td>
+                            <td>Nuwasiña</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">39</th>
+                            <td>Saludar</td>
+                            <td>Aruntaña</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">40</th>
+                            <td>Tejer</td>
+                            <td>P'itaña</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">41</th>
+                            <td>Romper</td>
+                            <td>P'akjaña</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">42</th>
+                            <td>Sembrar</td>
+                            <td>Yapuchaña</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">43</th>
+                            <td>Cargar</td>
+                            <td>Q'ipiña</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">44</th>
+                            <td>Bautizar</td>
+                            <td>Sutiyaña</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">45</th>
+                            <td>Machaña</td>
+                            <td>Beber</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">46</th>
+                            <td>Regalar / Invitar</td>
+                            <td>Waxt'aña</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">47</th>
+                            <td>Casarse</td>
+                            <td>Jaqichasiña</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">48</th>
+                            <td>Ganar</td>
+                            <td>Atipaña</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">49</th>
+                            <td>Decorar</td>
+                            <td>K'achachaña</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">50</th>
+                            <td>Abrir</td>
+                            <td>Jist'araña</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">51</th>
+                            <td>Entrar</td>
+                            <td>Mantaña</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">52</th>
+                            <td>Salir</td>
+                            <td>Mistuña</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">53</th>
+                            <td>Coser</td>
+                            <td>Ch'ukuña</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">54</th>
+                            <td>Festejar</td>
+                            <td>Uruyaña</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">55</th>
+                            <td>Dibujar</td>
+                            <td>Jamuqaña</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">56</th>
+                            <td>Reñegar</td>
+                            <td>Thithiña</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">57</th>
+                            <td>Alegrarse</td>
+                            <td>Kusisiña</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">58</th>
+                            <td>Cortar</td>
+                            <td>Khuchuña</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">59</th>
+                            <td>Oler</td>
+                            <td>Mukhiña</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">60</th>
+                            <td>Aplaudir</td>
+                            <td>T'axlliraña</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">61</th>
+                            <td>Sentarse</td>
+                            <td>Qunuña</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">62</th>
+                            <td>Lavar</td>
+                            <td>T'axsuña</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">63</th>
+                            <td>Limpiar</td>
+                            <td>Q'umachaña</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">64</th>
+                            <td>Mentir</td>
+                            <td>K'arisiña</td>
+                            <td></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.13/jspdf.plugin.autotable.min.js"></script>
+<script src="../js/verbs.js"></script>
+
+</html>

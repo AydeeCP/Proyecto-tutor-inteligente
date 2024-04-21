@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap');
+.contenido {
+    position: relative; /* Posición relativa para el contenedor */
+    text-align: center;
+    margin-left: 3rem;
+    margin-right: 3rem;
+    z-index: 900;
+}
+
+.contenido div {
+    display: inline-block; 
+    margin: 10px; 
+    text-align: center; 
+}
+
+.contenido img {
+    max-width: 100%; 
+    height: auto; 
+    display: block; 
+    margin: 0 auto; /* Centrar horizontalmente la imagen dentro de su contenedor */
+}
+.contenido a {
+    font-size: 16px; 
+    display: block; 
+}
+
+:root{
+    --link-color: rgb(238, 241, 249);
+    --link-font-family: "Fredoka", sans-serif;
+    --link-font-size: 1.5rem;
+    --link-font-weight: bold;
+    --link-font-style: normal;
+}
+
+.conver a, .donde a, .figura a, .suf a, .prof a, .reloj a, .comida a{
+    text-decoration: none;
+    color:var(--link-color);
+    font-family: var(--link-font-family);
+    font-optical-sizing: auto;
+    font-weight: var(--link-font-weight); 
+    font-style: var(--link-font-style);
+    font-size: var(--link-font-size);
+}
+
+.conver{
+    border-radius: 5px;
+    border:8px solid #393b03;
+    background-color: #393b03;
+}
+
+.conver:hover{
+    border-color:#72750b;
+    background-color: #72750b;
+    box-shadow: 0 0 8px #72750b;
+}
+
+.donde{
+    border-radius: 5px;
+    border:8px solid #0cb7ae;
+    background-color: #0cb7ae;
+}
+
+.donde:hover{
+    border-color:#31d4cc;
+    background-color: #31d4cc;
+    box-shadow: 0 0 8px #31d4cc;
+}
+
+.figura{
+    border-radius: 5px;
+    border:8px solid #b12414;
+    background-color: #b12414;
+}
+
+.figura:hover{
+    border-color:#ce584b;
+    background-color: #ce584b;
+    box-shadow: 0 0 8px #ce584b;
+}
+
+.suf{
+    border-radius: 5px;
+    border:8px solid #3b116c;
+    background-color: #3b116c;
+}
+
+.suf:hover{
+    border-color:#5f3f85;
+    background-color: #5f3f85;
+    box-shadow: 0 0 8px #5f3f85;
+}
+
+.prof{
+    border-radius: 5px;
+    border:8px solid #514f4f;
+    background-color: #514f4f;
+}
+
+.prof:hover{
+    border-color:#948f8f;
+    background-color: #948f8f;
+    box-shadow: 0 0 8px #948f8f;
+}
+
+.reloj{
+    border-radius: 5px;
+    border:8px solid #faef14;
+    background-color: #faef14;
+}
+
+.reloj:hover{
+    border-color:#f1eb85;
+    background-color: #f1eb85;
+    box-shadow: 0 0 8px #f1eb85;
+}
+
+.reloj a{
+    color:black;
+}
+
+.comida{
+    border-radius: 5px;
+    border:8px solid #6b4c12;
+    background-color: #6b4c12;
+}
+
+.comida:hover{
+    border-color:#9d7426;
+    background-color: #9d7426;
+    box-shadow: 0 0 8px #9d7426;
+}

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/stilo.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <title>Imagen</title>
+
+</head>
+<body>
+
+    <div class="container">
+        
+        <h1>¿Qué ves en la imagen?</h1>
+
+        <div  id="cantidad" class="cantidad">1 / 17 </div>
+
+        <img id="imagen1" src="../image/tercero/achaku.jpg" alt="Imagen 1">
+        <img id="imagen2" class="hidden" src="../image/tercero/casa.jpg" alt="Imagen 2" >
+        <img id="imagen3" class="hidden" src="../image/tercero/imilla.jpg" alt="Imagen 3">
+        <img id="imagen4" class="hidden" src="../image/tercero/aruma.jpg" alt="Imagen 4" >
+        <img id="imagen5" class="hidden" src="../image/tercero/ganado.jpg" alt="Imagen 5" >
+        <img id="imagen6" class="hidden" src="../image/tercero/isi.jpg" alt="Imagen 6"> 
+        <img id="imagen7" class="hidden" src="../image/tercero/ajanu.jpg" alt="Imagen 7" >
+        <img id="imagen8" class="hidden" src="../image/tercero/mirar.jpg" alt="Imagen 8" >
+        <img id="imagen9" class="hidden" src="../image/tercero/tierra.jpg" alt="Imagen 9"> 
+        <img id="imagen10" class="hidden" src="../image/tercero/paloma.jpg" alt="Imagen 10" >
+        <img id="imagen11" class="hidden" src="../image/tercero/inti.jpg" alt="Imagen 11">
+        <img id="imagen12" class="hidden" src="../image/tercero/ikiña.jpg" alt="Imagen 12" >
+        <img id="imagen13" class="hidden" src="../image/tercero/iwija.jpg" alt="Imagen 13" >
+        <img id="imagen14" class="hidden" src="../image/tercero/isi.jpg" alt="Imagen 14"> 
+        <img id="imagen15" class="hidden" src="../image/tercero/aycha.jpg" alt="Imagen 15" >
+        <img id="imagen16" class="hidden" src="../image/tercero/uma.jpg" alt="Imagen 16">
+        <img id="imagen17" class="hidden" src="../image/tercero/anu.jpg" alt="Imagen 17"> 
+        
+        
+        <div class="di">
+            <input type="text" id="respuesta" >
+        </div>
+        <div id="resultado"></div>
+        <br>
+        <div class="mostrarM">
+            <p class="verd"><i class='bx bxs-check-circle bx-md'></i>  <span id="correctas" class="correctas">0 </span> </p>
+            <p class="wrong"> <i class='bx bxs-x-circle bx-md'></i> <span id="equivocadas" class="equivocadas">0</span></p>
+        </div>
+        <input type="hidden" id="palabrasAcertadasInput" name="palabrasAcertadasInput" value="0">
+        <input type="hidden" id="vecesJugadasInput" name="vecesJugadasInput" value="1">
+
+        <div class="botones">
+        <button class="btn" id="verificar" onclick="verificarRespuesta()">Verificar</button>
+        <button class="btnayuda" id="btnAyuda">Ayuda</button>    
+        <button class="btn1" onclick="siguienteImagen()" id="btnSiguiente" disabled>Siguiente</button>
+        </div>
+    </div>
+
+    <div id="mensajeFeedback" class="menR">
+        <img id="feedbackImage" src="" alt="Feedback Image" width="150px">
+        <p id="feedbackMessage"></p>
+    </div>
+
+    <div id="mensajeFinal" class="mensajeFinal">
+                <img id="gifFinal" src="../image/festejo.gif" alt="gif">
+                <p>¡Felicidades! Has adivinado todas las imágenes.</p>
+                <button class="btn2" onclick="volverEmpezar()">Volver a Jugar</button>
+                <a class="btn3" href="../cursos/tercero.php" onclick=" almacenarActividad('Gramatica','Vocales','Adivina la imagen',palabrasAcertadas,vecesJugadas);" >Salir
+                </a>	
+    </div>
+    <script src="../js/scriptJuego23.js"></script>
+    <script src="../js/tercero.js"></script>
+</body>
+</html>

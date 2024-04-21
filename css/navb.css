@@ -1,0 +1,279 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+/*LETRA FRASES*/
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Titan+One&display=swap');
+*,*::before,*::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+body{
+    font-family: 'Poppins',sans-serif;
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+/*FRASES DE LA PAGINA PRINCIPAL*/
+body, html {
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    background-color:#1b2225e0;
+}
+.contenido{
+    display: flex;
+    flex-direction:column;
+    align-items:center;
+    padding-top:3rem;
+}
+.contenedor{
+    display: flex;
+    flex-wrap: wrap;
+    color: #fff;
+    font-size:50px;
+    gap:20px;
+    padding-top: 3rem;
+}
+.frases{
+    padding-top:1.5rem;
+    padding-bottom: 1rem;
+    text-align: center;
+    color:#f9d90b;
+    font-family: "Lobster", sans-serif;
+    font-size: 3rem;
+}
+.frases h2{
+    color: #54efaf;
+    padding-top: 1rem;
+    font-size: 3rem;
+}
+.mensaje{
+    font-family: "Titan One", sans-serif;;
+    position:relative;
+    text-transform: uppercase;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #18191f;
+    border-radius: 20px;
+    box-shadow:inset 0 0 20px rgba(255,255,255,0.05),
+    inset 4px 4px 6px rgba(0,0,0,0.02);
+    text-shadow: 0 0 15px #ffff00, 0 0 25px #ffff00;
+    animation:glow 1.5s linear infinite;
+}
+.mensaje:before{
+    content:'';
+    position: absolute;
+    top: 0;
+    width:100%;
+    height: 38px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    background:rgba(255,255,255,0.05);
+}
+.mensaje:nth-child(2){
+    animation-delay:0.1s;
+}
+.mensaje:nth-child(3){
+    animation-delay:0.2s;
+}
+.mensaje:nth-child(4){
+    animation-delay:0.3s;
+}
+.mensaje:nth-child(5){
+    animation-delay:0.4s;
+}
+.mensaje:nth-child(6){
+    animation-delay:0.5s;
+}
+.mensaje:nth-child(7){
+    animation-delay:0.6s;
+}
+.mensaje:nth-child(8){
+    animation-delay:0.7s;
+}
+
+/*añadiendo animacion*/
+@keyframes glow{
+    100%{
+        filter:hue-rotate(360deg);
+    }
+}
+
+
+/*FINAL DEL DISEÑO*/
+.header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background:greenyellow;
+    padding: 0px 10%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1500;
+}
+.logo{
+    padding-left: 0.9rem;
+    font-size: 25px;
+    text-transform:uppercase;
+    color: #141416;
+    font-weight:700;
+}
+.navigation ul{
+    list-style: none;
+}
+.header .navigation ul li{
+    float: left;
+    position: relative;
+}
+
+.header .navigation ul li a{
+    font: size 18px;
+    color: #000000;
+    text-decoration: none;
+    padding: 20px;
+    display: block;
+    transition: all .2s ease;
+    z-index: 1200;
+}
+
+.header .navigation ul li a:hover{
+    color:white;
+    background-color:   rgba(7, 15, 27, 0.547);
+}
+.header .navigation ul li ul{
+    position: absolute;
+    right:0;
+    color: greenyellow;
+    width: 200px;
+    background-color: rgba(7, 15, 27, 0.547);
+    display: none;
+}
+
+.header .navigation ul li ul li a{
+    font-size:15px;
+    text-transform: capitalize;
+    color: rgb(223, 235, 204);
+}
+.header .navigation ul li ul li ul{
+    position:absolute;
+    top: 0;
+    right: 300px;
+}
+
+.header .navigation ul li ul li{
+    width:100%;
+}
+.header .navigation ul li:hover > ul {
+    display: initial;
+}
+
+#toggle, .header label{
+    display:none;
+    cursor:pointer;
+}
+.menu{
+    width:45px;
+    height: 35px;
+}
+#contenido {
+    position: absolute;
+    z-index: 1000;
+}
+
+
+/*para que se vea en el celular las tres lineas para desplegar el menu*/
+@media screen and (max-width: 1350px){
+    body html{
+        justify-content: center;
+    }
+    .header{
+        padding:0.5%;
+        position: left;
+    }
+    .header label{
+        display: initial;
+        position: relative;
+        cursor:pointer;
+        margin-bottom:10px;
+    }
+    .logo{
+        font-size:20px;
+    }
+    .header .navigation{
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: rgba(7, 15, 27, 0.547);
+        border-top: 1px solid rgba(0,0,0,.1);
+        display: none;
+        color: white;
+    }
+    .header .navigation ul li{
+        width: 100%;
+        color: white;
+    }
+    .header .navigation ul li a{
+        padding:8px 30px 8px 10%;
+        color: white;
+    }
+    .header .navigation ul li ul{
+        position: relative;
+        width: 100%;
+        left: 0;
+    }
+    .header .navigation ul li a{
+        z-index: 1800;
+        color: white;
+    }
+    .header .navigation ul li ul li ul{
+        position:relative;
+        width: 100%;
+    }
+    .header .navigation ul li a:hover{
+        color:white;
+        background-color:   rgba(19, 41, 75, 0.547);
+        border-color: none;
+    }
+    .header .navigation ul li ul li a{
+        color:#ebb111;
+    }
+    .header .navigation ul li ul li a:hover{
+        color:rgb(227, 195, 125);
+        background-color:   rgba(27, 74, 145, 0.547);
+        border-color: none;
+    }
+    #toggle:checked ~ .navigation{
+        display: initial;
+    }
+    .contenido{
+        display: flex;
+        color: #fff;
+        font-size:30px;
+        padding-top:2rem;
+    }
+    .contenedor{
+        padding-top: 3rem;
+    }
+    .mensaje{
+        display: flex;
+        width: 55px;
+        height: 55px;
+    }
+    .frases{
+        padding-top:1rem;
+        padding-bottom: 0.9rem;
+        text-align: center;
+        font-size: 2rem;
+    }
+    .frases h2{
+        padding-top: 0.9rem;
+        font-size: 2rem;
+    }
+}
+

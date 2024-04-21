@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/stilo.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <title>Juego de palabras</title>
+</head>
+<body>
+    
+    <div class="contenedor" id="contenedor">
+        <div class="insignia-container">
+            <img class="insignia" src="" alt="">
+        </div>
+        <h1>Adivina la Palabra</h1>
+
+        <div  id="cantidad" class="cantidad">1 / 16</div>
+
+        <div id="word" class="word-container">
+        </div>
+        <!--<p id="word"></p>-->
+        <p class="ayudas">Yanapaña - Ayuda: <span id="hint"></span></p>
+        <p class="ayudas">Intentos restantes: <span id="attempts"></span></p>
+        <input type="text" id="letterInput" maxlength="1" class="veri">
+
+        <p id="message" class="message"></p>
+
+        <div class="mostrar">
+            <p class="verd"><i class='bx bxs-check-circle bx-md'></i>  <span id="correctas" class="correctas">0 </span> </p>
+            <p class="wrong"> <i class='bx bxs-x-circle bx-md'></i> <span id="equivocadas" class="equivocadas">0</span></p>
+        </div>
+
+        <input  type="hidden" id="palabrasAcertadasInput" name="palabrasAcertadasInput" value="0">
+        <input type="hidden" id="vecesJugadasInput" name="vecesJugadasInput" value="1">
+
+
+        <div class="botones">
+            <button id="btnNuevo"  class="btnj1" onclick="newWord()">Nueva palabra</button>
+        </div>
+    </div>
+
+    <div class="despedida" id="despedida">
+        <img id="gifFinal" src="../image/felicitacion1.gif" alt="gif">
+        <h1>Juego terminado</h1>
+        <div class="palabras">
+            <h2>Cantidad de palabras acertadas:  <span id="correctasF"></span> de <span id="cantidadArray"></span></h2>
+            <h2>Insignia de <span id="medalla"> </span></h2>
+        </div>
+        
+        <button id="btnReiniciar" id="JugarV" class="btnj2" onclick="restartGame()" >Volver a Jugar</button>
+        <a class="btn4" id="salirV"  href="../cursos/tercero.php" ">Salir</a>
+<!--onclick=" almacenarActividad('Gramatica','Vocales','Adivina la palabra', palabrasAcertadas,vecesJugadas);*/-->
+    </div>
+
+    <script src="../js/scriptJuego13.js"></script>
+    <script src="../js/tercero.js"></script>
+    
+</body>
+</html>

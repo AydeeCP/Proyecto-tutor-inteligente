@@ -1,0 +1,563 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "Fredoka", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: normal; /* Puedes ajustar el valor según lo necesites */
+    font-style: normal;
+    font-size: 1.2rem;
+}
+body{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(125deg,
+        hsl(21deg 82% 25%) 0%,
+        hsl(23deg 53% 38%) 6%,
+        hsl(26deg 46% 46%) 13%,
+        hsl(27deg 50% 54%) 19%,
+        hsl(28deg 63% 60%) 25%,
+        hsl(26deg 55% 62%) 31%,
+        hsl(24deg 48% 63%) 37%,
+        hsl(21deg 39% 64%) 44%,
+        hsl(17deg 31% 65%) 50%,
+        hsl(16deg 22% 60%) 56%,
+        hsl(13deg 14% 54%) 63%,
+        hsl(4deg 7% 48%) 69%,
+        hsl(260deg 3% 40%) 75%,
+        hsl(227deg 6% 42%) 81%,
+        hsl(219deg 9% 44%) 87%,
+        hsl(216deg 12% 45%) 94%,
+        hsl(214deg 14% 47%) 100%
+);
+    background-attachment: fixed;
+    background-size: cover;
+    
+    color: #f3f3f3;
+}
+
+/*barra de progreso*/
+.containerProg .pasos{
+    height: auto;
+    margin : 0;
+    margin-bottom: 2rem;
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+    width: 100%;
+    position: relative;
+}
+.pasos .circle{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height:60px;
+    width: 60px;
+    color:#090670a8;
+    font-size: 25px;
+    font-weight:bold;
+    border-radius:  50%;
+    background:#fff;
+    border:7px solid #bded12;
+    transition: all 200ms ease;
+    transition-delay: 0s;
+}
+.pasos .circle.active{
+    transition-delay: 100ms;
+    border-color: #162952;
+    color: #162952;
+}
+.pasos .progreso{
+    position: absolute;
+    height: 6px;
+    width: 100%;
+    background-color:#e0e0e0;
+    z-index: -1;
+}
+.progreso .indicador{
+    position:absolute;
+    height: 100%;
+    width: 0%;
+    background-color:#162952;
+    transition:all 300ms ease;
+}
+::placeholder{
+    color: #abb4ad;
+    text-align: left;
+}
+.container-form{
+    position: relative;
+}
+
+
+/*FORMULARIO 1 PADRES*/
+
+
+.formulario1{
+    height: auto;
+    width: 450px;
+    padding:0.1rem;
+    border-radius: 1%;
+    background-color: rgba(9, 9, 9, 0.707);
+    text-align: center;
+    margin-bottom: 1rem;
+}
+.formulario1 h2{
+    color:rgb(155, 255, 24);
+    font-size: 1.5rem;
+    text-align:left;
+    margin-top: 1rem;
+    margin-left:.8rem;
+    font-weight: bold;
+    margin-bottom: 1.3rem;
+}
+.formulario1 input{
+    width: 300px;
+    height: 15px;
+    display: block;
+    margin: 0 auto;
+    border-radius: 8px;
+    background-color: transparent;
+    border-color:rgb(255, 170, 0);
+    text-align: left;
+    padding:.5rem;
+    margin-bottom: 1.3rem;
+    color: white;
+    font-size:1rem;
+}
+.formulario1, .formulario2 input:required:focus{
+    outline-color: #f9ed47;
+}
+.formulario1, .formulario2, .formulario3 input:invalid{
+    box-shadow: none;
+}
+
+
+.formulario1 button{
+    margin-top: 0rem;
+    margin-bottom: 0.5rem;
+}
+/*ESTILO DE TODOS LOS BOTONES*/
+.botonA1,.botonA2,.botonA3,.botonB, .botonB1{
+    padding:.8rem;
+    font-weight: bold;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    width: auto;
+    align-items: center;
+    cursor: pointer;
+    font-size:1rem;
+    margin-top:1.3rem;
+    margin-left: 2rem;
+}
+
+
+.botonA1, .botonA2, .botonA3{
+    color:white;
+    background-color: rgb(11, 32, 60);
+    
+}
+.botonA1:hover, .botonA2:hover, .botonA3:hover {
+    background-color: rgb(14, 46, 87);
+    box-shadow: 0 0 8px  rgb(14, 46, 87);
+
+}
+
+.botonB, .botonB1{
+    color:rgb(255, 255, 255);
+    background-color: #ee5d47;
+}
+.botonB:hover , .botonB1:hover{
+    background-color:#ee5d47;
+    box-shadow: 0 0 8px #fc725d;
+}
+
+.botonB1{
+    margin-top: 1.3rem;
+    margin-right: 50rem;
+}
+
+
+/*FORMULARIO 2 ESTUDIANTES*/
+.formulario2{
+    display: none;
+    height: auto;
+    width: 450px;
+    padding: 1rem;
+    border-radius: 1%;
+    background-color: rgba(9, 9, 9, 0.707);
+    text-align: center;
+}
+.formulario2 button{
+    margin-top: 0rem;
+    margin-bottom: 0rem;
+}
+
+
+.formulario2 input{
+    width: 300px;
+    height: auto;
+    display: block;
+    margin:auto;
+    border-radius: 8px;
+    background-color: transparent;
+    border-color:rgb(255, 170, 0);
+    text-align: left;
+    padding:.5rem;
+    margin-bottom: 1.3rem;
+    color: white;
+    font-size:1rem;
+}
+
+.cie{
+    display: flex;
+    margin-bottom: 0.1rem;
+}
+#ciEst{
+    margin-right: 0.5rem;
+}
+.formulario2 #nombre{
+    margin-right: 0.5rem;
+    width: 10rem;
+
+}
+.datosP{
+    display: flex;
+    margin-bottom: 0.1rem;
+}
+/*SELECT GENERO*/
+
+.genero {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+.genero input[type="radio"]{
+    display: none;
+}
+.text-s{
+    position:relative;
+    border: none;
+    border-radius: 5px;
+    padding:10px 50px;
+    display: flex;
+    align-items: center;
+}
+.text-s:before{
+    content: "";
+    height: 15px;
+    width: 15px;
+    border:2px solid #f89b1a;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+.genero input[type="radio"]:checked + .text-s{
+    background-color: #f89b1a;
+    color:white;
+}
+.genero input[type="radio"]:checked + .text-s:before{
+    height: 10px;
+    width: 10px;
+    border:5px solid white;
+    background-color: rgba(9, 9, 9, 0.707);
+}
+
+/*ICONO LUPA*/
+.listPadres , .listEst i{
+    color: #e8bf07;
+    font-weight: bold;
+}
+
+/*MOSTRAR DATOS DE PADRES*/
+#padres , #estudiantes {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    width: auto;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #ffffffc5; 
+    color: #163871f7; 
+    font-size: .9rem;
+    font-weight:500;
+    cursor: pointer;
+}
+/* Estilos para las opciones del select */
+#padres  option {
+    background-color:#ffffffc5;
+    color: #214fb1;
+    font-size: .9rem;
+}
+#estudiantes  option {
+    background-color:#ffffffc5;
+    color: #214fb1;
+    font-size: .9rem;
+}
+
+
+/*BOTONES PARA VOLVER ATRAS
+
+/*FORMULARIO 3 CURSO ESTUDIANTE*/
+.formulario3{
+    display: none;
+    height: auto;
+    width: 450px;
+    padding: 1rem;
+    border-radius: 1%;
+    background-color: rgba(9, 9, 9, 0.707);
+    text-align: center;
+}
+
+.formulario3 input{
+    width: 300px;
+    height: 15px;
+
+    margin-top: 1.3rem;
+    border-radius: 8px;
+    background-color: transparent;
+    border-color:rgb(255, 170, 0);
+    text-align: left;
+    padding:.5rem;
+    margin-bottom: 1.3rem;
+    color: white;
+    font-size:1rem;
+}
+
+.curso ,.paralelo label{
+
+    color: white;
+    font-size:1rem;
+
+}
+
+.curso{
+    margin-left: -10px;
+}
+/*FORMULARIO 4 INICIRAR SESION*/
+.formulario4{
+    display: none;
+    height: 450px;
+    width: 450px;
+    padding: 1rem;
+    border-radius: 1%;
+    background-color: rgba(9, 9, 9, 0.707);
+    text-align: center;
+}
+
+/*FUNCION DE SELECCION*/
+.select-cont{
+    display:inline-block;
+    position: relative;
+    width:70px;
+    height: 35px;
+    /* arriba, izquierda derecha, abajo */
+    margin: .4rem 8rem .5rem 0;
+    margin-top:1.2rem;
+
+}
+.select-cont select {
+    height: 100%;
+    width: 230%;
+    font-size: .9rem;
+    appearance: none;
+    padding: 0 30px 0 10px;
+    color: white;
+    border-color: #fbc500ce;
+    border-radius:8px;
+    background-color: transparent;
+}
+
+.select-cont option{
+    background-color:rgba(255, 255, 255, 0.814);
+    color: #214fb1;
+    font-size: .9rem;
+}
+
+.select-icon{
+    position: absolute;
+    right: -70px;
+    top:50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+}
+
+.select-icon i{
+    font-size:20px;
+    color: #fec700e6;
+}
+
+/*BOTON INICIAR SESION*/
+
+.botonI{
+    width: 350%;
+    margin: auto;
+    border:solid thin white;
+    padding: .4rem;
+    border-radius:1rem;
+    border-color: transparent;
+    background-color: #7eff14;
+    font-weight: 400;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    color: #1c1c1c;
+    text-decoration-line: none;
+}
+.botonI:hover{
+    background-color: #83f327;
+    box-shadow: 0 0 10px 0 #98ff43;
+
+}
+
+
+.guardar{
+    font-weight: bold;
+    position: relative;
+    padding: .8rem;
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    border-radius: 10px;
+    border: none;
+    width: auto;
+    align-items: center;
+    font-size:1rem;
+    cursor:pointer;
+    z-index: 2;
+    border:none;
+    overflow: hidden;
+}
+/*cambio color*/
+.guardar::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background-color: #fff945f0;
+
+    z-index: -2;
+    transition: background-color 3s ease;
+    opacity: 0;
+}
+
+.guardar:hover::after {
+    opacity: 1; 
+}
+/*primer color*/
+.guardar::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 250px;
+    left: 0;
+    bottom: -150%;
+    border-radius: 30%;
+    background-color:#ceee15f0;
+    z-index: -1;
+    transition: bottom 3s ease;
+}
+
+
+.guardar:hover::before{
+    animation: guardar 3s linear both;
+}
+
+
+@keyframes guardar {
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        bottom: 100px;
+        transform: rotate(360deg);
+        
+    }
+}
+
+/*salir de la pagina de registro*/
+.volver{
+    display: block;
+    justify-content: center;
+    background-color:rgb(183, 22, 8);
+    padding: 0.5rem;
+    margin: 0.5rem;
+    border-radius: 8px;
+}
+
+.volver1{
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    color:rgb(255, 255, 255);
+    font-size: 1rem;
+    font-family: "Trispace", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: bold;
+}
+
+@media screen and (max-width: 768px) {
+    *{
+        margin: 0;
+    }
+    .container-form{
+        margin: 0 auto;
+        position: relative;
+        margin-top:7rem;
+        margin-left: 1rem;
+        justify-content: center;
+        align-items: center;
+    }
+    .containerProg {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+    }
+    .pasos{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: nowrap;
+        overflow: auto;
+        padding-left: 0;
+    }
+    .pasos .circle{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 45px;
+        width: 45px;
+        font-size: 20px;
+        border-width: 5px;
+        margin: 0 5px;
+        transition: all 200ms ease;
+        transition-delay: 0s;
+    }
+    .pasos .circle:first-child{
+        margin-left:2rem;
+    }
+
+    .formulario1, .formulario2, .formulario3, .formulario4{
+        padding-left: 3rem;
+        padding: 20px;
+    }
+    .volver{
+        padding: 0.4rem;
+        margin: 0.4rem;
+    }
+    
+    .volver1{
+        font-size: 0.8rem;
+
+    }
+
+}

@@ -1,0 +1,145 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:'Rob yoto',sans-serif;
+}
+body{
+    
+    background-image: linear-gradient(125deg,
+        hsl(21deg 82% 25%) 0%,
+        hsl(23deg 53% 38%) 6%,
+        hsl(26deg 46% 46%) 13%,
+        hsl(27deg 50% 54%) 19%,
+        hsl(28deg 63% 60%) 25%,
+        hsl(26deg 55% 62%) 31%,
+        hsl(24deg 48% 63%) 37%,
+        hsl(21deg 39% 64%) 44%,
+        hsl(17deg 31% 65%) 50%,
+        hsl(16deg 22% 60%) 56%,
+        hsl(13deg 14% 54%) 63%,
+        hsl(4deg 7% 48%) 69%,
+        hsl(260deg 3% 40%) 75%,
+        hsl(227deg 6% 42%) 81%,
+        hsl(219deg 9% 44%) 87%,
+        hsl(216deg 12% 45%) 94%,
+        hsl(214deg 14% 47%) 100%
+);
+
+    padding: 0;
+    margin: 0;
+    height: 100vh;
+    display: grid;
+    place-items: center center;
+}
+
+.fondo{
+background:rgba(250, 245, 245, 0.668)  ;
+border-radius: 4px;
+height: 400px;
+width: 350px;
+position: relative;
+
+}
+
+.contenido{
+height: 350px;
+width: 350px;
+position: relative;
+
+animation:spin 1.5s infinite;
+}
+@keyframes spin{
+100%{
+  transform: rotate(360deg);
+}
+}
+
+.contenido>div:nth-child(1){
+height: 75px;
+width: 75px;
+background-image: linear-gradient(45deg,#9aca22,#56a631,#098036);
+position: absolute;
+top:100px;
+left: 100px;
+box-shadow: 0 0 3px #56a631;
+border-radius:50%;
+
+animation: move1 1.5s infinite;
+
+}
+
+@keyframes move1 {
+50%{
+  transform:translate(-30px,-30px)scale(0.3);
+}
+}
+
+.contenido>div:nth-child(2){
+height: 45px;
+width: 45px;
+background-image: linear-gradient(45deg,#134057,#00273e,#01152c );
+position: absolute;
+top:105px;
+right:110px;
+box-shadow:0 0 2px #00273e ;
+border-radius: 50%;
+animation: move2 1.5s infinite;
+}
+
+@keyframes move2 {
+50%{
+  transform:translate(15px,-20px)scale(0.55);
+}
+}
+
+.contenido>div:nth-child(3){
+height: 75px;
+width:75px;
+background-image: linear-gradient(45deg,#ffa238,#e5842a,#ff7300);
+position:absolute;
+bottom: 100px;
+right: 100px;
+box-shadow: 0 0 3px #e5842a;
+border-radius:50%;
+animation: move3 1.5s infinite;
+}
+
+@keyframes move3 {
+50%{
+  transform:translate(30px,30px)scale(0.3);
+}
+}
+.contenido>div:nth-child(4){
+height: 45px;
+width:  45px;
+background-image: linear-gradient(45deg,#d4a84f,#4d3825,#17120c);
+position:absolute;
+bottom: 105px;
+left: 110px;
+box-shadow: 0 0 3px #4d3825;
+border-radius:50%;
+animation:move4 1.5s infinite;
+}
+@keyframes move4 {
+50%{
+  transform:translate(-15px,20px)scale(0.55);
+}
+}
+
+
+.countdown-container {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    color: #1b2d0c;
+}
+
+.countdown {
+    position: absolute;
+    left: 85%;
+    text-align: center;
+    transform: translate(-50%, -50%);
+    font-size: 1.2em;
+    font-weight: bold;
+}

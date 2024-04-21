@@ -1,0 +1,156 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
+body{
+    background-color: #19191953;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+#contenedor {
+    text-align: center;
+    max-width: 60rem;
+    min-width: 33.5rem;
+    border-radius: 10px;
+    background-color: rgba(11, 21, 54, 0.926);
+}
+.contenedor{
+    position: absolute; /* Posiciona el contenedor */
+    top: 50%; /* Lo desplaza hacia abajo el 50% del alto del viewport */
+    left: 50%; /* Lo desplaza hacia la derecha el 50% del ancho del viewport */
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 10px rgba(57, 46, 46, 0.922); 
+    margin: 0 auto;
+    display:flex;
+    justify-content: center;
+    /*flex-direction: column;  Alinea los elementos en una columna */
+    text-align: left;
+    gap: 20px; /* Agrega espaciado entre los elementos */
+}
+.datos {
+    background-color: #f0efefc6;
+    border-color: #f0efefc6;
+    padding-top: 0.5rem;
+    padding-left: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 31rem;
+    width: 100%;
+}
+
+#datos h2 {
+    font-size: 1.7rem; /* Tamaño de fuente más grande */
+    color: #0d2953; /* Color del texto */
+}
+
+.texto {
+    text-align: left;
+    font-size: 1.2rem;
+    padding-right: 0.5rem;
+    font-weight: bold;
+    color: rgb(0, 0, 0); /* Color azul para el texto */
+}
+
+.datos div {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 15px;
+}
+
+#datos p {
+    display: flex;
+    font-weight: normal;
+    text-align: left;
+    font-size: 1.2rem; /* Tamaño de fuente regular */
+    color: #2f2f2f; /* Color del texto */
+    padding-right: 0.5rem;
+}
+
+.editar{
+    margin-top: 15rem;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 250px;
+    max-width: 500px;
+    /*background-color: brown;*/
+    border-radius:10px;
+    margin-right: 1rem;
+    text-align: center;
+}
+.editar i{
+
+    padding-left: 8rem;
+    color: rgb(118, 116, 116);
+    align-items: right;
+}
+.editar a{
+    font-family: "Rubik", sans-serif;
+    text-align: right;
+    color: #7c7a7a;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight:bold;
+}
+button{
+    margin: 0 auto;
+    display:inline-block;
+    height: auto;
+    border-radius: 10px;
+    font-size:1.1rem;
+    margin-bottom: 15px;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    border-color: transparent;
+}
+
+.editarD{
+    background-color:rgb(134, 196, 12);
+    color: #000000;
+    padding-bottom: 1rem;
+    padding-top: 1rem;
+
+}
+.editarD:hover{
+    background-color:yellowgreen;
+    box-shadow:  rgba(164, 255, 17, 0.3) 0px 3px 8px;
+}
+.editarC{
+    background-color:rgb(250, 75, 44);
+    padding: 0.5rem;
+    color:antiquewhite;
+    margin-bottom: 15rem;
+}
+.editarC:hover{
+    background-color:tomato;
+    box-shadow:  rgba(245, 82, 82, 0.3) 0px 3px 8px;
+}
+@media screen and (max-width: 600px) { 
+    
+    .contenedor {
+        margin: 0 auto;
+        flex: 1 0 100%;
+        padding-top: 0.9rem;
+        flex-direction: column;
+        padding-right: 0.2rem;
+    }
+    #datos{
+        margin-left:0.8rem;
+    }
+    .editar {
+        padding-left: 10rem;
+        margin: 0 auto;
+        justify-content: center;
+        align-items: center;
+        padding: 0.8rem;
+        flex-direction: none;
+        font-size: 2rem;
+    }
+    .editarC{
+        margin-bottom:1rem;
+    }
+    .editar i{
+        padding-left:25rem;
+    }
+    
+}

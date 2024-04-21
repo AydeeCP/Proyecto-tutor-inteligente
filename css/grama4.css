@@ -1,0 +1,175 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap');
+.contenido {
+    position: relative; /* Posición relativa para el contenedor */
+    text-align: center;
+    margin-left: 3rem;
+    margin-right: 3rem;
+    z-index: 900;
+}
+
+.contenido div {
+    display: inline-block; 
+    margin: 10px; 
+    text-align: center; 
+}
+
+.contenido img {
+    max-width: 100%; 
+    height: auto; 
+    display: block; 
+    margin: 0 auto; /* Centrar horizontalmente la imagen dentro de su contenedor */
+}
+.contenido a {
+    font-size: 16px; 
+    display: block; 
+}
+
+:root{
+    --link-color: rgb(238, 241, 249);
+    --link-font-family: "Fredoka", sans-serif;
+    --link-font-size: 1.5rem;
+    --link-font-weight: bold;
+    --link-font-style: normal;
+}
+.desp{
+    border-radius: 5px;
+    border:8px solid #1D1A39;
+    background-color: #1D1A39;
+}
+.desp a{
+    text-decoration: none;
+    color:var(--link-color);
+    font-family: var(--link-font-family);
+    font-optical-sizing: auto;
+    font-weight: var(--link-font-weight); 
+    font-style: var(--link-font-style);
+    font-size: var(--link-font-size);
+}
+.desp:hover{
+    border-color:#2e2a50;
+    background-color: #2e2a50;
+    box-shadow: 0 0 8px #2e2a50;
+}
+
+.suf{
+    border-radius: 5px;
+    border:8px solid #451952;
+    background-color: #451952;
+}
+.suf a{
+    text-decoration: none;
+    color:var(--link-color);
+    font-family: var(--link-font-family);
+    font-optical-sizing: auto;
+    font-weight: var(--link-font-weight); 
+    font-style: var(--link-font-style);
+    font-size: var(--link-font-size);
+}
+.suf:hover{
+    border-color:#643a71;
+    background-color: #643a71;
+    box-shadow: 0 0 8px #643a71;
+}
+
+.pronom{
+    border-radius: 5px;
+    border:8px solid #662549;
+    background-color: #662549;
+}
+.pronom a{
+    text-decoration: none;
+    color:var(--link-color);
+    font-family: var(--link-font-family);
+    font-optical-sizing: auto;
+    font-weight: var(--link-font-weight); 
+    font-style: var(--link-font-style);
+    font-size: var(--link-font-size);
+}
+.pronom:hover{
+    border-color:#643a71;
+    background-color: #643a71;
+    box-shadow: 0 0 8px #643a71;
+}
+.pronom img{
+    height:11rem;
+}
+
+.num{
+    border-radius: 5px;
+    border:8px solid #AE445A;
+    background-color: #AE445A;
+}
+.num a{
+    text-decoration: none;
+    color:var(--link-color);
+    font-family: var(--link-font-family);
+    font-optical-sizing: auto;
+    font-weight: var(--link-font-weight); 
+    font-style: var(--link-font-style);
+    font-size: var(--link-font-size);
+}
+.num:hover{
+    border-color:#e67a8f;
+    background-color: #e67a8f;
+    box-shadow: 0 0 8px #e67a8f;
+}
+
+.dept{
+    border-radius: 5px;
+    border:8px solid #f39f5a;
+    background-color: #f39f5a;
+}
+.dept a{
+    text-decoration: none;
+    color:var(--link-color);
+    font-family: var(--link-font-family);
+    font-optical-sizing: auto;
+    font-weight: var(--link-font-weight); 
+    font-style: var(--link-font-style);
+    font-size: var(--link-font-size);
+}
+.dept:hover{
+    border-color:#f8c295;
+    background-color: #f8c295;
+    box-shadow: 0 0 8px #f8c295;
+}
+
+.orac{
+    border-radius: 5px;
+    border:8px solid #ff88d5;
+    background-color: #ff88d5;
+}
+.orac a{
+    text-decoration: none;
+    color:var(--link-color);
+    font-family: var(--link-font-family);
+    font-optical-sizing: auto;
+    font-weight: var(--link-font-weight); 
+    font-style: var(--link-font-style);
+    font-size: var(--link-font-size);
+}
+.orac:hover{
+    border-color:#ffabe2;
+    background-color: #ffabe2;
+    box-shadow: 0 0 8px #ffabe2;
+}
+
+@media (min-width: 768px) {
+    /* Estilos para tabletas y dispositivos de escritorio */
+    .contenido {
+        display: flex; 
+        justify-content: space-around;
+    }
+    .contenido div {
+        flex: 1;
+    }
+}
+
+@media (max-width: 767px) {
+    /* Estilos para dispositivos móviles */
+    .contenido div {
+        display: block; 
+        text-align: center; 
+        align-items: center;
+    }
+}

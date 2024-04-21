@@ -1,0 +1,128 @@
+body{
+    background-color: #19191953;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.co{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    margin: 0 auto;
+    background-color: rgba(10, 32, 56, 0.804);
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 10px rgba(57, 46, 46, 0.922); 
+    padding-bottom: 1rem;
+    padding-left: 4rem;
+    padding-right: 1rem;
+    width: 30rem;
+}
+h1{
+    text-align:center;
+    color: white;
+}
+.co label{
+    color:rgb(242, 243, 249);
+    font-size: 1.1rem;
+    padding-right: 1rem;
+}
+.co input{
+    background-color: rgba(13, 34, 44, 0.813);
+    border-radius: 0.3rem;
+    border: none;
+    font-size: 1rem;
+    color: white;
+    padding-left: 1rem;
+    height: 1.8rem;
+    width: auto;
+}
+.co select{
+    background-color:rgba(13, 34, 44, 0.813);
+    border:none;
+    border-radius:0.3rem;
+    font-size: 1rem;
+    height:2rem;
+    color: white;
+    width: 8rem;
+    padding-left: 1rem;
+}
+.opc{
+    padding-left: 0.5rem;
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center;
+}
+a{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    border-radius: 4px;
+    margin: 0 auto;
+    background-color:  rgb(235, 96, 81);
+    color:rgb(255,255,255);
+    display: inline-block; 
+    width: 150px; 
+    text-align: center;
+    font-size: 1.1rem;
+    text-decoration: none;
+    font-weight: bold;
+    height: 30px;
+    padding-top: 0.8rem;
+    padding-bottom: 0.2rem;
+}
+#gCurso{
+    background-color:rgb(80, 176, 24);
+    padding: 0.5rem;
+    height: 1.5rem;
+    color: black;
+    font-size:1rem;
+    font-weight: bold;
+    cursor: pointer;
+    width: 150px;
+    height: 50px;
+}
+
+@media screen and (max-width: 600px) { 
+    
+    .co {
+        width: 22rem;
+        margin: 0 auto;
+        flex: 1 0 100%;
+        padding-top: 0.9rem;
+        flex-direction: column;
+        padding-right: 0.2rem;
+        padding-left: 1rem;
+    }
+    h1{
+        font-size: 1.5rem;
+    }
+    .co label{
+        font-size: 0.9rem;
+        padding-right: 0.1rem;
+    }
+    .co input{
+        font-size: 0.9rem;
+        padding-left: 1rem;
+        height: 1.5rem;
+        width: 11rem;
+    }
+
+    .co select{
+        font-size: 0.9rem;
+        height:1.5rem;
+    }
+
+    #gCurso{
+        padding: 0.2rem;
+        height: 1.1rem;
+        font-size:0.9rem;
+        width: 120px;
+        height: 30px;
+        margin-left: 2rem;
+    }
+    a{
+        width: 110px; 
+        font-size: 1rem;
+        height: 20px;
+        padding-top: 0.3rem;
+        padding-bottom: 0.3rem;
+    }
+}
