@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/stilo.css">
+    <style>
+        .container {
+            margin-top: 50px;
+        }
+        .orde{
+            padding-top: 10px;
+        }
+        .sentence {
+            margin-bottom: 20px;
+            font-size: 20px;
+            font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+        input[type="text"] {
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        #oracionIngresada{
+            border-radius: 8px;
+            background-color: rgba(242, 15, 121, 0.849);
+            border:none;
+            width: 250px;
+            text-align:center;
+            color: white;
+            font-size: 15px;
+            margin-bottom: 20px;
+        }
+        #oracionIngresada::placeholder{
+            color: white;
+            opacity: 0.5;
+        }
+        #retroalimentacion {
+            white-space: pre-line; /* Hace que los saltos de línea se respeten */
+            background-color: #ffc107; /* Color de fondo */
+            color: #333; /* Color del texto */
+            padding: 10px; /* Espaciado interno */
+            border-radius: 5px; /* Borde redondeado */
+            margin-top: 10px; /* Margen superior */
+            font-size: 16px; /* Tamaño de fuente */
+            font-weight: bold; /* Negrita */
+        }
+    </style>
+    <title>Juego de Ordenar Oración</title>
+</head>
+<body>
+    <div class="container">
+        <h1 class="orde">Ordena la Oración</h1>
+        <div id="oracion" class="sentence"></div>
+        <input type="text" id="oracionIngresada" placeholder="Ingresa la oración ordenada">
+        <input type="hidden" id="palabrasAcertadasInput" name="palabrasAcertadasInput" value="0">
+        <input type="hidden" id="vecesJugadasInput" name="vecesJugadasInput" value="1">
+        <div class="opciones" id="opciones">
+            <button class="btn" id="checkButton">Verificar</button>
+            <button class="btn1" id="btnSiguiente" >Siguiente</button> 
+            <!--<button id="restartButton">Reiniciar</button>-->
+        </div>
+    </div>
+</div>
+<div id="mensajeFeedback" class="menR">
+    <img id="feedbackImage" src="" alt="Feedback Image" width="150px">
+    <p id="feedbackMessage"></p>
+    <p id="retroalimentacion"></p>
+</div>
+<div id="mensajeFinal" class="mensajeFinal">
+    <div class="insignia-container">
+    </div>
+    <!--<img id="gifFinal" src="../image/festejo.gif" alt="gif">-->
+    <h1>Juego terminado</h1>
+    <div class="result">
+        <h2>Cantidad de palabras acertadas: <span id="correctasF"></span> de <span id="cantidadArray"></span></h2>
+        <h2>Insignia de <span id="medalla"> </span></h2>
+    </div>
+    <button class="btn2" id="volverEmpezar">Volver a Jugar</button>
+    <a class="btn3" href="../cursos/Tercero.php"
+            onclick=" almacenarActividad('Gramatica','Pronombres personales','Ordena la oracion',palabrasAcertadas,vecesJugadas);">Salir
+        </a>
+</div>
+    <script src="../js/pronombre1.js"></script>
+    <script src="../js/insignia.js"></script>
+</body>
+</html>

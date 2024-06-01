@@ -93,6 +93,7 @@ body{
 }
 
 
+
 /*FORMULARIO 1 PADRES*/
 
 
@@ -267,13 +268,13 @@ body{
 }
 
 /*ICONO LUPA*/
-.listPadres , .listEst i{
+.listPadres , .listEst i, .listDocente i{
     color: #e8bf07;
     font-weight: bold;
 }
 
 /*MOSTRAR DATOS DE PADRES*/
-#padres , #estudiantes {
+#padres , #estudiantes, #docente{
     margin-top: 1rem;
     margin-bottom: 1rem;
     width: auto;
@@ -297,7 +298,11 @@ body{
     color: #214fb1;
     font-size: .9rem;
 }
-
+#docente option{
+    background-color:#ffffffc5;
+    color: #214fb1;
+    font-size: .9rem;
+}
 
 /*BOTONES PARA VOLVER ATRAS
 

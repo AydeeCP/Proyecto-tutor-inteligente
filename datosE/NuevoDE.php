@@ -4,8 +4,6 @@
     if(isset($_POST['padres']) && ($_POST['Id_padres']) && isset($_POST['ciEst']) && isset($_POST['fechEst'])&& isset($_POST['lengMat'])){
 
         $ci_est=$_POST['ciEst'];
-
-
         include('../conexion/bd.php');
 
 

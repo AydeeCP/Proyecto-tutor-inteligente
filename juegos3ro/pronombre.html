@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/colores.css">
+    <link rel="stylesheet" href="../css/stilo.css">
+    <style>
+        .orac{
+            padding-left: 0.5rem;
+        }
+        .Contenedor3 h2{
+            background-color:rgb(223, 18, 100);
+            color:white;
+            padding:0.5rem;
+            border-radius: 5px;
+            width: auto;
+            margin:0.5rem auto;
+        }
+        .encabezado{
+            position: relative;
+        }
+        .encabezado i,
+        .encabezado h1 {
+        display: inline-block;
+        vertical-align: middle;
+        }
+        .encabezado i{
+            position: absolute;
+            top: 0;
+            right: 0;
+            color: rgb(79, 81, 78);
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 999;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+        }
+        .modal-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+        }
+        .modal p{
+            color: rgb(13, 102, 153);
+            font-weight: bold;
+            font-family: "Seymour One", sans-serif;
+            text-align: center;
+        }
+        .modal span{
+            color:rgb(255, 0, 60);
+        }
+        .columnG {
+            text-align: left;
+        }
+        .answer {
+            margin-left: 1.5rem;
+        }
+        @media screen and (max-width: 768px) {
+            .instruccion h2{
+                font-size:12px;
+                width: 300px;
+                margin-top: 0.1rem;
+            }
+            .column label{
+                font-size:13px;
+            }
+            .columnG{
+                text-align: left;
+            }
+        }
+    </style>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>Sutilantinaka</title>
+</head>
+<body>
+    <div class="Contenedor3">
+        <div class="encabezado">
+            <h1>Sutilantinaka</h1>
+            <i class='bx bx-info-circle bx-sm' id="infoIcon"></i>
+        </div>
+        <div class="instruccion">
+            <h2>Reemplaza los nombres por el pronombre correcto ejemplo ➡ Carlos: Jupa</h2>
+        </div>
+        <div class="mostrarC">
+            <p class="verd"><i class='bx bxs-check-circle bx-md'></i> <span id="correctas" class="correctas">0 </span>
+            </p>
+            <p class="wrong"> <i class='bx bxs-x-circle bx-md'></i> <span id="equivocadas" class="equivocadas">0</span>
+            </p>
+        </div>
+        <div class="columnG">
+            <div class="column">
+                <div class="pregunta">
+                    <label for="sentence">1. Ruben ➕ Marcela</label><!--jupanaka-->
+                    <input type="text" class="answer input-respuesta" placeholder="Escribe aquí">
+                </div>
+                <div class="pregunta">
+                    <label for="sentence">2. Juma ➕ Naya </label><!--jiwasa-->
+                    <input type="text" class="answer input-respuesta" placeholder="Escribe tu aquí">
+                </div>
+                <div class="pregunta">
+                    <label for="sentence">3.Juma ➕ Jupa ➕ Ruben </label><!--jumanaka-->
+                    <input type="text" class="answer input-respuesta" placeholder="Escribe aquí">
+                </div>
+                <div class="pregunta">
+                    <label for="sentence">4. Ruben ➕ Juma ➕ Naya</label><!--jiwasanaka -->
+                    <input type="text" class="answer input-respuesta" placeholder="Escribe aquí">
+                </div>
+                <div class="pregunta">
+                    <label for="sentence">5. Rocio ➕ Juma</label><!--jumanaka -->
+                    <input type="text" class="answer input-respuesta" placeholder="Escribe aquí">
+                </div>
+            </div>
+            <div class="column">
+                <div class="pregunta">
+                    <label for="sentence">6. Rocio ➕ Ruben ➕ jumanaka</label><!--jumanaka-->
+                    <input type="text" class="answer input-respuesta" placeholder="Escribe aquí">
+                </div>
+                <div class="pregunta">
+                    <label for="sentence">7. Maribel ➕ Rocio ➕ Pedro ➕ Yatichiri</label><!--jupanaka-->
+                    <input type="text" class="answer input-respuesta" placeholder="Escribe aquí">
+                </div>
+                <div class="pregunta">
+                    <label for="sentence">8. Silvia</label><!--Jupa-->
+                    <input type="text" class="answer input-respuesta" placeholder="Escribe aquí">
+                </div>
+                <div class="pregunta">
+                    <label for="sentence">9. Ruben ➕ Juma ➕ Marcela</label><!--jumanaka-->
+                    <input type="text" class="answer input-respuesta" placeholder="Escribe aquí">
+                </div>
+                <div class="pregunta">
+                    <label for="sentence">10. Marcela ➕ Pedro ➕ Ruben ➕ Jiwasa</label><!--jiwasanaka-->
+                    <input type="text" class="answer input-respuesta" placeholder="Escribe aquí">
+                </div> 
+            </div>
+        </div>
+        <input type="hidden" id="palabrasAcertadasInput" name="palabrasAcertadasInput" value="0"><br>
+        <input type="hidden" id="vecesJugadasInput" name="vecesJugadasInput" value="1">
+        <div id="opciones" class="opciones">
+            <button class="juego3" onclick="checkAnswer()">Comprobar</button>
+            <button class="volverJ" id="volverJ" onclick="reiniciarJuego()" disabled>Volver a Jugar</button>
+            <a class="sal" id="miEnlace"  onclick=" almacenarActividad('Gramatica','Pronombres personales','Escribe el pronombre correcto',palabrasAcertadas,vecesJugadas);">Salir</a>
+            <!-- href="../cursos/Tercero.php" onclick=" almacenarActividad('Gramatica','Pronombres personales','Escribe el pronombre correcto',palabrasAcertadas,vecesJugadas);-->
+        </div>
+    </div>
+    <div id="mensajeFeedback" class="menR">
+        <img id="feedbackImage" src="" alt="Feedback Image" width="150px">
+        <p id="feedbackMessage"></p>
+    </div>
+    <div id="mensajeFinal" class="mensajeFinal">
+        <div class="insignia-container">
+        </div>
+        <!--<img id="gifFinal" src="../image/festejo.gif" alt="gif">-->
+        <h1>Juego terminado</h1>
+        <div class="result">
+            <h2>Cantidad de palabras acertadas: <span id="correctasF"></span> de <span id="cantidadArray"></span></h2>
+            <h2>Insignia de <span id="medalla"> </span></h2>
+        </div>
+    </div>
+    <div class="modal" id="infoModal">
+    <div class="modal-content">
+        <p>Utiliza el sufijo <span>NAKA</span> despues del pronombre si es necesario.</p>
+    </div>
+</div>
+    <script src="../js/pronombre.js"></script>
+    <script src="../js/insignia.js"></script>
+</body>
+
+</html>

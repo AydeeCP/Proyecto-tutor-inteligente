@@ -56,6 +56,7 @@
             <div class="listPadres">
                 <i class='bx bx-search-alt bx-sm bx-tada'></i>
                 <select name="padres" id="padres">
+                    <option value="">--</option>
                     <option value="">Seleccione su nombre</option>
                 </select>
             </div>
@@ -88,8 +89,16 @@
         </form>
         <!--Formulario 3 DATOS DEL CURSO-->
         <form class="formulario3" id="formulario3" name="formulario3" method="POST">
-            <!--Mostrar los nombres del Estudiante-->
-            <h1>verifica si tu nombre se encuentra en la base de datos</h1>
+            <!--Mostrar los nombres del docente-->
+            <h1>Seleccione el Nombre del docente</h1>
+            <div class="listDocente">
+                <i class='bx bx-search-alt bx-sm bx-tada'></i>
+                <select name="docente" id="docente">
+                    <option value="">Seleccione su nombre</option>
+                </select>
+            </div>
+            <input type="hidden" name="Id" id="Id" value=""/>
+            <h1>Seleccione el Nombre del Estudiante</h1>
             <div class="listEst">
                 <i class='bx bx-search-alt bx-sm bx-tada'></i>
                 <select name="estudiantes" id="estudiantes">
@@ -97,6 +106,7 @@
                 </select>
             </div>
             <input type="hidden" name="Id_est" id="Id_est" value=""/>
+            
             <!--Datos del nivel de curso-->
             <div class="curso">
                 <label for="curso" class="curso" id="cont">Curso: </label>
@@ -138,15 +148,14 @@
                 <button class="botonB" id="volver1" type="button">atras</button>
                 <button class="botonA3" id="siguiente3" name="siguiente3" type="button">Siguiente</button>
             </div>
-
         </form>
         <!--Formulario 4-->
         <form  class="formulario4" id="formulario4" name="formulario4">
-        <img src="../image/entrar.jpg" height="75%" width="90%"/>
-        <div class="boton4">
-            <a class="botonI" id="entrar" href="../login/logEst.php">Mantaña</a>
-            <button class="botonB1" id="volver2" type="button">atras</button>
-        </div>
+            <img src="../image/entrar.jpg" height="75%" width="90%"/>
+            <div class="boton4">
+                <a class="botonI" id="entrar" href="../login/logEst.php">Mantaña</a>
+                <button class="botonB1" id="volver2" type="button">atras</button>
+            </div>
         </form>
         <div class="volver">
             <a href="../login/logEst.php" class="volver1">

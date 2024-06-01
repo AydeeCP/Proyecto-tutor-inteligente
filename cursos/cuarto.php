@@ -22,10 +22,7 @@
             <li><a href="javascript:void(0);" onclick="cargarContenido('../gramatica/grama4to.php')">Gramatica</a></li>
             <li><a href="#">Entretenimiento</a>
                 <ul>
-                    <li href="#"><a>Adivinanzas</a></li>
-                    <li><a href="#">Trabalenguas</a></li>
-                    <li><a href="#">Cuentos</a></li>
-                    <li><a href="#">Canciones</a></li>
+                    <li href="#"><a>Videos</a></li>
                 </ul>
             </li>
             <li><a href="../entretenimiento/verbos.html">Verbos</a>
@@ -66,43 +63,6 @@
 <script src="../js/cuarto.js"></script>
 
 <script>
-    /*FRASES DE LA PANTANTALLA PRINCIPAL*/
-    const frasesYAutores = {
-        "Jisk’a laq’unakaxa janiwa usuchjañäkiti, t’iwkhasiriwa, siwa":"A los animales pequeños no hay que lastimar porque te hara sufrir en la vida",
-        "Achuxa janiwa warnaqañäkiti, ukatawa mach’amarasa jutiri, siwa":"Los frutos no se echa a perder, por eso viene los malos tiempos",
-        "Urukamaxa janiwa ikiñäkiti, walja wawaniñawa, siwa":"Hasta tarde no se duerme, te puedes cargar de familia",
-        "Ch’ankharaxa janiwa maq’añäkiti, llajllañawa sapxiwa":"Los páncreas no se comen, puedes ser temeroso",
-        "Ch’uqi pataruxa janiwa q’arakayuki sarxañäkiti, itäwisiriwa, siwa":"A la papa no se pisa con pie descalzo, te dolerá por siempre la plantilla del pie",
-        "Uywa jiphillaxa janiwa phusañäkiti, uywa illawa phusanukuña, siwa":"Las tripas de los animales muertos no se soplan , se despacha las bendiciones para tener más animales",
-        "Laxra tukuyaxa janiwa manq’añäkiti, laka ch’akhañawa, siwa":"La punta de la lengua no se come, porque puedes hablar malas palabras",
-        "Tumayku tawaqumpi, tumayku waynampIxa janiwa sarnaqañäkiti, ukhamaraki tukqhasma":"Con hombres y mujeres vagabundos no se camina, puedes ser como ellos",
-        "Uywanakaruxa janiwa uñisiñäkiti, uywaxa jachjasiriwa, siwa":"A los animales no se odia, suelen llorar maldiciendo"
-        };
-
-            // Función para seleccionar aleatoriamente una frase y traduccion
-            const seleccionarFraseYAutorAleatoriamente = () => {
-                // Extrae las claves (frases) del objeto frasesYAutores en un array
-                const frases = Object.keys(frasesYAutores);
-                // Selecciona aleatoriamente una frase del array de frases
-                const fraseAleatoria = frases[Math.floor(Math.random() * frases.length)];
-                const autorCorrespondiente = frasesYAutores[fraseAleatoria];
-                return {
-                    frase: fraseAleatoria,
-                    autor: autorCorrespondiente
-                };
-            };
-
-            // Función para actualizar el contenido de los elementos <h1> y <h2> con una frase y su autor correspondiente
-            const actualizarFraseYAutor = () => {
-
-                const { frase, autor } = seleccionarFraseYAutorAleatoriamente();
-
-                document.getElementById("frase").textContent = frase;
-                document.getElementById("traduccion").textContent = autor;
-            };
-
-            actualizarFraseYAutor();
-
     /*CARGAR LA INFORMACION DE LO QUE ESCOGE EL ESTUDIANTE*/
     function cargarContenido(url) {
     console.log('Cargando contenido desde:', url);

@@ -1,6 +1,6 @@
 /*2DO JUEGO 3ERO DE PRIMARIA*/
 
-var imagenes = ["imagen1", "imagen2","imagen3","imagen4","imagen5","imagen6","imagen7","imagen8","imagen9","imagen10","imagen11","imagen12","imagen13","imagen14","imagen15","imagen16","imagen17"];
+var imagenes = ["imagen1", "imagen2","imagen3","imagen4","imagen5","imagen6","imagen7","imagen8","imagen9","imagen10"];
 
 var palabrasAcertadas = 0;
 var vecesJugadas = 1;
@@ -12,6 +12,9 @@ var respuestaCorrecta = false;
 
 var containerDiv = document.querySelector(".container");
 var mensajeFinalDiv = document.getElementById("mensajeFinal");
+
+var totalPalabras = 10;
+
 
 function reproducirAudio(sonido) {
     var audio = new Audio("../audios/" + sonido + ".mp3");
@@ -41,28 +44,24 @@ document.getElementById("btnAyuda").addEventListener("click", function () {
 function verificarRespuesta() {
     var imagenActual = document.getElementById(imagenes[indiceImagenActual]);
     var respuestaInput = document.getElementById("respuesta").value.toLowerCase();
-  /*mostrar la imagen y mensaje de correcto o incorrecto en cada imagen */
     var esRespuestaCorrecta = false;
     var imagenSrc = "";
     var mensaje = "";
-    // Expresiones regulares para las respuestas esperadas según la imagen actual
+    // Expresiones regulares para las respuestas
     var expresiones = [];
       if (imagenActual.id === "imagen1") {
           expresiones = [{ palabra: "achaku", regex: /^achaku$/i }];
       } else if (imagenActual.id === "imagen2") {
       expresiones = [
           { palabra: "uta", regex: /^uta$/i }
-        // Añadir más palabras y expresiones regulares según la imagen 2
           ];
       } else if (imagenActual.id === 'imagen3') {
         expresiones = [
             { palabra: 'imilla', regex: /^imilla$/i }
-            // Añadir más palabras y expresiones regulares según la imagen 2
         ];
     }else if (imagenActual.id === 'imagen4') {
         expresiones = [
             { palabra: 'aruma', regex: /^aruma$/i }
-            // Añadir más palabras y expresiones regulares según la imagen 2
         ];
     }else if (imagenActual.id === 'imagen5') {
         expresiones = [
@@ -82,62 +81,35 @@ function verificarRespuesta() {
         ];
     }else if(imagenActual.id === 'imagen9'){
         expresiones=[
-            {palabra: 'uraqi', regex:/^uraqi$/i }
+            {palabra: 'inti', regex:/^inti$/i }
         ];
     }else if(imagenActual.id === 'imagen10'){
       expresiones=[
-        {palabra: 'urpila', regex:/^urpila$/}
-      ];
-    } else if(imagenActual.id === 'imagen11'){
-      expresiones=[
-        {palabra: 'inti', regex:/^inti$/}
-      ];
-    } else if(imagenActual.id === 'imagen12'){
-      expresiones=[
-        {palabra: 'ikiña', regex:/^ikiña$/}
-      ];
-    } else if(imagenActual.id === 'imagen13'){
-      expresiones=[
-        {palabra: 'iwija', regex:/^iwija$/}
-      ];
-    } else if(imagenActual.id === 'imagen14'){
-      expresiones=[
-        {palabra: 'isi', regex:/^isi$/}
-      ];
-    } else if(imagenActual.id === 'imagen15'){
-      expresiones=[
-        {palabra: 'aycha', regex:/^aycha$/}
-      ];
-    } else if(imagenActual.id === 'imagen16'){
-      expresiones=[
-        {palabra: 'uma', regex:/^uma$/}
-      ];
-    } else if(imagenActual.id === 'imagen17'){
-      expresiones=[
-        {palabra: 'anu', regex:/^anu$/}
+        {palabra: 'inwija', regex:/^iwija$/}
       ];
     } else {
           imagenActual.id === "gifFinal";
           vecesJugadas++;
           console.log("veces jugadas: " + vecesJugadas);
       }
-  // Verificar la respuesta ingresada con cada expresión regular
     for (var i = 0; i < expresiones.length; i++) {
-        if (expresiones[i].regex.test(respuestaInput)) {
-        esRespuestaCorrecta = true;
-        break;
-        }
+      console.log(`Palabra ingresada: ${respuestaInput}, Palabra esperada: ${expresiones[i].palabra}`);
+      if (expresiones[i].regex.test(respuestaInput)) {
+          esRespuestaCorrecta = true;
+          break;
+      }
     }
+    if (!esRespuestaCorrecta) {
+  }
+
     if (esRespuestaCorrecta) {
         imagenSrc = "../image/victory.gif";
         mensaje = "¡Correcto!";
-
         /*REPRODUCIR AUDIO
         reproducirAudio('lluvia'); */
         correctas++;
         document.getElementById("correctas").innerHTML = correctas;
         document.getElementById("btnSiguiente").disabled = false;
-
         palabrasAcertadas++;
         document.getElementById("palabrasAcertadasInput").value = palabrasAcertadas;
         console.log("palabras acertadas:" + palabrasAcertadas);
@@ -145,6 +117,7 @@ function verificarRespuesta() {
         document.getElementById("respuesta").disabled=true;
 
         mostrarMensajeFeedback(mensaje, imagenSrc,'green',3000);
+        //siguienteImagen();
     }else {
         imagenSrc = "../image/triste.gif";
         mensaje = "¡Incorrecto!";
@@ -152,17 +125,11 @@ function verificarRespuesta() {
         incorrectas++;
         document.getElementById("equivocadas").innerHTML = incorrectas;
         document.getElementById("btnSiguiente").disabled = false;
-
         mostrarMensajeFeedback(mensaje,imagenSrc,'red',3000);
     }
     document.getElementById("respuesta").disabled=false;
     document.getElementById("respuesta").value="";
 }
-
-
-
-
-
 
 function siguienteImagen() {
   var cantidad = document.getElementById("cantidad");
@@ -178,9 +145,13 @@ function siguienteImagen() {
 
     // Mostrar el div de mensajeFinal
     mensajeFinalDiv.style.display = "block";
+    var correc= document.getElementById('correctasF');
+    var cant = document.getElementById('cantidadArray');
+    correc.textContent=correctas;
+    cant.textContent = imagenes.length;
+    actualizarInsignia();
     // Quitar la clase "hidden" del elemento de la imagen GIF
-    document.getElementById("gifFinal").classList.remove("hidden");
-
+    //document.getElementById("gifFinal").classList.remove("hidden");
     document.getElementById("verificar").style.display = "none";
     document.getElementById("respuesta").style.display = "none";
     document.getElementById("btnAyuda").style.display = "none";
@@ -206,24 +177,6 @@ function siguienteImagen() {
     document.getElementById("feedbackImage").style.display = "block";
   }
 }
-
-function mostrarMensajeFeedback(mensaje, imagenSrc, color, duracion) {
-  var mensajeFeedback = document.getElementById("mensajeFeedback");
-  var feedbackImage = document.getElementById("feedbackImage");
-  var feedbackMessage = document.getElementById("feedbackMessage");
-
-  feedbackImage.src = imagenSrc;
-  feedbackMessage.textContent = mensaje;
-  feedbackMessage.style.color = color;
-  mensajeFeedback.style.display = "block";
-  containerDiv.style.display = "none";
-
-  setTimeout(function () {
-        mensajeFeedback.style.display = "none";
-        containerDiv.style.display = "block";
-      }, duracion);
-    }
-
 function volverEmpezar() {
     indiceImagenActual = 0;
     palabrasAcertadas = 0;
@@ -235,7 +188,7 @@ function volverEmpezar() {
     document.getElementById("cantidad").textContent = "1/" + imagenes.length;
     containerDiv.style.display = "block";
     mensajeFinalDiv.style.display = "none";
-    document.getElementById("gifFinal").classList.add("hidden");
+    //document.getElementById("gifFinal").classList.add("hidden");
     document.getElementById("verificar").style.display = "flex";
     document.getElementById("respuesta").style.display = "flex";
     document.getElementById("btnAyuda").style.display = "block";
@@ -263,8 +216,68 @@ function volverEmpezar() {
 
     localStorage.setItem("vecesJugadas", vecesJugadas);
       
-    }
+}
+function mostrarMensajeFeedback(mensaje, imagenSrc, color, duracion) {
+  var mensajeFeedback = document.getElementById("mensajeFeedback");
+  var feedbackImage = document.getElementById("feedbackImage");
+  var feedbackMessage = document.getElementById("feedbackMessage");
+  feedbackImage.src = imagenSrc;
+  feedbackMessage.textContent = mensaje;
+  feedbackMessage.style.color = color;
+  mensajeFeedback.style.display = "block";
+  containerDiv.style.display = "none";
 
+  setTimeout(function () {
+        mensajeFeedback.style.display = "none";
+        containerDiv.style.display = "block";
+      }, duracion);
+  }
+
+  function actualizarInsignia() {
+    let insignia = 'ninguna'; 
+    var med = document.getElementById('medalla');
+    // Determinar qué insignia mostrar
+    if (correctas === totalPalabras) {
+        insignia = 'oro';
+        console.log("Oro: "+correctas);
+        med.textContent=insignia;
+    } else if (correctas >= totalPalabras * 0.8) {
+        insignia = 'plata';
+        console.log("plata: "+correctas);
+        med.textContent=insignia;
+    } else if (correctas >= totalPalabras * 0.5) {
+        insignia = 'bronce';
+        console.log("bronce: "+correctas);
+        med.textContent=insignia;
+    }
+    
+    // Almacenar la información de la insignia en localStorage
+    localStorage.setItem("insignia", insignia);
+    console.log("insignia: "+insignia);
+    
+
+    // Obtener el contenedor de la insignia
+    const insigniaContainer = document.querySelector('.insignia-container');
+    
+    // Limpiar el contenedor
+    insigniaContainer.innerHTML = '';
+    
+    // Crear la imagen de la insignia y añadirla al contenedor
+    if(insignia != 'ninguna'){
+        const insigniaImg = document.createElement('img');
+        insigniaImg.src = `../image/insignia_${insignia}.png`;
+        insigniaImg.alt = `${insignia}`;
+        insigniaImg.classList.add('insignia');
+        insigniaContainer.appendChild(insigniaImg);
+    }
+}
+
+window.onload = function() {
+    const estadoInsignia = localStorage.getItem("insignia");
+    if (estadoInsignia) {
+        actualizarInsignia(estadoInsignia);
+    }
+};
 
 function almacenarActividad(opcionNavbar, temaPracticado, juegoSeleccionado, palabrasAcertadas,vecesJugadas) {
 
@@ -280,6 +293,7 @@ function almacenarActividad(opcionNavbar, temaPracticado, juegoSeleccionado, pal
             console.log('actividad almacenada', xhr.responseText);
         }
     };
+    
     var params ='opcion_navbar=' + encodeURIComponent(opcionNavbar) + 
                 '&tema_practicado=' + encodeURIComponent(temaPracticado) + 
                 '&juego_seleccionado=' + encodeURIComponent(juegoSeleccionado)+

@@ -29,14 +29,14 @@
     --link-font-size: 1.5rem;
     --link-font-weight: bold;
     --link-font-style: normal;
+
 }
 .vocales{
-    
     border-radius: 5px;
     border:8px solid rgb(40, 59, 103);
     background-color: rgb(40, 59, 103);
 }
-.vocales a{
+.vocales a, .abc a, .color a, .familia a, .saludo a, .pronombres a, .objetos a{
     text-decoration: none;
     color:var(--link-color);
     font-family: var(--link-font-family);
@@ -44,136 +44,91 @@
     font-weight: var(--link-font-weight); 
     font-style: var(--link-font-style);
     font-size: var(--link-font-size);
+    
 }
 .vocales:hover{
     border-color:rgb(55, 83, 149);
     background-color: rgb(55, 83, 149);
     box-shadow: 0 0 8px rgb(55, 83, 149);
 }
-
-li {
+li{
+    list-style-type: none;
+}
+.vocales li a , .abc li a, .color li a, .familia li a, .saludo li a, .pronombres li a, .objetos li a{
+    padding-top: 0.1rem;
     text-align: left;
-    color: #e6ff2b; /* Color de texto */
-    padding: .3rem; /* Espaciado interno */
     margin-left: 1rem;
-    margin-bottom: auto; /* Espaciado inferior */
-    cursor: pointer; /* Cambiar cursor a mano */
+    cursor: pointer;
+    font-size: 1.2rem;
 }
-
+.vocales li a{
+    color: #ffffff; 
+}
 li:hover {
-    color:aquamarine;
-    background-color: #ffffff; /* Cambiar color de fondo al pasar el ratón */
-
+    color:rgb(41, 59, 53);
+    background-color: #7d7d7d;
 }
-
 .abc{
     border-radius:5px;
     border:8px solid rgb(251, 155, 12);
     background-color:rgb(251, 155, 12);
 }
-.abc a{
-    text-decoration: none;
-    color:var(--link-color);
-    font-family: var(--link-font-family);
-    font-optical-sizing: auto;
-    font-weight: var(--link-font-weight); 
-    font-style: var(--link-font-style);
-    font-size: var(--link-font-size);
-}
-
 .abc:hover{
     border-color:rgb(255, 168, 37);
     background-color: rgb(255, 168, 37);
     box-shadow: 0 0 8px rgb(255, 168, 37);
 }
-.abc li{
-    color:rgb(16, 62, 130);
-}
 .abc li a{
-    color:rgb(16, 62, 130);
+    color:#ffffff;
 }
-.abc li:hover{
-    color:white;
-    background-color: #4445a1c0; /* Cambiar color de fondo al pasar el ratón */
-}
-.game-abc  li a:hover{
-    color:white;
-}
-
-
 .color{
     border-radius:5px;
     border:8px solid rgb(231, 46, 89);
     background-color:rgb(231, 46, 89);
-}
-.color a{
-    text-decoration: none;
-    color:var(--link-color);
-    font-family: var(--link-font-family);
-    font-optical-sizing: auto;
-    font-weight: var(--link-font-weight); 
-    font-style: var(--link-font-style);
-    font-size: var(--link-font-size);
 }
 .color:hover{
     border-color:rgb(235, 78, 115);
     background-color: rgb(235, 78, 115);
     box-shadow: 0 0 8px rgb(235, 78, 115);
 }
-
+.color img{
+    height:200px;
+}
 .familia{
     border-radius:5px;
     border:8px solid rgb(60, 39, 6);
     background-color:rgb(60, 39, 6);
-}
-.familia a{
-    text-decoration: none;
-    color:var(--link-color);
-    font-family: var(--link-font-family);
-    font-optical-sizing: auto;
-    font-weight: var(--link-font-weight); 
-    font-style: var(--link-font-style);
-    font-size: var(--link-font-size);
 }
 .familia:hover{
     border-color:rgb(84, 61, 22);
     background-color: rgb(84, 61, 22);
     box-shadow: 0 0 8px rgb(84, 61, 22);
 }
-
 .saludo{
     border-radius:5px;
     border:8px solid rgb(60, 6, 18);
     background-color:rgb(60, 6, 18);
 }
-.saludo a{
-    text-decoration: none;
-    color:var(--link-color);
-    font-family: var(--link-font-family);
-    font-optical-sizing: auto;
-    font-weight: var(--link-font-weight); 
-    font-style: var(--link-font-style);
-    font-size: var(--link-font-size);
-}
+
 .saludo:hover{
     border-color:rgb(79, 20, 33);
     background-color: rgb(79, 20, 33);
     box-shadow: 0 0 8px rgb(79, 20, 33);
 }
-
+.pronombres{
+    border-radius:5px;
+    border:8px solid rgb(53, 12, 78);
+    background-color:rgb(53, 12, 78);
+}
+.pronombres:hover{
+    border-color:rgb(84, 26, 119);
+    background-color: rgb(84, 26, 119);
+    box-shadow: 0 0 8px rgb(84, 26, 119);
+}
 .objetos{
     border-radius:5px;
     border:8px solid rgb(4, 77, 81);
     background-color:rgb(4, 77, 81);
-}
-.objetos a{
-    text-decoration: none;
-    color:var(--link-color);
-    font-family: var(--link-font-family);
-    font-optical-sizing: auto;
-    font-weight: var(--link-font-weight); 
-    font-style: var(--link-font-style);
-    font-size: var(--link-font-size);
 }
 .objetos:hover{
     border-color:rgb(22, 124, 129);
@@ -190,9 +145,7 @@ li:hover {
 }
 
 
-
-
-@media (min-width: 768px) {
+@media (max-width: 768px) {
     /* Estilos para tabletas y dispositivos de escritorio */
     .contenido {
         display: flex; 
@@ -201,14 +154,7 @@ li:hover {
     .contenido div {
         flex: 1;
     }
-}
-
-@media (max-width: 767px) {
-    /* Estilos para dispositivos móviles */
-    .contenido div {
-        
-        display: block; 
-        text-align: center; 
-        align-items: center;
+    li a{
+        font-size: 1rem;
     }
 }

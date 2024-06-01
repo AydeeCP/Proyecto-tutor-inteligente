@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/colores.css">
+    <link rel="stylesheet" href="../css/stilo.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        .Contenedor3{
+            width:550px;
+        }
+        .answer{
+            width:10rem;
+        }
+    </style>
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="Contenedor3">
+        <h1>Arum tanaka</h1>
+        <div class="mostrarC">
+            <p class="verd"><i class='bx bxs-check-circle bx-md'></i> <span id="correctas" class="correctas">0 </span>
+            </p>
+            <p class="wrong"> <i class='bx bxs-x-circle bx-md'></i> <span id="equivocadas" class="equivocadas">0</span>
+            </p>
+        </div>
+        <div class="columnG">
+            <div class="column">
+                <div class="pregunta">
+                    <label for="sentence">1. Buenos días<span class="emoji">⛅</span>:</label>
+                    <input type="text" class="answer input-respuesta" placeholder="Escribe aquí">
+                </div>
+                <div class="pregunta">
+                    <label for="sentence">2. Buenas tardes<span class="emoji"></span>:</label>
+                    <input type="text" class="answer input-respuesta" placeholder="Escribe tu aquí">
+                </div>
+                <div class="pregunta">
+                    <label for="sentence">3. Buenas noches<span class="emoji">🌕</span>:</label>
+                    <input type="text" class="answer input-respuesta" placeholder="Escribe aquí">
+                </div>
+                <div class="pregunta">
+                    <label for="sentence">4. Buenos días hermano<span class="emoji"></span>:</label>
+                    <input type="text" class="answer input-respuesta" placeholder="Escribe aquí">
+                </div>
+                <div class="pregunta">
+                    <label for="sentence">5. Buenas noches amigo <span class="emoji"></span>:</label>
+                    <input type="text" class="answer input-respuesta" placeholder="Escribe aquí">
+                </div>
+            </div>
+        </div>
+    <input type="hidden" id="palabrasAcertadasInput" name="palabrasAcertadasInput" value="0"><br>
+    <input type="hidden" id="vecesJugadasInput" name="vecesJugadasInput" value="1">
+    <div id="opciones" class="opciones">
+        <button class="juego3" onclick="checkAnswer()">Comprobar</button>
+        <button class="volverJ" id="volverJ" onclick="reiniciarJuego()" disabled>Volver a Jugar</button>
+        <a class="sal" id="miEnlace" href="../cursos/tercero.php"
+            onclick=" almacenarActividad('Gramatica','Saludos','Traduce los saludos',palabrasAcertadas,vecesJugadas);">Salir</a>
+    </div>
+    </div>
+
+    <div id="mensajeFeedback" class="menR">
+        <img id="feedbackImage" src="" alt="Feedback Image" width="150px">
+        <p id="feedbackMessage"></p>
+    </div>
+    <div id="mensajeFinal" class="mensajeFinal">
+        <div class="insignia-container">
+        </div>
+        <!--<img id="gifFinal" src="../image/festejo.gif" alt="gif">-->
+        <h1>Juego terminado</h1>
+        <div class="result">
+            <h2>Cantidad de palabras acertadas: <span id="correctasF"></span> de <span id="cantidadArray"></span></h2>
+            <h2>Insignia de <span id="medalla"> </span></h2>
+        </div>
+    </div>
+    <script src="../js/saludo.js"></script>
+    <script src="../js/insignia.js"></script>
+
+</body>
+
+</html>

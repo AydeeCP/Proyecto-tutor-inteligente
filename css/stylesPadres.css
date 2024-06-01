@@ -1,0 +1,100 @@
+/* Estilos para la página */
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+body {
+    background-color: #f0f0f0;
+    font-family: "Kanit", sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: rgba(219, 204, 204, 0.212);
+}
+
+h1 {
+    color: #000000;
+    text-align: center;
+}
+
+#padresTableContainer {
+    max-width: 90%;
+    margin: 0 auto;
+    font-size: 20px;
+}
+#padresTable {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#padresTable th, #padresTable td {
+    padding: 12px;
+    border: 1px solid #445088f8;
+    text-align: center;
+}
+
+#padresTable th {
+    background-color: #445088f8;
+    font-weight: bold;
+    color:white;
+    text-align: center;
+}
+
+#padresTable tr {
+    background-color: #f2f2f29b;
+}
+#padresTable tr:hover {
+    background-color: #cacaca;
+}
+
+.descargar{
+    text-align: center;
+}
+#btnDescargar{
+    display: block;
+    margin: 0 auto;
+    border-radius: 7px;
+    border-color: transparent;
+    background-color: rgb(129, 209, 9);
+    color:#101010;
+    font-family: "Chakra Petch", sans-serif;
+    font-weight: bold;
+    font-style: normal;
+    margin-top:1.5rem;
+    margin-bottom: 1rem;
+    width: auto;
+    height: 2rem;
+    font-size:1.5rem;
+}
+#btnDescargar:hover{
+    background-color:rgb(81, 128, 11);
+    color:white;
+}
+
+.bx{
+    color:rgb(247, 255, 12);
+}
+#mensajeError {
+    text-align: center;
+    color: red;
+    font-weight: bold;
+}
+
+@media screen and (max-width: 800px) { 
+    body{
+        padding:5px;
+    }
+    h1{
+        text-align: center;
+        font-size: 25px;
+    }
+    .table {
+        font-size: 0.8rem; 
+    }
+    #padresTable th,
+    #padresTable td {
+        padding: 4px; 
+    }
+    #btnDescargar{
+        border-radius: 5px;
+        margin-top:1.5rem;
+        margin-bottom: 1rem;
+        font-size:1rem;
+    }
+}

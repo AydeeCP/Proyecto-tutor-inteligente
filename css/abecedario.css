@@ -1,0 +1,283 @@
+@import url('https://fonts.googleapis.com/css2?family=Concert+One&family=Fjalla+One&family=Seymour+One&display=swap');
+
+body{
+  height:100vh;
+  background-color: #82A115;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 800 400'%3E%3Cdefs%3E%3CradialGradient id='a' cx='396' cy='281' r='514' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%23C5DD89'/%3E%3Cstop offset='1' stop-color='%2382A115'/%3E%3C/radialGradient%3E%3ClinearGradient id='b' gradientUnits='userSpaceOnUse' x1='400' y1='148' x2='400' y2='333'%3E%3Cstop offset='0' stop-color='%23FCFFA9' stop-opacity='0'/%3E%3Cstop offset='1' stop-color='%23FCFFA9' stop-opacity='0.5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23a)' width='800' height='400'/%3E%3Cg fill-opacity='0.4'%3E%3Ccircle fill='url(%23b)' cx='267.5' cy='61' r='300'/%3E%3Ccircle fill='url(%23b)' cx='532.5' cy='61' r='300'/%3E%3Ccircle fill='url(%23b)' cx='400' cy='30' r='300'/%3E%3C/g%3E%3C/svg%3E");
+  background-attachment: fixed;
+  background-size: cover;
+overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+}
+.cuadro{
+  width:35rem;
+  height:auto;
+  background-color:#f5f5f5;
+  border: none;
+  border-radius: 8px;
+  padding:1rem;
+  margin: 0 auto;
+  text-align:center;
+  margin-top:0;
+}
+.castellano, .letterBox, h1{
+  font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+h1{
+  font-size: 1.5rem;
+  font-weight:bold;
+  margin-bottom: 0.5rem;
+  color:#161f87;
+}
+.castellano{
+  font-size: 1.9rem;
+  color: white;
+  letter-spacing: 0.5rem;
+  text-shadow: 1px 1px 2px black,0 0 25px rgb(25, 84, 158),0 0 5px rgb(26, 62, 164);
+}
+
+#mixedLettersBox{
+  border-radius: 10px;
+  padding:0.1rem;
+  margin-bottom: 20px;
+  display: inline-block;
+  width: 400px;
+  border:7px  ridge  #0f3891 ;
+  height: 5rem;
+  /*box-shadow:5px 10px 20px rgb(26, 10, 60)inset;*/
+}
+
+#dropBox{
+  background-color:  #65a3e7c4;
+  border-radius: 6px;
+  padding: 10px;
+  width: 400px;
+  height: 3rem;
+  margin: 0 auto;
+}
+.letterBox {
+  border:1px solid #12fbf3;
+  background-color: #12fbf3;
+  padding: 0.5rem;
+  margin: 0.2rem;
+  font-size: 1.8rem;
+  color:black;
+  border-radius:6px;
+  box-shadow: inset 2px 2px 4px rgba(255, 205, 6, 0.4),inset -3px,-3px,3px rgba(255, 162, 0, 0.4);
+  text-shadow: 1px 1px rgba(0,0,0,.3);
+  text-align: center;
+  display: inline-block;
+}
+.ins{
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  color:blue;
+  font-size:1.1rem;
+  font-weight: bold;
+}
+
+.opc{
+  margin-top: 1rem;
+}
+#verificarButton, #volverJA,#Enlace,#sig{
+  font-size: 1.1rem;
+  font-weight: bold;
+  border:none;
+  border-radius: 5px;
+  padding:10px 20px;
+  margin-right: 1rem;
+}
+
+#verificarButton{
+  background-color: #37580e;
+  color:#fff;
+  cursor: pointer;
+}
+#verificarButton:hover{
+  background-color:#517d1b;
+}
+.volverJA{
+  cursor: pointer;
+  background-color: #fc690e;
+  color:white;
+}
+.sali{
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  text-decoration: none;
+  color: white;
+  background-color: #F44336;
+}
+/*MENSAJE DE FINALIZACION OFICIAL*/
+.mensajeF h1, .mensajeF h2{
+  font-family: "Seymour One", sans-serif;
+}
+.mensajeF{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  font-weight: 400;
+  font-style: normal;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.886);
+  border-radius: 8px;
+  z-index: 1000;
+  width: 400px;
+  display: none;
+}
+.mensajeF img {
+  max-width: 200px;
+  margin-bottom: 20px;
+}
+.Answer{
+  background-color: rgba(47, 123, 161, 0.918);
+  border-radius: 8px;
+  width: 350px;
+  margin: 0 auto;
+}
+
+.Answer h2{
+  padding: 2.5px;
+  font-size: 1rem;
+  color: white;  
+}
+.insignia-container{
+  padding-top:0.5rem;
+  width:250px;
+  height: auto;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: center;
+}
+
+.menA{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  font-family: "Seymour One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 2rem;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.886);
+  border-radius: 8px;
+  z-index: 1000;
+  width: 400px;
+  display: none;
+}
+
+.verfal{
+  width: 150px;
+  background-color: rgba(197, 197, 197, 0.97);
+  height: auto;
+  display: flex;
+  margin: 0 auto;
+  margin-bottom: 15px;
+  font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.verd{
+  margin-left: 5px;
+  margin-right: 5px;
+  color: #508420;
+  font-weight: bold;
+  font-size:1.4rem;
+  margin: 0 auto;
+}
+.wrong{
+  margin-left: 5px;
+  margin-right: 5px;
+  color: #ed3b09;
+  font-weight: bold;
+  font-size:1.4rem;
+  margin: 0 auto;
+}
+#sig:enabled{
+  background-color: #2196F3;
+  color: rgb(244, 244, 244);
+}
+
+button.sig{
+  background-color:rgba(96, 91, 95, 0.36);
+  color: white;
+}
+
+@media screen and (max-width: 768px) {  
+  /******************JUEGO 1 *************************/
+  .cuadro{
+    margin-top:-2m;
+    width:auto;
+    padding-bottom: 0.5rem;
+
+  }
+  .castellano, .letterBox, h1{
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  }
+  h1{
+    padding-top:0.5rem;
+    margin-top:0.5rem ;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+  .castellano{
+    font-size: 1.2rem;
+    letter-spacing: 0.2rem;
+  }
+  #mixedLettersBox{
+    padding:0.1rem;
+    width: 250px;
+    height: auto;
+  }
+  #dropBox{
+    padding: 1rem;
+    width: 250px;
+    height: auto;
+    text-align: left;
+  }
+  .letterBox {
+    padding: 0.5rem;
+    margin: 0.2rem;
+    font-size: 1.2rem;
+  }
+  .ins{
+    font-size:1.1rem;
+    font-weight: bold;
+  }
+  .mensajeF{
+    padding: 20px;
+    width: 300px;
+  }
+  .mensajeF img {
+    max-width: 200px;
+    margin-bottom: 20px;
+}
+  .Answer{
+    width: 280px;
+    margin: 0 auto;
+  }
+  .Answer h2{
+    padding: 2.5px;
+    font-size: 1rem;
+  }
+  .mensajeF h1{
+    font-size: 1.2rem;
+    font-weight:bold;
+    margin-bottom: 0.5rem;
+  }
+  .menA{
+    font-size: 1.5rem;
+    width: 300px;
+    display: none;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .cuadro{
+    margin-top:-7rem;
+  }
+
+}

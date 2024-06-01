@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/stilo.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>Familia:wila masi</title>
+</head>
+<body>
+    <div class="container">
+        <h1>kitinkisa : ¿Quién es?</h1>
+        <div id="cantidad" class="cantidad">1 / 10 </div>
+        <img id="imagen1" src="../image/tercero/papa.jpg" alt="Imagen 1">
+        <img id="imagen2" class="hidden" src="../image/tercero/abuela.jpg" alt="Imagen 2">
+        <img id="imagen3" class="hidden" src="../image/tercero/papá.jpg" alt="Imagen 3">
+        <img id="imagen4" class="hidden" src="../image/tercero/mamá.jpg" alt="Imagen 4">
+        <img id="imagen5" class="hidden" src="../image/tercero/hermana.jpg" alt="Imagen 5">
+        <img id="imagen6" class="hidden" src="../image/tercero/bebé.jpg" alt="Imagen 6">
+        <img id="imagen7" class="hidden" src="../image/tercero/hermano.jpg" alt="Imagen 7">
+        <img id="imagen8" class="hidden" src="../image/tercero/tío.jpg" alt="Imagen 8">
+        <img id="imagen9" class="hidden" src="../image/tercero/primo.jpg" alt="Imagen 9">
+        <img id="imagen10" class="hidden" src="../image/tercero/tía.jpg" alt="Imagen 10">
+        <div class="di">
+            <input type="text" id="respuesta">
+        </div>
+        <div id="resultado"></div>
+        <br>
+        <div class="mostrarM">
+            <p class="verd"><i class='bx bxs-check-circle bx-md'></i> <span id="correctas" class="correctas">0 </span>
+            </p>
+            <p class="wrong"> <i class='bx bxs-x-circle bx-md'></i> <span id="equivocadas" class="equivocadas">0</span>
+            </p>
+        </div>
+        <input type="hidden" id="palabrasAcertadasInput" name="palabrasAcertadasInput" value="0">
+        <input type="hidden" id="vecesJugadasInput" name="vecesJugadasInput" value="1">
+
+        <div class="botones">
+            <button class="btn" id="verificar" onclick="verificarRespuesta()">Verificar</button>
+            <button class="btnayuda" id="btnAyuda">Ayuda</button>
+            <button class="btn1" onclick="siguienteImagen()" id="btnSiguiente" disabled>Siguiente</button>
+        </div>
+    </div>
+
+    <div id="mensajeFeedback" class="menR">
+        <img id="feedbackImage" src="" alt="Feedback Image" width="150px">
+        <p id="feedbackMessage"></p>
+    </div>
+
+    <div id="mensajeFinal" class="mensajeFinal">
+        <div class="insignia-container">
+        </div>
+        <!--<img id="gifFinal" src="../image/festejo.gif" alt="gif">-->
+        <h1>Juego terminado</h1>
+        <div class="result">
+            <h2>Cantidad de palabras acertadas: <span id="correctasF"></span> de <span id="cantidadArray"></span></h2>
+            <h2>Insignia de <span id="medalla"> </span></h2>
+        </div>
+        <button class="btn2" onclick="volverEmpezar()">Volver a Jugar</button>
+        <a class="btn3" href="../cursos/tercero.php"
+            onclick=" almacenarActividad('Gramatica','Familia','Identifica a la familia',palabrasAcertadas,vecesJugadas);">Salir
+        </a>
+    </div>
+    <script src="../js/familia.js"></script>
+    <script src="../js/insignia.js"></script>
+</body>
+</html>

@@ -6,24 +6,32 @@ function cargarDatos(url,datosP,selectId,value1,text1,apellidos){
         type: 'GET',
         dataType: 'json',
         success:function(response){
-            if(response.success){
-                var selectElement = $('#'+selectId);
+            if (response.success) {
+                var selectElement = $('#' + selectId);
                 selectElement.empty();
-                $.each(response[datosP], function(index,item){
-                    /*que elementos mostrar solo nombre o apellidos mas*/
-                    var apellido=apellidos ? ''+item[apellidos]:'';
 
-                    selectElement.append($('<option>',{
+                // Agregar la opción predeterminada -------
+                selectElement.append($('<option>', {
+                    value: '',
+                    text: '-------'
+                }));
+
+                // Luego, agregar las opciones de los docentes
+                $.each(response[datosP], function(index, item) {
+                    /* que elementos mostrar solo nombre o apellidos mas */
+                    var apellido = apellidos ? '' + item[apellidos] : '';
+
+                    selectElement.append($('<option>', {
                         value: item[value1],
-                        text:item[text1]+ ' '+ apellido
+                        text: item[text1] + ' ' + apellido
                     }));
                 });
-            }else{
-                console.error('Error al obtener los datos: ',response.error);
+            } else {
+                console.error('Error al obtener los datos: ', response.error);
             }
         },
-        error: function(xhr,status,error){
-            console.error('Error al obtener los datos: ',error);
+        error: function(xhr, status, error) {
+            console.error('Error al obtener los datos: ', error);
         }
     });
 }
@@ -37,6 +45,7 @@ $(document).ready(function(){
         $('#Id_padres').val(selectedPadresId);
         console.log(selectedPadresId);
     });
+
     /*ESTUDIante*/
     cargarDatos('../datosE/nombre_est.php','estudiantes','estudiantes','Id_est','nombre_est','apellidos_est');
 
@@ -45,7 +54,14 @@ $(document).ready(function(){
         $('#Id_est').val(selectedEstId);
         console.log(selectedEstId);
     });
-
+    cargarDatos('../datosD/nombresD.php', 'docente', 'docente', 'Id', 'nombre', 'apellido');
+    
+    /*DATOS DOCENTES*/
+    $('#docente').on('change', function() {
+        var selectedDocenteId = $(this).val();
+        $('#Id').val(selectedDocenteId);
+        console.log(selectedDocenteId);
+    });
 });
 
 

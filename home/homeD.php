@@ -27,19 +27,19 @@
         <div class="padresL">
             <img src="../image/fam.jpg" alt="image"  width="250" height="240">
             <div class="enlace">
-                <a href="#">Lista de padres</a>
+                <a href="../DocentePP/listPadres.html">Lista de padres</a>
             </div>
         </div>
         <div class="estudianteL">
             <img src="../image/estudiantes.jpg" alt="image"  width="270" height="200">
             <div class="enlace">
-                <a href="">Lista de <br> estudiantes</a>
+                <a href="../DocentePP/listaEst.html">Lista de <br> estudiantes</a>
             </div>
         </div>
         <div class="seguimiento">
             <img src="../image/seguimiento.png" alt="image"  width="270" height="190">
             <div class="enlace">
-                <a href="">Seguimiento de <br> actividades</a>
+                <a href="../DocentePP/actividades.html">Seguimiento <br>de actividades</a>
             </div>
         </div>
     </div>

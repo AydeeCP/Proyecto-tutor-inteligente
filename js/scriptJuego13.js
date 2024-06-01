@@ -3,38 +3,40 @@ class Automata {
         this.word = word.toUpperCase();
         this.currentState = 0;
         this.finalState = word.length;
+        this.transitionsLog = []; //registro de transiciones
     }
-
     transition(letter) {
         if (this.currentState < this.finalState && letter.toUpperCase() === this.word[this.currentState]) {
+            this.transitionsLog.push({
+                from: this.currentState,
+                to: this.currentState + 1,
+                letter: letter.toUpperCase()
+            });
             this.currentState++;
             return true;
         }
         return false;
     }
-
     isAccepted() {
         return this.currentState === this.finalState;
+    }
+
+    getTransitionsLog() {
+        return this.transitionsLog || []; 
     }
 }
 
 const words = [
-    { word: "ASU", hint: "Es un ser pequeñito que llora y duerme mucho."},
-    { word: "INKA", hint: "Es una antigua civilización de América del Sur"},
     {word:"URPU", hint: "Pueden traer lluvia, nieve o simplemente dar sombra al sol"},
-    {word:"ANU", hint: "Le gusta jugar, correr y ladrar"}
-    /*{word:"ISPILLU", hint: "Es la parte de la boca que usamos para hablar"},
+    {word:"ANU", hint: "Le gusta jugar, correr y ladrar"},
+    {word:"ISPILLU", hint: "Es la parte de la boca que usamos para hablar"},
     {word:"IKIÑA", hint: "Es lo que hacemos por la noche para descansar"},
     {word:"ULLAÑA", hint: "Podemos leer cuentos, poemas o información interesante"},
     {word:"AMPARA", hint: "La usamos para agarrar, sostener y tocar cosas"},
     {word:"ILLAPA", hint: "Puedes verlo y oírlo durante una tormenta"},
-    {word:"UTACHIRI", hint: "Es una persona que construye casas, edificios y otras estructuras"},
-    {word:"UQARA", hint: "Usa señas o lenguaje de señas para comunicarse"},
     {word:"AYCHA", hint: "Puede ser de vaca, pollo o cerdo"},
-    {word:"AÑATHUYA", hint: "Se parece a un gato, pero su olor es su defensa"},
-    {word:"ISPI", hint: "Es un tipo de pescado que se encuentra en el Lago Titicaca en Bolivia"},
     {word:"ACHILA", hint: "Es el papá de tu papá o mamá"},
-    {word:"AWICHA", hint: "Es la mamá de tu papá o mamá"},*/
+    {word:"AWICHA", hint: "Es la mamá de tu papá o mamá"}
 ];
 
 let automata;
@@ -43,14 +45,14 @@ let correctWords=0;
 let wrongWords=0;
 let palabraActualIndex=0;
 let ultimaPalabraIndex=-1;
-let palabrasJugadas=1; //contador de las palabras que ya jugo el estudiante
+let palabrasJugadas=1; 
 
 var palabrasAcertadas=0;
 var vecesJugadas=1
 var contenedorDiv = document.querySelector("#contenedor");
 var despedidaDiv = document.getElementById("despedida");
 
-var totalPalabras = 4;
+var totalPalabras = 10;
 
 
 function obtenerNuevaPalabra(){
@@ -88,8 +90,9 @@ function checkLetter() {
     const letter=letterInput.value;
     const mensaje="Letra incorrecta " +letter;
 
-    if (!letter || letter.length !== 1 || !letter.match(/[a-zñäïüA-ZÑÄÏÜ]/)) {
-        alert("Ingresa una letra válida.");
+    if (!letter || letter.length !== 1 || !letter.match(/[KkKHkhK\'k\'QqQHqh\'Q\'q\'CHchCHHchhCH\'ch\'PpPHphP\'p\'TtTHthT\'t\'MmNnÑñLlLLllJjXxRrSsYyWwAaÄäUuÜüIiÏï]/)) {
+        alert("La letra ingresada no es válida en el alfabeto aimara: "+letter);
+        letterInput.value="";
         return;
     }
 
@@ -124,7 +127,7 @@ function checkLetter() {
         document.getElementById("message").style.color="green";
         palabrasAcertadas++;
         document.getElementById("palabrasAcertadasInput").value=palabrasAcertadas;
-        /*console.log("palabras acertadas: "+palabrasAc);*/
+        
 
         document.getElementById("letterInput").blur();
     } else if (remainingAttempts === 0) {
@@ -134,6 +137,7 @@ function checkLetter() {
     }
 
     displayWord();
+    logTransitions();
 }
 
 
@@ -196,6 +200,15 @@ function newWord(){
     }
 }
 
+function logTransitions() {
+    const transitionsLog = automata.getTransitionsLog();
+    console.clear(); // Limpiar la consola para cada nuevo log
+    console.log("Transiciones realizadas:");
+    transitionsLog.forEach(transition => {
+        console.log(`De estado ${transition.from} a ${transition.to} con letra '${transition.letter}'`);
+    });
+}
+
 function mostrarMensajeJuegoTerminado(){
     var despedida=document.getElementById('despedida')
     var contenedor=document.getElementById('contenedor');
@@ -206,6 +219,7 @@ function mostrarMensajeJuegoTerminado(){
     var cant = document.getElementById('cantidadArray');
     correctas.textContent=correctWords;
     cant.textContent = words.length;
+    actualizarInsignia();
 }
 
 function restartGame() {
@@ -271,7 +285,7 @@ function actualizarInsignia() {
     // Crear la imagen de la insignia y añadirla al contenedor
     if(insignia != 'ninguna'){
         const insigniaImg = document.createElement('img');
-        insigniaImg.src = `../image/insignia_${insignia}.jpg`;
+        insigniaImg.src = `../image/insignia_${insignia}.png`;
         insigniaImg.alt = `${insignia}`;
         insigniaImg.classList.add('insignia');
         insigniaContainer.appendChild(insigniaImg);
@@ -287,24 +301,3 @@ window.onload = function() {
 
 initGame();
 
-function almacenarActividad(opcionNavbar, temaPracticado, juegoSeleccionado, palabrasAcertadas,vecesJugadas) {
-
-    var xhr = new XMLHttpRequest();
-    xhr.open('POST', '../datosE/almacenar_actividad.php', true);
-    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-    xhr.onreadystatechange=function() {
-        if(xhr.readyState == 4 && xhr.status == 200){
-        
-            console.log ('palabras acertadas : ', palabrasAcertadas);
-            console.log('actividad almacenada veces jugadas:', vecesJugadas);
-            
-            console.log('actividad almacenada', xhr.responseText);
-        }
-    };
-    var params ='opcion_navbar=' + encodeURIComponent(opcionNavbar) + 
-                '&tema_practicado=' + encodeURIComponent(temaPracticado) + 
-                '&juego_seleccionado=' + encodeURIComponent(juegoSeleccionado)+
-                '&palabrasAcertadas=' + encodeURIComponent(palabrasAcertadas) +
-                '&vecesJugadas=' + encodeURIComponent(vecesJugadas);
-    xhr.send(params);
-}

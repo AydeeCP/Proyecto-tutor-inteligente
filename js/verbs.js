@@ -40,7 +40,7 @@ function exportPdf() {
         fontStyle: "normal",
         fontSize: 14,
         overflow: "linebreak",
-        halign: "left"// Centra el texto horizontalmente
+        halign: "left"
     };
 
     var headerStyles = {

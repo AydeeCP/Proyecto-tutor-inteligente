@@ -44,10 +44,16 @@
             ?>
         
     </form>
+
     <div class="message">
             <p>Si todavia no tienes cuenta haz click para registrarte</p>
             <button class="sign-up-btn" onclick="window.location.href='../home/crearEst.php'">Registrarse</button>
     </div>
+
+
     <script src="../js/logE.js"></script>
+    <script>
+
+    </script>
 </body>
 </html>

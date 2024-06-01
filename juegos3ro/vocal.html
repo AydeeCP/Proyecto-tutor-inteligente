@@ -14,12 +14,12 @@
 <body>
     
     <div class="contenedor" id="contenedor">
-        <div class="insignia-container">
+    <!--    <div class="insignia-container">
             <img class="insignia" src="" alt="">
-        </div>
+        </div>-->
         <h1>Adivina la Palabra</h1>
 
-        <div  id="cantidad" class="cantidad">1 / 16</div>
+        <div  id="cantidad" class="cantidad">1 / 10</div>
 
         <div id="word" class="word-container">
         </div>
@@ -45,20 +45,42 @@
     </div>
 
     <div class="despedida" id="despedida">
-        <img id="gifFinal" src="../image/felicitacion1.gif" alt="gif">
+        <div class="insignia-container">
+        </div>
+        <!--<img id="gifFinal" src="../image/felicitacion1.gif" alt="gif">-->
         <h1>Juego terminado</h1>
         <div class="palabras">
             <h2>Cantidad de palabras acertadas:  <span id="correctasF"></span> de <span id="cantidadArray"></span></h2>
             <h2>Insignia de <span id="medalla"> </span></h2>
         </div>
-        
         <button id="btnReiniciar" id="JugarV" class="btnj2" onclick="restartGame()" >Volver a Jugar</button>
-        <a class="btn4" id="salirV"  href="../cursos/tercero.php" ">Salir</a>
-<!--onclick=" almacenarActividad('Gramatica','Vocales','Adivina la palabra', palabrasAcertadas,vecesJugadas);*/-->
+        <a class="btn4" id="salirV"  href="../cursos/tercero.php" onclick=" almacenarActividad('Gramatica','Vocales','Adivina la palabra', palabrasAcertadas,vecesJugadas); " >Salir</a>
     </div>
 
     <script src="../js/scriptJuego13.js"></script>
     <script src="../js/tercero.js"></script>
-    
+    <script>
+        function almacenarActividad(opcionNavbar, temaPracticado, juegoSeleccionado, palabrasAcertadas,vecesJugadas) {
+
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', '../datosE/almacenar_actividad.php', true);
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            xhr.onreadystatechange=function() {
+                if(xhr.readyState == 4 && xhr.status == 200){
+                
+                    console.log ('palabras acertadas : ', palabrasAcertadas);
+                    console.log('actividad almacenada veces jugadas:', vecesJugadas);
+                    
+                    console.log('actividad almacenada', xhr.responseText);
+                }
+            };
+            var params ='opcion_navbar=' + encodeURIComponent(opcionNavbar) + 
+                        '&tema_practicado=' + encodeURIComponent(temaPracticado) + 
+                        '&juego_seleccionado=' + encodeURIComponent(juegoSeleccionado)+
+                        '&palabrasAcertadas=' + encodeURIComponent(palabrasAcertadas) +
+                        '&vecesJugadas=' + encodeURIComponent(vecesJugadas);
+            xhr.send(params);
+        }
+    </script>
 </body>
 </html>

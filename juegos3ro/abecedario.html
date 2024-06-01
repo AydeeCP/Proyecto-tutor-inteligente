@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Actividad de Aymara</title>
+  <link rel="stylesheet" href="../css/abecedario.css" />
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+</head>
+
+<body>
+  <div id="cuadro" class="cuadro">
+    <h1>Ordena la palabra en Aymara</h1>
+    <div id="wordBox">
+      <p id="spanishWord" class="castellano">PALABRA EN CASTELLANO</p>
+    </div>
+    <div id="mixedLettersBox">
+      <p id="mixedLetters">LETRAS MEZCLADAS</p>
+    </div>
+    <p class="ins">Suelta las letras aquí para formar la palabra</p>
+    <div id="dropBox"></div>
+    <input type="hidden" id="palabrasAcertadasInput" name="palabrasAcertadasInput" value="0" /><br />
+    <input type="hidden" id="vecesJugadasInput" name="vecesJugadasInput" value="1" />
+
+    <div class="verfal">
+      <p class="verd">
+        <i class="bx bxs-check-circle bx-md"></i>
+        <span id="correctas" class="correctas">0 </span>
+      </p>
+      <p class="wrong">
+        <i class="bx bxs-x-circle bx-md"></i>
+        <span id="equivocadas" class="equivocadas">0</span>
+      </p>
+    </div>
+    <div class="opc">
+      <button id="verificarButton">Verificar</button>
+      <button class="sig" id="sig" disabled>Siguiente</button>
+    </div>
+  </div>
+
+  <div id="mensajeFeedback" class="menA">
+    <img id="feedbackImage" src="" alt="Feedback Image" width="150px" />
+    <p id="feedbackMessage"></p>
+  </div>
+
+  <div class="mensajeF" id="mensajeF">
+    <div class="insignia-container"></div>
+    <h1>JUEGO TERMINADO</h1>
+    <div class="Answer">
+      <h2>
+        Cantidad de palabras acertadas: <span id="correctasF"></span> de
+        <span id="cantidadArray"></span>
+      </h2>
+      <h2>Insignia de <span id="medalla"> </span></h2>
+    </div>
+    <button class="volverJA" id="volverJA" onclick="reiniciarJuego()">
+      Volver a Jugar
+    </button>
+    <a class="sali" id="Enlace" href="../cursos/tercero.php"
+      onclick="almacenarActividad('Gramatica','Abecedario','Ordena la palabra',palabrasCorrectas,vecesJugadas);">Salir</a>
+  </div>
+
+  <script src="../js/ordenarL.js"></script>
+  <script>
+    function almacenarActividad(
+      opcionNavbar,
+      temaPracticado,
+      juegoSeleccionado,
+      palabrasCorrectas,
+      vecesJugadas
+    ) {
+      var xhr = new XMLHttpRequest();
+      xhr.open("POST", "../datosE/almacenar_actividad.php", true);
+      xhr.setRequestHeader(
+        "Content-Type",
+        "application/x-www-form-urlencoded"
+      );
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+          console.log("palabras acertadas : ", palabrasCorrectas);
+          console.log("actividad almacenada veces jugadas:", vecesJugadas);
+
+          console.log("actividad almacenada", xhr.responseText);
+        }
+      };
+
+      var params =
+        "opcion_navbar=" +
+        encodeURIComponent(opcionNavbar) +
+        "&tema_practicado=" +
+        encodeURIComponent(temaPracticado) +
+        "&juego_seleccionado=" +
+        encodeURIComponent(juegoSeleccionado) +
+        "&palabrasAcertadas=" +
+        encodeURIComponent(palabrasCorrectas) +
+        "&vecesJugadas=" +
+        encodeURIComponent(vecesJugadas);
+      xhr.send(params);
+    }
+  </script>
+</body>
+
+</html>

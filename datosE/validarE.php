@@ -62,7 +62,7 @@ if ($statement) {
 
         switch($nombre_curso){
             case 'Tercero':
-                header("location: ../cursos/tercero.php");
+                header("location: ../cursos/Tercero.php");
                 break;
             case 'Cuarto':
                 header("location: ../cursos/cuarto.php");

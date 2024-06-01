@@ -118,7 +118,7 @@ body, html {
 }
 .logo{
     padding-left: 0.9rem;
-    font-size: 25px;
+    font-size: 20px;
     text-transform:uppercase;
     color: #141416;
     font-weight:700;
@@ -132,7 +132,7 @@ body, html {
 }
 
 .header .navigation ul li a{
-    font: size 18px;
+    font: size 17px;
     color: #000000;
     text-decoration: none;
     padding: 20px;
@@ -187,7 +187,7 @@ body, html {
 
 
 /*para que se vea en el celular las tres lineas para desplegar el menu*/
-@media screen and (max-width: 1350px){
+@media screen and (max-width: 1280px) { 
     body html{
         justify-content: center;
     }
