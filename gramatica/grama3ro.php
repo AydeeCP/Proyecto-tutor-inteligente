@@ -1,24 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/grama3.css" />
+
+
     <title>Tercero de primaria</title>
 </head>
+
 <body>
-    <div class="contenido" >
+
+    <div class="contenido">
         <!--vocales-->
         <div class="vocales" id="tema-vocales">
-            <img src="../image/vocales.jpg" alt="image"  width="250"  onmouseover="playSound('../audios/lluvia.mp3')" onmouseout="stopSound()">
+            <img src="../image/vocales.jpg" alt="image" width="250">
             <a href="#">VOCALES</a>
-                <ul>
-                    <li><a href="../juegos3ro/vocal.html">* Adivina la palabra</a></li>
-                    <li><a href="../juegos3ro/vocal2.html">* Adivina la imagen</a></li>
-                </ul>
+            <ul>
+                <li><a href="../juegos3ro/vocal.html">* Adivina la palabra</a></li>
+                <li><a href="../juegos3ro/vocal2.html">* Adivina la imagen</a></li>
+            </ul>
         </div>
-        <div class="abc" onmouseover="playSound('../audios/trueno.mp3')" onmouseout="stopSound()">
-            <img src="../image/abc.jpg" alt="image"  width="250" >
+        <div class="abc">
+            <img src="../image/abc.jpg" alt="image" width="250">
             <a href="#">ABECEDARIO</a>
             <div class="game-abc">
                 <ul>
@@ -27,8 +32,8 @@
                 </ul>
             </div>
         </div>
-        <div class="color" onmouseover="playSound('../audios/trueno.mp3')" onmouseout="stopSound()">
-            <img src="../image/colores.jpg" alt="image"  width="250" >
+        <div class="color" onmouseover="playSound('../audios/Colores.mp3')" onmouseout="stopSound()">
+            <img src="../image/colores.jpg" alt="image" width="250">
             <a href="#">SAMINAKA : Colores</a>
             <div class="game-abc">
                 <ul>
@@ -37,8 +42,8 @@
                 </ul>
             </div>
         </div>
-        <div class="familia" onmouseover="playSound('../audios/trueno.mp3')" onmouseout="stopSound()">
-            <img src="../image/familia.jpg" alt="image"  width="250" >
+        <div class="familia" onmouseover="playSound('../audios/Familia.mp3')" onmouseout="stopSound()">
+            <img src="../image/familia.jpg" alt="image" width="250">
             <a href="#">WILA MASI : Familia</a>
             <div class="game-familia">
                 <ul>
@@ -47,8 +52,8 @@
                 </ul>
             </div>
         </div>
-        <div class="saludo" onmouseover="playSound('../audios/trueno.mp3')" onmouseout="stopSound()">
-            <img src="../image/saludo.jpg" alt="image"  width="250" >
+        <div class="saludo" onmouseover="playSound('../audios/Saludos.mp3')" onmouseout="stopSound()">
+            <img src="../image/saludo.jpg" alt="image" width="250">
             <a href="#">ARUM TANAKA : Saludos</a>
             <div class="game-saludo">
                 <ul>
@@ -57,8 +62,8 @@
                 </ul>
             </div>
         </div>
-        <div class="pronombres" onmouseover="playSound('../audios/trueno.mp3')" onmouseout="stopSound()">
-            <img src="../image/pr.jpg" alt="image"  width="250" >
+        <div class="pronombres" onmouseover="playSound('../audios/Pronombres.mp3')" onmouseout="stopSound()">
+            <img src="../image/pr.jpg" alt="image" width="250">
             <a href="#">SUTILANTINAKA <br> Pronombres personales</a>
             <div class="game-pronombres">
                 <ul>
@@ -67,8 +72,8 @@
                 </ul>
             </div>
         </div>
-        <div class="objetos" onmouseover="playSound('../audios/trueno.mp3')" onmouseout="stopSound()">
-            <img src="../image/objetos.jpg" alt="image"  width="250" >
+        <div class="objetos" onmouseover="playSound('../audios/Objetos.mp3')" onmouseout="stopSound()">
+            <img src="../image/objetos.jpg" alt="image" width="250">
             <a href="#">Objetos</a>
             <div class="game-objetos">
                 <ul>
@@ -79,7 +84,8 @@
         </div>
     </div>
 
-<script src="../js/tercero.js"></script>
+    <script src="../js/tercero.js"></script>
 
 </body>
+
 </html>

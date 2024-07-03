@@ -1,22 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/navb.css">
     <link rel="website icon" type="png" href="icono.png">
+    <link rel="stylesheet" href="../css/diagnostico.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
     <title>Tercero</title>
 </head>
-
 <body>
-
     <!--<h1>CURSO TERCERO DE PRIMARIA</h1>-->
     <!--DISEÑO DEL NAVBAR-->
     <header class="header">
         <div class="logo"><?php include('../datosE/datosE.php'); ?></div>
+        <div id="questionD"><i class='bx bx-info-circle bx-sm'></i></div>
         <input type="checkbox" id="toggle">
         <label for="toggle"><img class="menu" src="../image/menu.svg" alt="menu"></label>
         <nav class="navigation">
@@ -35,34 +35,79 @@
                 </li>
             </ul>
             </li>
-
             </li>
             <li><a href="../login/logEst.php" id="salirBtn"><i class='bx bxs-left-arrow-square bx-sd bx-fade-left-hover'></i>Salir</a></li>
             </ul>
         </nav>
     </header>
     <div id="contenido" class="contenido">
-        <div class="contenedor">
-            <div class="mensaje">S</div>
-            <div class="mensaje">A</div>
-            <div class="mensaje">W</div>
-            <div class="mensaje">I</div>
-            <div class="mensaje">N</div>
-            <div class="mensaje">A</div>
-            <div class="mensaje">K</div>
-            <div class="mensaje">A</div>
-        </div>
-        <div class="frases">
-            <h1 id="frase" class="frases"></h1>
-            <hr>
-            <h2 id="traduccion"></h2>
+            <div class="contenedor">
+                <div class="mensaje">S</div>
+                <div class="mensaje">A</div>
+                <div class="mensaje">W</div>
+                <div class="mensaje">I</div>
+                <div class="mensaje">N</div>
+                <div class="mensaje">A</div>
+                <div class="mensaje">K</div>
+                <div class="mensaje">A</div>
+            </div>
+            <div class="frases">
+                <h1 id="frase" class="frases"></h1>
+                <hr>
+                <h2 id="traduccion"></h2>
+            </div>
+    </div>
+    <div class="recuadro" id="formulario">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h1>Evaluación Diagnóstica: Contexto Social y Familiar en Aimara</h1>
+            <?php
+            if (isset($_SESSION['formulario_enviado']) && $_SESSION['formulario_enviado'] === true) {
+                echo "<p style='color: #6157ab; font-weight: bold; text-align: center; background-color:#E6E1E190; padding:0.5rem;'>
+                Ya has enviado el formulario. ¡Gracias!</p>";
+            } else {
+            ?>
+            <form id="respuestaForm" action="../datosE/respuestasQ.php" method="POST">
+                <div class="question">
+                    <p>1. ¿Hablas aimara en casa?</p>
+                    <label><input type="radio" name="qSocial1" value="sí"> Sí</label><br>
+                    <label><input type="radio" name="qSocial1" value="no"> No</label>
+                </div>
+                <div class="question">
+                    <p>2. ¿Con quién hablas aimara más seguido?</p>
+                    <label><input type="radio" name="qSocial2" value="familia"> Con mi familia</label><br>
+                    <label><input type="radio" name="qSocial2" value="amigos"> Con mis amigos</label><br>
+                    <label><input type="radio" name="qSocial2" value="escuela"> En la escuela</label><br>
+                    <label><input type="radio" name="qSocial2" value="comunidad"> En la comunidad</label><br>
+                    <label><input type="radio" name="qSocial2" value="otro"> Otro</label>
+                </div>
+                <div class="question">
+                    <p>3. ¿Qué tan importante es para ti hablar aimara?</p>
+                    <label><input type="radio" name="qSocial3" value="muy_importante"> Muy importante</label><br>
+                    <label><input type="radio" name="qSocial3" value="importante"> Importante</label><br>
+                    <label><input type="radio" name="qSocial3" value="poco_importante"> Poco importante</label><br>
+                    <label><input type="radio" name="qSocial3" value="nada_importante"> Nada importante</label>
+                </div>
+                <div class="question">
+                    <p>4. ¿Quién te enseñó a hablar aimara?</p>
+                    <label><input type="radio" name="qSocial4" value="padres"> Mis padres</label><br>
+                    <label><input type="radio" name="qSocial4" value="abuelos"> Mis abuelos</label><br>
+                    <label><input type="radio" name="qSocial4" value="maestros"> Mis maestros</label><br>
+                    <label><input type="radio" name="qSocial4" value="amigos"> Amigos</label><br>
+                    <label><input type="radio" name="qSocial4" value="otro"> Otro</label>
+                </div>
+                <div class="question">
+                    <p>5. ¿Qué cosas te hacen difícil aprender o hablar aimara?</p>
+                    <textarea name="qSocial5"></textarea>
+                </div>
+                <button type="submit">Guardar</button>
+            </form>
+            <?php } ?>
         </div>
     </div>
-
     <script src="../js/tercero.js"></script>
+    <script src="../js/diagnostico.js"></script>
     <script>
-
-
         const frasesYAutores = {
             "Utanxa janiwa khuyusiñäkiti, jaka q’arañawa, siwa": "En la casa no se silba, con el tiempo serás pobre",
             "Sunquruxa janiwa manq’añäkiti, qhurqhuriñawa, siwa": "La laringe no se come, hace roncar mucho",
@@ -137,8 +182,6 @@
                 }); 
             });
         });*/
-        
-
     </script>
 
 </body>

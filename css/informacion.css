@@ -1,0 +1,14 @@
+.encabezado{
+    position: relative;
+}
+.encabezado i,
+.encabezado h1 {
+display: inline-block;
+vertical-align: middle;
+}
+.encabezado i{
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: rgb(79, 81, 78);
+}
