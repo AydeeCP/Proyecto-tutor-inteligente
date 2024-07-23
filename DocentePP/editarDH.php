@@ -12,17 +12,17 @@
     <div class="editD">
         <h1>Edición de datos</h1>
         <form action="../datosD/editarDatosD.php" method="POST" class="forMEd">
+            
+        <input type="hidden" id="Id" name="Id" value=""><br><br>
 
             <label for="ci">Cédula de Identidad:</label>
-            <input type="text" id="ci" name="ci" value="" disabled><br><br>
-
+            <input type="text" id="ci" name="ci" value=""><br><br>
             <label for="naciminiento">Fecha de nacimiento: </label>
             <input type="date" id="nacimiento" name="nacimiento" value=""><br><br>
-            
             <label for="sexo">Género: </label>
             <select id="sexo" name="sexo">
-                <option value="masculino">Masculino</option>
-                <option value="femenino">Femenino</option>
+                <option value="Femenino">Femenino</option>
+                <option value="Masculino">Masculino</option>
             </select><br><br>
             
             <label for="nombre">Nombres: </label>
@@ -43,7 +43,6 @@
             <label for="password">Contraseña: </label>
             <input type="password" id="password" class="password" name="password">
             <i class='bx bxs-face-mask bx-sm'></i><br><br>
-
             <br>
             <div class="opciones">
                 <input type="submit" value="Guardar Cambios" id="Geditar">
@@ -51,29 +50,25 @@
             </div>
         </form>
     </div>
-
     <script>
-        // Cuando el documento esté listo
         document.addEventListener('DOMContentLoaded', function() {
             // Realiza una petición AJAX para obtener los datos del docente
             fetch('../datosD/datosG.php')
                 .then(response => response.json())
                 .then(data => {
-                    // Rellena el formulario con los datos obtenidos
+                    document.getElementById('Id').value = data.datos.docente.Id;
                     document.getElementById('ci').value = data.datos.docente.ci;
                     document.getElementById('nacimiento').value=data.datos.docente.fecha;
-                    /*document.getElementById('sexo').value = data.datos.docente.sexo;*/
+                    document.getElementById('sexo').value = data.datos.docente.sexo;
                     document.getElementById('nombre').value=data.datos.docente.nombre;
                     document.getElementById('apellidos').value=data.datos.docente.apellido;
                     document.getElementById('telefono').value=data.datos.docente.telefono;
                     document.getElementById('correo').value=data.datos.docente.correo;
                     document.getElementById('direccion').value=data.datos.docente.direccion;
                     document.getElementById('password').value=data.datos.docente.contraseña;
-
+                    
                     var sexo = data.datos.docente.sexo;
-
                     var selectGenero = document.getElementById('sexo');
-
                     // opciones del campo de selección para encontrar la que coincide con el género
                     for (var i = 0; i < selectGenero.options.length; i++) {
                         if (selectGenero.options[i].value === sexo) {

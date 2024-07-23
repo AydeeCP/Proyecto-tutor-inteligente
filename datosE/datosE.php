@@ -41,7 +41,7 @@
                 $saludo = "Bienvenido";
             }
             echo  $nombre_estudiante . " " . $apellidos_estudiante .": " ;
-            echo $nombre_curso ; 
+            //echo $nombre_curso ; 
         } else {
             echo "No se encontraron datos de usuario";
         }

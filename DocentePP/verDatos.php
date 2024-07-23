@@ -6,10 +6,7 @@
     <link rel="stylesheet" href="../css/verDatos.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    
-
-
-    <title>Document</title>
+    <title>Datos de docente</title>
 </head>
 <body>
     <div id="contenedor" class="contenedor">
@@ -40,11 +37,11 @@
                                 htmlDatos += '<p><span class="texto">Cedula de identidad:</span> <span class="valor">' + (value.ci !== undefined ? value.ci : '') + '</span></p>';
                                 htmlDatos += '<p><span class="texto">Fecha de nacimiento:</span> <span class="valor">' + (value.fecha !== undefined ? value.fecha : '') + '</span></p>';
                                 htmlDatos += '<p><span class="texto">Sexo:</span> <span class="valor">' + (value.sexo !== undefined ? value.sexo : '') + '</span></p>';
-                                htmlDatos += '<p><span class="texto">Nombre:</span> <span class="valor">' + (value.nombre !== undefined ? value.nombre : '') + '</span></p>';
-                                htmlDatos += '<p><span class="texto">Apellido:</span> <span class="valor">' + (value.apellido !== undefined ? value.apellido : '') + '</span></p>';
+                                htmlDatos += '<p><span class="texto">Nombres:</span> <span class="valor">' + (value.nombre !== undefined ? value.nombre : '') + '</span></p>';
+                                htmlDatos += '<p><span class="texto">Apellidos:</span> <span class="valor">' + (value.apellido !== undefined ? value.apellido : '') + '</span></p>';
                                 htmlDatos += '<p><span class="texto">Celular:</span> <span class="valor">' + (value.telefono !== undefined ? value.telefono : '') + '</span></p>';
                                 htmlDatos += '<p><span class="texto">Correo electrónico:</span> <span class="valor">' + (value.correo !== undefined ? value.correo : '') + '</span></p>';
-                                htmlDatos += '<p><span class="texto">Direccion: </span> <span class="valor">' + (value.direccion !== undefined ? value.direccion:'') + '</span></p>';
+                                htmlDatos += '<p><span class="texto">Dirección: </span> <span class="valor">' + (value.direccion !== undefined ? value.direccion:'') + '</span></p>';
                                 /*htmlDatos += '<p><span class="texto">Contraseña:</span> <span class="valor">' + (value.contraseña !== undefined ? value.contraseña : '') + '</span></p>';*/                                
                             } else if (key === 'asignatura') {
                                 htmlDatos += '<h2>DATOS ASIGNATURA</h2>';
@@ -53,7 +50,7 @@
                                 htmlDatos += '<p><span class="texto">Curso:</span> <span class="valor">' + (value.curso !== undefined ? value.curso : '') + '</span></p>';
                                 htmlDatos += '<p><span class="texto">Paralelo:</span> <span class="valor">' + (value.paralelo !== undefined ? value.paralelo : '') + '</span></p>';
                                 htmlDatos += '<p><span class="texto"> Cantidad de alumnos: </span> <span>' + (value.cantidad !== undefined ? value.cantidad : '') + '</span></p>';
-                                htmlDatos += '<p><span class="texto"> Codigo asignatura: </span> <span>'+(value.codigo !==undefined ? value.codigo : '') + '</span></p>';
+                                htmlDatos += '<p><span class="texto"> Código asignatura: </span> <span>'+(value.codigo !==undefined ? value.codigo : '') + '</span></p>';
                                 htmlDatos += '<p><span class="texto"> Turno: </span> <span>'+(value.turno !==undefined ? value.turno:'') + '</span></p>';
                                 /*htmlDatos += '</div>';*/
                                 }
@@ -73,30 +70,22 @@
             });
 
             $('#editarC').click(function() {
-            var idDocente = $('input[name="id_docente"]').val();
-            console.log(idDocente);
-            if (idDocente) {
-                window.location.href = '../DocentePP/editarAsig.php?Id=' + idDocente;
+                var idDocente = $('input[name="id_docente"]').val();
+                if (idDocente) {
+                    window.location.href = '../DocentePP/editarAsig.php?Id=' + idDocente;
             } else {
                 console.error('Error: No se proporcionó el ID del docente');
             }
+            });
+            $('#editarD').click(function() {
+                    var idDocente = $('input[name="id_docente"]').val();
+                    if (idDocente) {
+                        window.location.href = '../DocentePP/editarDH.php?Id=' + idDocente;
+                    } else {
+                        console.error('Error: No se proporcionó el ID del docente');
+                    }
+                });
         });
-        });
-
-        var editarDButton = document.getElementById('editarD');
-        editarDButton.addEventListener('click', function() {
-            // Redirigir al usuario a la página de edición de datos personales
-            window.location.href = '../DocentePP/editarDH.php';
-        });
-
-       /* // Captura el ID del docente del botón de edición de curso
-        var editarCButton = document.getElementById('editarC');
-        editarCButton.addEventListener('click',function(){
-            window.location.href = '../DocentePP/editarAsig.php?Id=' + (value.Id !== undefined ? value.Id : '');
-        });
-*/
-
     </script>
-
 </body>
 </html>

@@ -1,7 +1,7 @@
 var audio;
 function playSound(audioURL) {
     audio = new Audio(audioURL);
-    console.log("Sonido activado");
+    //console.log("Sonido activado");
     audio.play();
 }
 

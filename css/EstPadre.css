@@ -1,0 +1,311 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
+body {
+    background-color: #19191953;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+#container {
+    text-align: center;
+    max-width: 60rem;
+    min-width: auto;
+    border-radius: 10px;
+    background-color: rgba(11, 21, 54, 0.926);
+}
+
+.container {
+    position: absolute;
+    /* Posiciona el contenedor */
+    top: 50%;
+    /* Lo desplaza hacia abajo el 50% del alto del viewport */
+    left: 50%;
+    /* Lo desplaza hacia la derecha el 50% del ancho del viewport */
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 10px rgba(57, 46, 46, 0.922);
+    margin: 0 auto;
+    display: column;
+    justify-content: center;
+    /*flex-direction: column;  Alinea los elementos en una columna */
+    text-align: left;
+    gap: 20px;
+    /* Agrega espaciado entre los elementos */
+}
+
+.datosPadre,
+.datosEst {
+    background-color: #f0efefc6;
+    border-color: #f0efefc6;
+    padding-top: 0.5rem;
+    padding-left: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 31rem;
+    width: 100%;
+}
+
+.cursos h2 {
+    text-align: center;
+}
+
+.cursos {
+    margin-top: 1rem;
+    text-align: left;
+    font-size: 1.2rem;
+}
+
+#datosPadre h2,
+#datosEst h2 {
+    font-size: 1.7rem;
+    /* Tamaño de fuente más grande */
+    color: #0d2953;
+    /* Color del texto */
+    text-align: center;
+}
+
+.texto {
+    display: column;
+    text-align: left;
+    font-size: 1.2rem;
+    padding-right: 0.5rem;
+    font-weight: bold;
+    color: rgb(0, 0, 0);
+}
+
+.datos-personales {
+    width: 100%;
+    /* Ajusta el ancho según tus necesidades */
+    max-width: 500px;
+    /* Ajusta el ancho máximo según tus necesidades */
+    text-align: left;
+    padding-bottom: 1rem;
+}
+
+.datos-personales p {
+    margin-bottom: 10px;
+    /* Espacio entre cada línea de información */
+}
+
+.texto {
+    text-align: left;
+    font-size: 1.2rem;
+    padding-right: 0.5rem;
+    font-weight: bold;
+    color: rgb(0, 0, 0);
+}
+
+.valor {
+    font-size: 1.2rem;
+}
+
+.editar {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+    /* Evita que los elementos se envuelvan en múltiples líneas */
+    width: 460px;
+    /* Ajusta el ancho según tus necesidades */
+    max-width: 800px;
+    /* Ajusta el ancho máximo según tus necesidades */
+    border-radius: 10px;
+    text-align: center;
+    height: 100px;
+    margin-left: 3rem;
+}
+
+.editar button {
+    margin: 5rem 10px;
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+}
+
+.editar a,
+.editarEstudiante a {
+    color: rgb(118, 116, 116);
+    padding: 10px;
+
+}
+
+.editar .editarP,
+.editarEstudiante {
+    background-color: rgb(0, 150, 167);
+    color: white;
+}
+
+.editar .editarP:hover {
+    background-color: rgb(0, 188, 212);
+    box-shadow: rgba(99, 241, 239, 0.3) 0px 3px 8px;
+}
+
+.editar .eliminarP, .eliminarDatosRelacionados{
+    background-color: rgb(236, 60, 29);
+    color: antiquewhite;
+}
+
+.editar .eliminarP:hover, .eliminarDatosRelacionados:hover {
+    background-color: rgb(234, 80, 53);
+    box-shadow: rgba(199, 40, 40, 0.639) 0px 3px 8px;
+}
+
+.editar i {
+    padding-left: 8rem;
+    /* Ajusta el padding izquierdo para el icono según sea necesario */
+    color: rgb(118, 116, 116);
+}
+
+.editar a {
+    margin-right: 3rem;
+    margin-left: -5rem;
+    text-align: right;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+    border: none;
+    border-radius: 10px;
+    padding: 1px;
+}
+
+.editar a {
+    color: rgb(118, 116, 116);
+    padding: 10px;
+}
+
+/**/
+.editarEstudiante {
+    background-color: rgb(0, 150, 167);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    width: 150px;
+}
+
+.editarEstudiante:hover {
+    background-color: rgb(0, 188, 212);
+}
+
+.modal {
+    display: none;
+    /* Por defecto, el modal está oculto */
+    position: fixed;
+    /* Posición fija en la ventana */
+    z-index: 1000;
+    /* Z-index alto para asegurar que esté por encima del resto del contenido */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    /* Permite hacer scroll si el contenido es largo */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Fondo semitransparente */
+}
+
+/* Estilo para el contenido del modal */
+.modal-content {
+    text-align: center;
+    background-color: #fefefe; 
+    /* Color de fondo del contenido del modal */
+    margin: 15% auto;
+    /* Margen superior e inferior, centrado horizontalmente */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    /* Ancho del contenido del modal */
+    max-width: 600px;
+    /* Ancho máximo del contenido del modal */
+    border-radius: 10px;
+    position: relative;
+}
+
+/* Estilo para el botón de cerrar (×) */
+.close {
+    color: #e82121;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: rgb(198, 39, 39);
+    text-decoration: none;
+}
+
+/* Estilo para los botones dentro del modal */
+.boton-estudiante {
+    background-color: #53459e;
+    color: white;
+    font-weight: bold;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.boton-curso {
+    background-color: rgb(255, 165, 0);
+    font-weight: bold;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.boton-curso:hover {
+    background-color: rgb(220, 140, 0); 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+}
+
+.boton-estudiante:hover {
+    background-color: #58518a;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+}
+
+
+@media screen and (max-width: 600px) {
+    .container {
+        margin: 0 auto;
+        flex: 1 0 100%;
+        padding-top: 0.9rem;
+        flex-direction: column;
+        padding-right: 0.2rem;
+    }
+
+    .editar {
+        flex-direction: flex;
+        /* Cambia la dirección a vertical */
+        height: auto;
+        /* Ajusta la altura automáticamente según el contenido */
+
+    }
+
+    .editar button {
+        margin: 10px 10px;
+        /* Ajusta el margen verticalmente */
+    }
+
+}

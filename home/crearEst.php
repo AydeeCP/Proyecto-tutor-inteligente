@@ -36,23 +36,23 @@
         <form class="formulario1" id="formulario1" name="formulario1" method="POST">
             <!--datos del padre-->
             <div class="datos-padres">
-                <h2>Papás</h2>
-                <input type="text" id="ci" name="ci" placeholder="cedulad de identidad" />
-                <input type="text" id="nombre" name="nombre" placeholder="Suti">
+                <h2>Datos del Padre o Tutor</h2>
+                <input type="text" id="ci" name="ci" placeholder="Cédula de identidad" />
+                <input type="text" id="nombre" name="nombre" placeholder="Nombre completo">
                 <input type="text" id="apellidos" name="apellidos" placeholder="Apellidos" />
-                <input type="tel" id="telefono" name="telefono" placeholder="Chililirima" />
-                <input type="email" id="correo" name="correo" placeholder="Correo electronico"  />
+                <input type="tel" id="telefono" name="telefono" placeholder="Número de celular" />
+                <input type="email" id="correo" name="correo" placeholder="Correo electrónico"  />
                 <input type="text" id="residencia" name="residencia" placeholder="Lugar que residencia" />
             </div>
             <div class="bonton1">
-                <button class="guardar" id="guardarD" name="guardarD" type="submit" formaction="../datosE/NuevoDP.php">Guardar</button>
-                <button class="botonA1" id="siguiente" name="siguiente" type="button">Siguiente</button>
+                <button class="guardar" id="guardarD" name="guardarD" type="submit" formaction="../datosE/NuevoDP.php">Imaña : Guardar</button>
+                <button class="botonA1" id="siguiente" name="siguiente" type="button">Nairakkata : Siguiente</button>
             </div>
         </form>
         <!--Formulario 2 ESTUDIANTE-->
         <form class="formulario2" id="formulario2" name="formulario2" method="POST">
             <!--Mostrar los nombres de los padres registrados-->
-            <h2>verifica si tu nombre se encuentra en la base de datos</h2>
+            <h2>Verifica si el nombre del padre o tutor está en la base de datos.</h2>
             <div class="listPadres">
                 <i class='bx bx-search-alt bx-sm bx-tada'></i>
                 <select name="padres" id="padres">
@@ -64,14 +64,14 @@
             <!--datos del estudiante-->
             <div class="estudiante">
                 <div class="cie">
-                    <input type="text" id="ciEst" name="ciEst" placeholder="cedula de identidad" required/>
+                    <input type="text" id="ciEst" name="ciEst" placeholder="cédula de identidad" required/>
                     <input type="date" id="fechEst" name="fechEst">   
                 </div><!--genero del estudiante-->
                 <div class="genero">
                     <input type="radio" id="hombre" name="genero" value="Masculino" required >
-                    <label for="hombre" class="text-s">Chacha</label>
+                    <label for="hombre" class="text-s">Chacha : Hombre</label>
                     <input type="radio" id="mujer" name="genero" value="Femenino" >
-                    <label for="mujer" class="text-s">Warmi</label>
+                    <label for="mujer" class="text-s">Warmi : Mujer</label>
                 </div>
                 <div class="datosP">
                     <input type="text" id="nombre" name="nombre" placeholder="Nombre completo">
@@ -81,24 +81,24 @@
                 
             </div>
             <div class="bonton2">
-                <button class="guardar" id="guardarEst" name="guardarEst" type="submit" formaction="../datosE/NuevoDE.php">Guardar</button>
-                <button class="botonB" id="volver" type="button">atras</button>
-                <button class="botonA2" id="siguiente2" name="siguiente2" type="submit">Siguiente</button>
+                <button class="guardar" id="guardarEst" name="guardarEst" type="submit" formaction="../datosE/NuevoDE.php">Imaña : Guardar</button>
+                <button class="botonB" id="volver" type="button">Qhipäxa : Atrás</button>
+                <button class="botonA2" id="siguiente2" name="siguiente2" type="submit">Nairakkata : Siguiente</button>
             </div>
 
         </form>
         <!--Formulario 3 DATOS DEL CURSO-->
         <form class="formulario3" id="formulario3" name="formulario3" method="POST">
             <!--Mostrar los nombres del docente-->
-            <h1>Seleccione el Nombre del docente</h1>
             <div class="listDocente">
+            <h2>Seleccione el nombre del docente</h2>
                 <i class='bx bx-search-alt bx-sm bx-tada'></i>
                 <select name="docente" id="docente">
                     <option value="">Seleccione su nombre</option>
                 </select>
             </div>
             <input type="hidden" name="Id" id="Id" value=""/>
-            <h1>Seleccione el Nombre del Estudiante</h1>
+            <h2>Seleccione el nombre del estudiante</h2>
             <div class="listEst">
                 <i class='bx bx-search-alt bx-sm bx-tada'></i>
                 <select name="estudiantes" id="estudiantes">
@@ -144,23 +144,21 @@
                 <input type="text" placeholder="Asignatura" class="asig" name="materia" />
             </div>
             <div class="bonton3">
-                <button class="guardar" id="guardarCurso" name="guardarCurso" type="submit" formaction="../datosE/NuevoCurso.php">Guardar</button>
-                <button class="botonB" id="volver1" type="button">atras</button>
-                <button class="botonA3" id="siguiente3" name="siguiente3" type="button">Siguiente</button>
+                <button class="guardar" id="guardarCurso" name="guardarCurso" type="submit" formaction="../datosE/NuevoCurso.php">Imaña : Guardar</button>
+                <button class="botonB" id="volver1" type="button">Qhipäxa : Atrás</button>
+                <button class="botonA3" id="siguiente3" name="siguiente3" type="button">Nairakkata : Siguiente</button>
             </div>
         </form>
         <!--Formulario 4-->
         <form  class="formulario4" id="formulario4" name="formulario4">
             <img src="../image/entrar.jpg" height="75%" width="90%"/>
             <div class="boton4">
-                <a class="botonI" id="entrar" href="../login/logEst.php">Mantaña</a>
-                <button class="botonB1" id="volver2" type="button">atras</button>
+                <a class="botonI" id="entrar" href="../login/logEst.php">Mantaña : Entrar</a>
+                <button class="botonB1" id="volver2" type="button">Qhipäxa : Atrás</button>
             </div>
         </form>
         <div class="volver">
-            <a href="../login/logEst.php" class="volver1">
-                Salir
-            </a>
+            <a href="../login/logEst.php" class="volver1">Cancelar registro</a>
         </div>
     </div>
     <script src="../js/NuevoEst.js"></script>

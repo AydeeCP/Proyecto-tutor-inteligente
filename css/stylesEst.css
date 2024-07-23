@@ -1,16 +1,36 @@
 /* Estilos para la página */
 @import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 body {
-    background-color: #f0f0f0;
+    background-color: #1919193b;
     font-family: "Kanit", sans-serif;
     margin: 0;
     padding: 20px;
-    background-color: rgba(219, 204, 204, 0.212);
 }
 
 h1 {
     color: #000000;
     text-align: center;
+    margin-bottom: 0.4rem;
+}
+.salir {
+    margin-top: 0;
+    margin-right: 1rem;
+    text-align: right; /* Alinea el texto a la derecha */
+}
+
+.salir a{
+    font-family: "Rubik", sans-serif;
+    text-decoration: none;
+    color:rgb(91, 84, 84);
+    font-size: 1rem;
+    font-weight:bold;
+}
+.salir a:hover, .salir i:hover{
+    color:rgb(247, 232, 232);
+}
+.salir i{
+    color:rgb(91, 84, 84);
+    margin-right: 5px; 
 }
 
 #estudiantesTableContainer{
@@ -24,12 +44,12 @@ h1 {
 
 #estudiantesTable th, #estudiantesTable td {
     padding: 10px;
-    border: 1px solid #445088f8;
+    border: 1px solid #142834;
     text-align: center;
 }
 
 #estudiantesTable th {
-    background-color: #445088f8;
+    background-color: #142834;;
     font-weight: bold;
     color:white;
     text-align: center;
@@ -52,14 +72,13 @@ h1 {
     border-color: transparent;
     background-color: rgb(129, 209, 9);
     color:#101010;
-    font-family: "Chakra Petch", sans-serif;
     font-weight: bold;
     font-style: normal;
     margin-top:1.5rem;
     margin-bottom: 1rem;
     width: auto;
     height: 2rem;
-    font-size:1.5rem;
+    font-size:1.2rem;
 }
 #btnDescargar:hover{
     background-color:rgb(81, 128, 11);
@@ -94,6 +113,6 @@ h1 {
         border-radius: 5px;
         margin-top:1.5rem;
         margin-bottom: 1rem;
-        font-size:1rem;
+        font-size:0.8rem;
     }
 }

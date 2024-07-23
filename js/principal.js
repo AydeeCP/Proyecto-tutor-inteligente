@@ -1,7 +1,9 @@
 const btnD = document.getElementById('btnD');
 const btnE  = document.getElementById('btnE');
+const btnPad  = document.getElementById('btnPad');
 const audioD = document.getElementById('audioD');
 const audioE = document.getElementById('audioE');
+const audioP = document.getElementById('audioP');
 
 
 btnD.addEventListener('mouseover', () => {
@@ -20,4 +22,12 @@ btnE.addEventListener('mouseover', () => {
 btnE.addEventListener('mouseout', () => {
     audioE.pause();
     audioE.currentTime = 0;
+});
+btnPad.addEventListener('mouseover', () => {
+    audioP.play();
+});
+
+btnPad.addEventListener('mouseout', () => {
+    audioP.pause();
+    audioP.currentTime = 0;
 });

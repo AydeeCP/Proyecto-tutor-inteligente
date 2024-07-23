@@ -42,18 +42,18 @@ if ($idEstudiante !== '' && $idCurso !== '') {
 
         $palabrasAcertadas = isset($_POST['palabrasAcertadas']) ? intval($_POST['palabrasAcertadas']) : 0;
         $vecesJugadas = isset($_POST['vecesJugadas']) ? intval($_POST['vecesJugadas']) : 0;
-        
+        $medalla =$_POST['medalla'];
+
         var_dump($_POST);
 
         var_dump($palabrasAcertadas);
         var_dump($vecesJugadas);
         
-
-        $consulta_insertar_actividad = "INSERT INTO actividad_estudiante(Id_est, Id_curso, opcion_navbar,tema_practicado,juego_seleccionado, palabrasAcertadas,vecesJugadas)
-        VALUES(?, ?, ?, ?, ?, ?, ?)";
+        $consulta_insertar_actividad = "INSERT INTO actividad_estudiante(Id_est, Id_curso, opcion_navbar,tema_practicado,juego_seleccionado, palabrasAcertadas,vecesJugadas,medalla)
+        VALUES(?, ?, ?, ?, ?, ?, ?,?)";
 
         $statement_insertar_actividad = mysqli_prepare($conexion, $consulta_insertar_actividad);
-        mysqli_stmt_bind_param($statement_insertar_actividad, "iisssii", $idEstudiante, $idCurso, $opcionNavbar, $temaPracticado, $juegosSeleccionado,$palabrasAcertadas,$vecesJugadas);
+        mysqli_stmt_bind_param($statement_insertar_actividad, "iisssiis", $idEstudiante, $idCurso, $opcionNavbar, $temaPracticado, $juegosSeleccionado,$palabrasAcertadas,$vecesJugadas,$medalla);
         mysqli_stmt_execute($statement_insertar_actividad);
         mysqli_stmt_close($statement_insertar_actividad);
 

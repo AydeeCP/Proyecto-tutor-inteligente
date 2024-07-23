@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.6">
+    <title>Respuestas de Estudiantes</title>
+    <link rel="stylesheet" href="../css/cantUso.css">
+    <link rel="stylesheet" href="../css/introJs.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!-- Incluir Intro.js desde un CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intro.js/5.1.0/introjs.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intro.js/5.1.0/intro.min.js"></script>
+</head>
+<body>
+    <header>
+        <div class="inform">
+            <a href="#" id="startTour"><i class='bx bxs-info-circle bx-sm bx-flashing-hover'></i> Iniciar</a>
+        </div>
+        <div class="container">
+
+            <h2>Respuestas de Estudiantes</h2>
+            <div class="salir">
+                <a href="../home/homeD.php"><i class='bx bxs-left-arrow-square bx-md bx-fade-left-hover'></i>Volver atrás</a>
+            </div>
+        </div>
+    </header>
+    <div class="container table-container">
+        <div class="table-responsive">
+            <table class="table table-custom">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Nombre</th>
+                        <th>Apellidos</th>
+                        <th>¿Hablas aimara en casa?</th>
+                        <th>¿Con quién hablas aimara más seguido?</th>
+                        <th>¿Qué tan importante es para ti hablar aimara?</th>
+                        <th>¿Quién te enseñó a hablar aimara?</th>
+                        <th>Fecha Respuesta</th>
+                    </tr>
+                </thead>
+                <tbody id="datos-respuestas">
+                    <tr id="sin-respuestas" style="display: none;">
+                        <td colspan="10" style="text-align: center; font-size:13px;font-weight: bold;">No se ha registrado <br> ninguna respuesta aún.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script>
+        $(document).ready(function() {
+            $.ajax({
+                url: '../datosD/ver_respuesta.php',
+                type: 'GET',
+                dataType: 'json',
+                success: function(data) {
+                    let tablaRespuestas = $('#tabla-respuestas');
+                    let tbody = $('#datos-respuestas');
+                    let sinRespuestas = $('#sin-respuestas');
+                    if (data.length === 0) {
+                        sinRespuestas.show();
+                    } else {
+                        tbody.empty();
+                        data.forEach(function(item,index) {
+                            let fila = `
+                                <tr>
+                                    <td>${index + 1}</td>
+                                    <td>${item.nombre_est}</td>
+                                    <td>${item.apellidos_est}</td>
+                                    <td>${item.QSocial1}</td>
+                                    <td>${item.QSocial2}</td>
+                                    <td>${item.QSocial3}</td>
+                                    <td>${item.QSocial4}</td>
+                                    <td>${item.fecha_respuesta}</td>
+                                </tr>
+                            `;
+                            tbody.append(fila);
+                        });
+                    }
+                },
+                error: function(xhr, status, error) {
+                    console.error('Error en la solicitud Ajax:', status, error);
+                }
+            });
+        });    
+    
+        document.addEventListener('DOMContentLoaded', function () {
+            $('#startTour').click(function() {
+                introJs().setOptions({
+                    steps: [
+                        {
+                            intro: "Bienvenido al módulo de respuestas de estudiantes. Vamos a guiarte a través de las principales funcionalidades de esta página."
+                        },
+                        {
+                            element: document.querySelector('header h2'),
+                            intro: "Este es el título de la sección, indicando que estás en la página de respuestas de estudiantes.",
+                            position: 'bottom'
+                        },
+                        {
+                            element: document.querySelector('.salir a'),
+                            intro: "Puedes hacer clic aquí para volver a la página principal.",
+                            position: 'bottom'
+                        },
+                        {
+                            element: document.querySelector('.table-custom'),
+                            intro: "Esta tabla muestra las respuestas de los estudiantes a las preguntas relacionadas con el uso del idioma Aimara.",
+                            position: 'top'
+                        },
+                        {
+                            element: document.querySelector('#datos-respuestas'),
+                            intro: "Aquí verás las respuestas registradas. Si no hay ninguna respuesta aún, se mostrará un mensaje indicándolo.",
+                            position: 'top'
+                        }
+                    ],
+                    tooltipClass: 'customTooltip', // Aplica la clase personalizada para el tooltip
+                    highlightClass: 'customHighlight', // Aplica la clase personalizada para el enfoque
+                    showStepNumbers: true, // Mostrar números de pasos en el tour
+                    scrollToElement: true // Desplazar automáticamente al elemento en el tour
+                }).start();
+            });
+        });
+        
+    </script>
+</body>
+</html>

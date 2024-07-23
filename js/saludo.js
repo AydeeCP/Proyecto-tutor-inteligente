@@ -45,6 +45,14 @@ var totalPalabras = 5;
 document.addEventListener("DOMContentLoaded",function(){
     deshabilitarEnlace();
 });
+function reproducirAudio(sonido) {
+    var audio = new Audio("../audios/" + sonido + ".wav");
+    audio.play();
+    setTimeout(function () {
+    audio.pause();
+    audio.currentTime = 0;
+    }, 5000);
+}
 
 function checkAnswer() {
     const answers = document.querySelectorAll('.answer');
@@ -53,12 +61,12 @@ function checkAnswer() {
     let palabrasIncorrectas = 0;
 
     inputs.forEach((input, index) => {
-        console.log("Index de input:", index); // Imprimir el índice del elemento en la lista inputs
+        //console.log("Index de input:", index); // Imprimir el índice del elemento en la lista inputs
         const userInput = input.value.trim().toUpperCase();
         const saludoData = saludos[index]; // Obtener el objeto de saludo correspondiente
 
         if (!saludoData) {
-            console.log("Error: No hay datos de saludo correspondientes para el input en el índice", index);
+            alert("Error: No hay datos de saludo correspondientes para el input en el índice", index);
             return; // Salir de la iteración si no hay datos de saludo correspondientes
         }
         let automata = saludoData.automata;
@@ -79,7 +87,7 @@ function checkAnswer() {
 
 
         if (automata.isAccepted()) {
-            console.log("Transición exitosa para el saludo:", saludoData.frase);
+            //console.log("Transición exitosa para el saludo:", saludoData.frase);
             isCorrect = true;
         }
 
@@ -100,7 +108,9 @@ function checkAnswer() {
     if (palabrasCorrectas === inputs.length && palabrasIncorrectas === 0) {
         document.getElementById("correctas").innerHTML = palabrasCorrectas;
         document.getElementById("palabrasAcertadasInput").value=palabrasAcertadas;
-        mensaje = "¡Todas las respuestas son correctas!";
+        mensaje = "¡Waliki!";
+        reproducirAudio("correcto"); 
+
         mostrarMensajeFeedback(mensaje,'../image/victory.gif','green',3000);
         deshabilitarInputs();
         document.getElementById("volverJ").disabled = false;
@@ -109,7 +119,8 @@ function checkAnswer() {
     } else if (palabrasCorrectas === 0 && palabrasIncorrectas === inputs.length) {
         document.getElementById("equivocadas").innerHTML = palabrasIncorrectas;
         document.getElementById("palabrasAcertadasInput").value=palabrasAcertadas;
-        mensaje = "¡Todas las respuestas son incorrectas!";
+        mensaje = "¡Janiw walikiti!";
+        reproducirAudio("incorrecto");
         mostrarMensajeFeedback(mensaje,'../image/triste.gif','red',3000);
         deshabilitarInputs();
         document.getElementById("volverJ").disabled = false;
@@ -190,26 +201,51 @@ function reiniciarJuego() {
     localStorage.setItem("vecesJugadas", vecesJugadas);
     deshabilitarEnlace();
 }
+function actualizarInsigniaYAlmacenar() {
+    // Primero, actualiza la insignia
+    actualizarInsignia();
 
+    // Luego, obtiene la medalla actualizada desde localStorage
+    let medalla = localStorage.getItem("insignia");
+    //console.log("insignia: " + medalla); // Imprimir la medalla para depurar
 
+    //llama a la función almacenarActividad con la medalla correcta
+    almacenarActividad('Gramática','Saludos','Traduce los saludos',palabrasAcertadas,vecesJugadas,medalla);
+}
+/*BOTON SALIR*/
+document.addEventListener("DOMContentLoaded", function() {
+    document.getElementById("miEnlace").addEventListener("click",function(event){
+        document.getElementById("mensajeFinal").style.display="block";
+        var correc= document.getElementById('correctasF');
+        var cant = document.getElementById('cantidadArray');
+        correc.textContent=palabrasAcertadas;
+        cant.textContent = saludos.length;
+        actualizarInsignia();
+        event.preventDefault();
+        console.log(correc); // Agregado para depurar
+        console.log(cant); // Agregado para depurar
+        document.querySelector(".Contenedor3").style.display="none";
+        /*REDIRECCIONAMIENTO A LA PAGIA DE INICIO*/
+        setTimeout(function() {
+                window.location.href = "../cursos/tercero.php";
+            },5000);
+        });
+});
 
-function almacenarActividad(opcionNavbar, temaPracticado, juegoSeleccionado, palabrasAcertadas,vecesJugadas) {
-
+function almacenarActividad(opcionNavbar, temaPracticado, juegoSeleccionado, palabrasAcertadas, vecesJugadas, medalla) {
     var xhr = new XMLHttpRequest();
     xhr.open('POST', '../datosE/almacenar_actividad.php', true);
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-    xhr.onreadystatechange=function() {
-        if(xhr.readyState == 4 && xhr.status == 200){
-            console.log ('palabras acertadas : ', palabrasAcertadas);
-            console.log('actividad almacenada veces jugadas:', vecesJugadas);
-            
-            console.log('actividad almacenada', xhr.responseText);
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            //console.log('Actividad almacenada', xhr.responseText);
         }
     };
-    var params ='opcion_navbar=' + encodeURIComponent(opcionNavbar) + 
+    var params = 'opcion_navbar=' + encodeURIComponent(opcionNavbar) + 
                 '&tema_practicado=' + encodeURIComponent(temaPracticado) + 
-                '&juego_seleccionado=' + encodeURIComponent(juegoSeleccionado)+
+                '&juego_seleccionado=' + encodeURIComponent(juegoSeleccionado) +
                 '&palabrasAcertadas=' + encodeURIComponent(palabrasAcertadas) +
-                '&vecesJugadas=' + encodeURIComponent(vecesJugadas);
+                '&vecesJugadas=' + encodeURIComponent(vecesJugadas) +
+                '&medalla=' + encodeURIComponent(medalla);
     xhr.send(params);
 }

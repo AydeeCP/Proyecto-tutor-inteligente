@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.7">
+    <link rel="stylesheet" href="../css/EstPadre.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Datos Estudiante</title>
+    
+</head>
+<body>
+    <div class="container" id="container">
+        <div id="datosEst" class="datosEst"></div>
+        <div class="editar">
+            <button id="eliminarDatosRelacionados" class="eliminarDatosRelacionados">Eliminar Datos</button>
+            <a href="../home/homePad.php"><i class='bx bxs-left-arrow-square bx-md bx-fade-left-hover'></i> Volver atrás</a>
+        </div>
+    </div>
+    <!-- Modal -->
+    <div id="modalEditar" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Editar Información</h2>
+            <p>¿Qué datos desea editar?</p>
+            <button id="editarDatosEstudiante" class="boton-estudiante">Datos del Estudiante</button>
+            <button id="editarDatosCurso" class="boton-curso">Datos del Curso</button>
+        </div>
+    </div>
+    <script>
+        $(document).ready(function() {
+            cargarDatosEstudiante();
+            $('#eliminarDatosRelacionados').on('click', function() { 
+                var idEstudiante = $('#id_est').val();
+                //console.log('Id_est:', idEstudiante);
+                if (idEstudiante && confirm('¿Estás seguro que deseas eliminar todos los datos relacionados a este estudiante? Esta acción no se puede deshacer.')) {
+                    eliminarDatosRelacionados(idEstudiante); 
+                } else {
+                    alert('No se ha podido obtener el ID del estudiante.');
+                }
+            });
+            
+            // Obtener y mostrar datos del estudiante
+            function cargarDatosEstudiante(){
+            $.ajax({
+                url: '../padres/verDatosE.php',
+                type: 'GET',
+                dataType: 'json',
+                success: function(data) {
+                    if (data.length > 0) {
+                        data.forEach(estudiante => {
+                            var htmlEstudiante = '<div class="datos-personales">';
+                            htmlEstudiante += '<h2>Datos personales de estudiante</h2>';
+                            htmlEstudiante += '<input type="hidden" id="id_est" name="id_est" value="' + estudiante.Id_est + '">';
+                            htmlEstudiante += '<p><span class="texto">Cedula de identidad: </span><span class="valor">' + estudiante.cedula_est + '</span></p>';
+                            htmlEstudiante += '<p><span class="texto">Fecha de nacimiento: </span><span class="valor">' + estudiante.nacimiento_est + '</span></p>';
+                            htmlEstudiante += '<p><span class="texto">Género: </span><span class="valor">' + estudiante.genero + '</span></p>';
+                            htmlEstudiante += '<p><span class="texto">Nombres: </span><span class="valor">' + estudiante.nombre_est + '</span></p>';
+                            htmlEstudiante += '<p><span class="texto">Apellidos: </span><span class="valor">' + estudiante.apellidos_est + '</span></p>';
+                            htmlEstudiante += '<p><span class="texto">Lengua materna: </span><span class="valor">' + estudiante.lengua_materna + '</span></p>';
+                            htmlEstudiante += '</div>';
+                            $('#datosEst').append(htmlEstudiante);
+                            if (estudiante.cursos.length > 0) {
+                                var htmlCursos = '<div class="cursos">';
+                                htmlCursos += '<h2>Curso</h2>';
+                                estudiante.cursos.forEach(curso => {
+                                    htmlCursos += '<div class="curso">';
+                                    htmlCursos += '<p><strong>Nivel:</strong> ' + curso.nivel_curso + '</p>';
+                                    htmlCursos += '<p><strong>Paralelo:</strong> ' + curso.paralelo + '</p>';
+                                    htmlCursos += '<p><strong>Materia:</strong> ' + curso.materia + '</p>';
+                                    htmlCursos += '</div>';
+                                });
+                                htmlCursos += '</div>';
+                                $('#datosEst').append(htmlCursos);
+                            } else {
+                                $('#datosEst').append('<p>No se encontraron cursos para este estudiante.</p>');
+                            }
+                            var htmlBotonEditar = '<button class="editarEstudiante" data-id="' + estudiante.Id_est + '">Editar datos</button>';
+                            $('#datosEst').append(htmlBotonEditar);
+                        });
+                    } else {
+                        $('#datosEst').html('<p>No se encontraron datos de registro</p>');
+                    }
+                },
+                error: function(xhr, status, error) {
+                    $('#datosEst').html('<p>Error al cargar los datos</p>');
+                }
+            });
+        }
+            // Modal logic
+            var modal = $('#modalEditar');
+            var span = $('.close');
+
+            $(document).on('click', '.editarEstudiante', function() {
+                var estudianteId = $(this).data('id');
+                $('#editarDatosEstudiante').data('id', estudianteId);
+                $('#editarDatosCurso').data('id', estudianteId);
+                modal.show();
+            });
+
+            span.click(function() {
+                modal.hide();
+            });
+
+            $(window).click(function(event) {
+                if (event.target == modal[0]) {
+                    modal.hide();
+                }
+            });
+
+            // Redirigir a la página de edición correspondiente
+            $('#editarDatosEstudiante').click(function() {
+                var estudianteId = $(this).data('id');
+                window.location.href = '../padres/pantallaEE.php?Id_est=' + estudianteId;
+            });
+
+            $('#editarDatosCurso').click(function() {
+                var estudianteId = $(this).data('id');
+                window.location.href = '../padres/pantallaEC.php?Id_est=' + estudianteId;
+            });
+            
+            function eliminarDatosRelacionados() {
+                var idEstudiante = $('#id_est').val();
+                $.ajax({
+                    url: '../padres/eliminarDate.php',
+                    type: 'POST',
+                    dataType: 'json',
+                    data: { Id_est: idEstudiante }, 
+                    success: function(response) {
+                        if (response.status === 'success') {
+                            alert('Todos los datos relacionados han sido eliminados correctamente.');
+                            window.location.href = '../padres/mostrarDE.html'; 
+                        } else {
+                            alert('Error al eliminar datos: ' + response.message);
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        alert('Error en la solicitud AJAX para eliminar datos.');
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

@@ -11,15 +11,17 @@ function actualizarInsignia() {
         console.log("plata: "+palabrasAcertadas);
         med.textContent=insignia;
     } else if (palabrasAcertadas >= totalPalabras * 0.5) {
-        insignia = 'bronce';
-        console.log("bronce: "+palabrasAcertadas);
-        med.textContent=insignia;
+        insignia = "bronce";
+        med.textContent = insignia;
+    }else {
+        insignia = "ninguna";
+        console.log("Ninguna insignia: " + palabrasAcertadas);
+        med.textContent = insignia;
     }
     
     // Almacenar la información de la insignia en localStorage
     localStorage.setItem("insignia", insignia);
     console.log("insignia: "+insignia);
-    
 
     // Obtener el contenedor de la insignia
     const insigniaContainer = document.querySelector('.insignia-container');

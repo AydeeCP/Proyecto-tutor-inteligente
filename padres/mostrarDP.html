@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.6">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="../css/EstPadre.css">
+    <title>Datos personales</title>
+</head>
+<body>
+    <div class="container" id="container">
+        <div id="datosPadre" class="datosPadre"></div>
+        <div class="editar">
+            <button class="editarP" id="editarP">Editar datos</button>
+            <button class="eliminarP" id="eliminarP">Eliminar cuenta</button>
+            <a href="../home/homePad.php"><i class='bx bxs-left-arrow-square bx-md bx-fade-left-hover'></i> Volver atrás</a>
+        </div>
+    </div>
+    <script>
+        $(document).ready(function() {
+            // Cuando el documento esté listo, realiza la petición AJAX
+            $.ajax({
+                url: '../padres/verdatosp.php',
+                type: 'GET',
+                dataType: 'json',
+                success: function(data) {
+                    // Verifica qué datos se están recibiendo realmente
+                    //console.log('Datos recibidos:', data);
+                    // Verifica si la petición fue exitosa y si hay datos
+                    if (data) {
+                        // Construye el HTML para mostrar los datos personales
+                        var htmlDatos = '<div class="datos-personales">';
+                        htmlDatos += '<h2>Datos personales del Padre o Tutor</h2>';
+                        htmlDatos += '<input type="hidden" name="id_padre" value="' + (data.Id_padres !== undefined ? data.Id_padres : '') + '">';
+                        htmlDatos += '<p><span class="texto">Número de carnet:</span> <span class="valor">' + data.cedula + '</span></p>';
+                        htmlDatos += '<p><span class="texto">Nombre:</span> <span class="valor">' + data.nombre_p + '</span></p>';
+                        htmlDatos += '<p><span class="texto">Apellidos:</span> <span class="valor">' + data.apellidos_p + '</span></p>';
+                        htmlDatos += '<p><span class="texto">Número de celular: </span> <span class="valor">' + data.celular + '</span></p>';
+                        htmlDatos += '<p><span class="texto">Correo eletrónico: </span> <span class="valor">' + data.correo_p + '</span></p>';
+                        htmlDatos += '<p><span class="texto">Lugar de residencia: </span> <span class="valor">' + data.lugar_res + '</span></p>';
+                        htmlDatos += '</div>';
+                        $('#datosPadre').html(htmlDatos);
+                    } else {
+                        $('#datosPadre').html('<p>No se encontraron datos de registro</p>');
+                    }
+                },
+                error: function(xhr, status, error) {
+                    //console.error('Error al cargar los datos:', error);
+                    $('#datosPadre').html('<p>Error al cargar los datos</p>');
+                }
+            });
+        
+            $('#editarP').click(function(){
+                var idPadre = $('input[name="id_padre"]').val();
+                //console.log(idPadre);
+                if(idPadre){
+                    window.location.href = '../padres/pantallaED.php?=' +idPadre;
+                }else {
+                    //console.error('Error: No se proporcionó el ID del docente');
+                    alert('Por favor verifique si se encuentra registrado');
+                }
+            });
+            $('#eliminarP').click(function(){
+                var idPadre = $('input[name="id_padre"]').val();
+                if(idPadre){
+                    if (confirm('¿Está seguro de que desea eliminar su cuenta?')) {
+                        $.ajax({
+                            url: '../padres/eliminarPadre.php',
+                            type: 'POST',
+                            data: { id_padre: idPadre },
+                            dataType: 'json',
+                            success: function(response) {
+                                //console.log('Respuesta recibida:', response);
+                                if (response.success) {
+                                    alert('Cuenta eliminada correctamente.');
+                                    window.location.href = '../login/logPad.php';
+                                } else {
+                                    alert(response.message);
+                                }
+                            },
+                            error: function(xhr, status, error) {
+                                //console.error('Error al eliminar la cuenta:', error);
+                                alert('Error al eliminar la cuenta.');
+                            }
+                        });
+                    }
+                } else {
+                    //console.error('Error: No se proporcionó el ID del padre');
+                }
+            });
+        });
+        var editarDButton = document.getElementById('editarP');
+        editarDButton.addEventListener('click', function() {
+            // Redirigir al usuario a la página de edición de datos personales
+            window.location.href = '../padres/pantallaED.php';
+        });
+    </script>
+</body>
+</html>

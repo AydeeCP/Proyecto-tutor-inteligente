@@ -1,24 +1,27 @@
 const saludos = [
     { pregunta: "Aski urukipana : Buenos días", respuesta: "Aski urukipanaya" },
-    {pregunta: "Kamiraraki? : ¿como estás?", respuesta: ["Waliki", "Janiwa Waliki"]},
+    {pregunta: "Kamisaraki? : ¿como estás?", respuesta: ["Waliki", "Janiwa Waliki"]},
     {pregunta: "Jichhuru anatana arum tanaka: hoy practicaremos los saludos", respuesta:["bien", "esta bien","por supuesto","claro"]},
     {pregunta: "Como dirias buenos días mamá?", respuesta:"Aski urukipana mama"},
     {pregunta: "Ahora como responderias a un saludo de buenas tardes en aimara", respuesta:"Aski jayp'ukipanaya"},
     {pregunta: "Son las 20:00 como saludarias a esa hora?", respuesta:"Aski arumakipana"},
-    {pregunta: "Como dirias buenas tardes amig@", respuesta:"aski jayp'ukipana masi"},
-    {pregunta: "traduce las siguientes oraciones"},
+    {pregunta: "Como dirias buenas tardes amig@", respuesta:["aski jayp'ukipana masi"]},
+    {pregunta: "traduce las siguientes oraciones",respuesta:["esta bien","claro"]},
     {pregunta: "buenas noches abuelo", respuesta:"aski arumakipana achachila"},
     {pregunta: "Aski jayp'ukipana kullaka", respuesta:"buenas tardes hermana"},
 ];
 
 let indicePreguntaActual = 0;
-let palabrasAcertadas = 0;
+var palabrasAcertadas = 0;
 
 let respuestaIncorrectaMostrada = false; // Variable para rastrear si se ha mostrado una respuesta incorrecta
 
 let ultimaRespuestaCorrecta = '';
 
 let vecesJugadas = 1;
+
+var totalPalabras = 10;
+let medalla = 'ninguna'; // valor inicial de la medalla 
 
 function procesarRespuesta(respuestaUsuario) {
     const preguntaActual = saludos[indicePreguntaActual];
@@ -35,6 +38,7 @@ function procesarRespuesta(respuestaUsuario) {
                 // Respuesta correcta
                 if (respuestaUsuarioLimpia !== ultimaRespuestaCorrecta) {
                     palabrasAcertadas++;
+                    console.log("palabras acertadas: "+palabrasAcertadas);
                     document.getElementById("palabrasAcertadasInput").value = palabrasAcertadas;
                     agregarMensaje("", "✔️");
                     ultimaRespuestaCorrecta = respuestaUsuarioLimpia;
@@ -83,9 +87,20 @@ function procesarRespuesta(respuestaUsuario) {
         console.error("La pregunta actual está indefinida.");
     }
 }
+//FUNCION PARA CALCULAR QUE MEDALLA LE PERTENECE
 
-
-
+function determinarMedalla(palabrasAcertadas, totalPalabras) {
+    let porcentaje = (palabrasAcertadas / totalPalabras) * 100;
+    if (porcentaje == 100) {
+        return 'oro';
+    } else if (porcentaje >= 80) {
+        return 'plata';
+    } else if (porcentaje >= 50) {
+        return 'bronce';
+    } else {
+        return 'ninguna';
+    }
+}
 // Función para enviar la respuesta del usuario
 function enviarRespuesta() {
     const userInput = document.getElementById("user-input").value.trim();
@@ -128,7 +143,9 @@ function agregarMensaje(usuario, mensaje, clase) {
 function confirmarSalir() {
     if (confirm("¿Estás seguro de salir del chat?")) {
         mostrarRespuestasCorrectas();
-        almacenarActividad('Gramatica', 'Saludos', 'Responde a los saludos', palabrasAcertadas, vecesJugadas);
+        let medalla = determinarMedalla(palabrasAcertadas, totalPalabras);
+        console.log("Medalla determinada:", medalla); // Para verificar que medalla tiene un valor correcto
+        almacenarActividad('Gramática', 'Saludos', 'Responde a los saludos', palabrasAcertadas, vecesJugadas, medalla);
         alert("Jikisinkama : Hasta pronto");
     }
 }
@@ -140,23 +157,20 @@ function mostrarRespuestasCorrectas() {
 // Ejemplo: Agregar la primera pregunta al chat
 agregarMensaje("Sistema", saludos[indicePreguntaActual].pregunta, "sist");
 
-function almacenarActividad(opcionNavbar, temaPracticado, juegoSeleccionado, palabrasAcertadas,vecesJugadas) {
-
+function almacenarActividad(opcionNavbar, temaPracticado, juegoSeleccionado, palabrasAcertadas,vecesJugadas,medalla) {
     var xhr = new XMLHttpRequest();
     xhr.open('POST', '../datosE/almacenar_actividad.php', true);
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-    xhr.onreadystatechange=function() {
-        if(xhr.readyState == 4 && xhr.status == 200){
-            console.log ('palabras acertadas : ', palabrasAcertadas);
-            console.log('actividad almacenada veces jugadas:', vecesJugadas);
-            console.log('actividad almacenada', xhr.responseText);
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            console.log('Actividad almacenada', xhr.responseText);
         }
     };
-    
-    var params ='opcion_navbar=' + encodeURIComponent(opcionNavbar) + 
+    var params = 'opcion_navbar=' + encodeURIComponent(opcionNavbar) + 
                 '&tema_practicado=' + encodeURIComponent(temaPracticado) + 
-                '&juego_seleccionado=' + encodeURIComponent(juegoSeleccionado)+
+                '&juego_seleccionado=' + encodeURIComponent(juegoSeleccionado) +
                 '&palabrasAcertadas=' + encodeURIComponent(palabrasAcertadas) +
-                '&vecesJugadas=' + encodeURIComponent(vecesJugadas);
+                '&vecesJugadas=' + encodeURIComponent(vecesJugadas) +
+                '&medalla=' + encodeURIComponent(medalla);
     xhr.send(params);
 }

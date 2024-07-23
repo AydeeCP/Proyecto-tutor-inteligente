@@ -1,41 +1,21 @@
-@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
 
 *{
     margin: 0;
     padding: 0;
-    font-family: "Fredoka", sans-serif;
+    font-family:'Roboto yoto',sans-serif;
     font-optical-sizing: auto;
-    font-weight: normal; /* Puedes ajustar el valor según lo necesites */
+    font-weight: normal; 
     font-style: normal;
-    font-size: 1.2rem;
 }
 body{
     height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(125deg,
-        hsl(21deg 82% 25%) 0%,
-        hsl(23deg 53% 38%) 6%,
-        hsl(26deg 46% 46%) 13%,
-        hsl(27deg 50% 54%) 19%,
-        hsl(28deg 63% 60%) 25%,
-        hsl(26deg 55% 62%) 31%,
-        hsl(24deg 48% 63%) 37%,
-        hsl(21deg 39% 64%) 44%,
-        hsl(17deg 31% 65%) 50%,
-        hsl(16deg 22% 60%) 56%,
-        hsl(13deg 14% 54%) 63%,
-        hsl(4deg 7% 48%) 69%,
-        hsl(260deg 3% 40%) 75%,
-        hsl(227deg 6% 42%) 81%,
-        hsl(219deg 9% 44%) 87%,
-        hsl(216deg 12% 45%) 94%,
-        hsl(214deg 14% 47%) 100%
-);
-    background-attachment: fixed;
+    background: -webkit-linear-gradient(167deg, #d9af17,#7f6f0b,#3c1c01);/* Chrome 10-25, Safari 5.1-6 */                          
+    background: linear-gradient(167deg, #d9af17,#7f6f0b,#3c1c01);/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */                                                 
     background-size: cover;
-    
     color: #f3f3f3;
 }
 
@@ -91,12 +71,10 @@ body{
 .container-form{
     position: relative;
 }
-
-
-
+.formulario1 h2, .formulario2 h2,.formulario3 h2{
+    font-size: 1.2rem;
+}
 /*FORMULARIO 1 PADRES*/
-
-
 .formulario1{
     height: auto;
     width: 450px;
@@ -107,13 +85,13 @@ body{
     margin-bottom: 1rem;
 }
 .formulario1 h2{
-    color:rgb(155, 255, 24);
-    font-size: 1.5rem;
+    color:white;
     text-align:left;
     margin-top: 1rem;
     margin-left:.8rem;
     font-weight: bold;
     margin-bottom: 1.3rem;
+    font-size: 1.3rem;
 }
 .formulario1 input{
     width: 300px;
@@ -124,7 +102,7 @@ body{
     background-color: transparent;
     border-color:rgb(255, 170, 0);
     text-align: left;
-    padding:.5rem;
+    padding:.7rem;
     margin-bottom: 1.3rem;
     color: white;
     font-size:1rem;
@@ -135,15 +113,13 @@ body{
 .formulario1, .formulario2, .formulario3 input:invalid{
     box-shadow: none;
 }
-
-
 .formulario1 button{
     margin-top: 0rem;
     margin-bottom: 0.5rem;
 }
 /*ESTILO DE TODOS LOS BOTONES*/
 .botonA1,.botonA2,.botonA3,.botonB, .botonB1{
-    padding:.8rem;
+    padding:.5rem;
     font-weight: bold;
     border-radius: 10px;
     border: none;
@@ -153,10 +129,8 @@ body{
     cursor: pointer;
     font-size:1rem;
     margin-top:1.3rem;
-    margin-left: 2rem;
+    margin-left: 1rem;
 }
-
-
 .botonA1, .botonA2, .botonA3{
     color:white;
     background-color: rgb(11, 32, 60);
@@ -167,21 +141,20 @@ body{
     box-shadow: 0 0 8px  rgb(14, 46, 87);
 
 }
-
 .botonB, .botonB1{
     color:rgb(255, 255, 255);
-    background-color: #ee5d47;
+    background-color: #ea1212f8;
 }
 .botonB:hover , .botonB1:hover{
-    background-color:#ee5d47;
-    box-shadow: 0 0 8px #fc725d;
+    background-color:#ff3636c3;
+    box-shadow: 0 0 8px #ff3636c3;
 }
 
 .botonB1{
     margin-top: 1.3rem;
     margin-right: 50rem;
+    width: 10rem;
 }
-
 
 /*FORMULARIO 2 ESTUDIANTES*/
 .formulario2{
@@ -192,13 +165,12 @@ body{
     border-radius: 1%;
     background-color: rgba(9, 9, 9, 0.707);
     text-align: center;
+    
 }
 .formulario2 button{
     margin-top: 0rem;
     margin-bottom: 0rem;
 }
-
-
 .formulario2 input{
     width: 300px;
     height: auto;
@@ -213,7 +185,6 @@ body{
     color: white;
     font-size:1rem;
 }
-
 .cie{
     display: flex;
     margin-bottom: 0.1rem;
@@ -320,7 +291,6 @@ body{
 .formulario3 input{
     width: 300px;
     height: 15px;
-
     margin-top: 1.3rem;
     border-radius: 8px;
     background-color: transparent;
@@ -420,12 +390,10 @@ body{
     box-shadow: 0 0 10px 0 #98ff43;
 
 }
-
-
 .guardar{
     font-weight: bold;
     position: relative;
-    padding: .8rem;
+    padding: .5rem;
     text-decoration: none;
     color: rgb(0, 0, 0);
     border-radius: 10px;
@@ -446,8 +414,8 @@ body{
     height: 100%;
     left: 0;
     top: 0;
-    background-color: #fff945f0;
-
+    background-color:rgb(140, 200, 15);
+    box-shadow:rgb(0, 0, 0, 0.2);
     z-index: -2;
     transition: background-color 3s ease;
     opacity: 0;
@@ -465,12 +433,10 @@ body{
     left: 0;
     bottom: -150%;
     border-radius: 30%;
-    background-color:#ceee15f0;
+    background-color:rgb(166, 230, 18);
     z-index: -1;
     transition: bottom 3s ease;
 }
-
-
 .guardar:hover::before{
     animation: guardar 3s linear both;
 }
@@ -486,17 +452,19 @@ body{
         
     }
 }
-
 /*salir de la pagina de registro*/
 .volver{
     display: block;
     justify-content: center;
-    background-color:rgb(183, 22, 8);
+    background-color:#1f1f1fd3;
     padding: 0.5rem;
     margin: 0.5rem;
     border-radius: 8px;
 }
-
+.volver:hover{
+    background-color:#423e3eac;
+    
+}
 .volver1{
     text-align: center;
     text-decoration: none;

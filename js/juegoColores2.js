@@ -25,7 +25,7 @@ const words = [
     {word:"JANQ'UCH'UMPI", image:"../image/tercero/cafeClaro.png"},
     {word:"ANTI",image:"../image/tercero/rosadoClaro.png"},
     {word:"SAJUNA",image:"../image/tercero/color.png"},
-    {word:"CH'IYARALARAMA",image:"../image/tercero/verdeOscuro.png"},
+    {word:"CH'IYARACH'UXÑA",image:"../image/tercero/verdeOscuro.png"},
     {word:"CH'IYARALARAMA", image:"../image/tercero/azulOscuro.png"},
     {word:"Q'ILLU", image:"../image/tercero/amarillo.png"},
     {word:"WILA", image:"../image/tercero/rojo.png"}
@@ -234,7 +234,7 @@ function restartGame() {
 }
 
 function almacenarActividad(opcionNavbar, temaPracticado, juegoSeleccionado, palabrasAcertadas,vecesJugadas) {
-
+    var medalla = localStorage.getItem("insignia");
     var xhr = new XMLHttpRequest();
     xhr.open('POST', '../datosE/almacenar_actividad.php', true);
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
@@ -242,16 +242,16 @@ function almacenarActividad(opcionNavbar, temaPracticado, juegoSeleccionado, pal
         if(xhr.readyState == 4 && xhr.status == 200){
             console.log ('palabras acertadas : ', palabrasAcertadas);
             console.log('actividad almacenada veces jugadas:', vecesJugadas);
-            
             console.log('actividad almacenada', xhr.responseText);
         }
     };
-    var params ='opcion_navbar=' + encodeURIComponent(opcionNavbar) + 
-                '&tema_practicado=' + encodeURIComponent(temaPracticado) + 
-                '&juego_seleccionado=' + encodeURIComponent(juegoSeleccionado)+
-                '&palabrasAcertadas=' + encodeURIComponent(palabrasAcertadas) +
-                '&vecesJugadas=' + encodeURIComponent(vecesJugadas);
-    xhr.send(params);
+    var params ="opcion_navbar=" + encodeURIComponent(opcionNavbar) + 
+                "&tema_practicado=" + encodeURIComponent(temaPracticado) + 
+                "&juego_seleccionado=" + encodeURIComponent(juegoSeleccionado)+
+                "&palabrasAcertadas=" + encodeURIComponent(palabrasAcertadas) +
+                "&vecesJugadas=" + encodeURIComponent(vecesJugadas)+
+                "&medalla="+encodeURIComponent(medalla); 
+            xhr.send(params);
 }
 
 initGame();

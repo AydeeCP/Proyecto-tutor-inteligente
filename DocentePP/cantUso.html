@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.8">
+    <title>Actividad de Estudiantes</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/cantUso.css"> <!-- Archivo CSS personalizado -->
+    <link rel="stylesheet" href="../css/introJs.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://unpkg.com/intro.js/minified/introjs.min.css">
+    <script src="https://unpkg.com/intro.js/minified/intro.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h2>Cantidad de Ingresos al Sistema</h2>
+            <div class="salir">
+                <a href="../home/homeD.php"><i class='bx bxs-left-arrow-square bx-md bx-fade-left-hover'></i>Volver atrás</a></li>
+            </div>
+        </div>
+        <div class="inform">
+            <a href="#" id="startTour"><i class='bx bxs-info-circle bx-sm bx-flashing-hover'></i> Iniciar Tour</a>
+        </div>
+    </header>
+    <div class="container table-container">
+        <div class="filter">
+            <label for="buscarNombreApellido">Buscar por nombre y apellido:</label>
+            <input type="text" id="buscarNombreApellido" placeholder="Escribe el nombre o apellido">
+        </div>
+        <div class="table-responsive">
+            <table class="table table-custom">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Nombre</th>
+                        <th>Apellidos</th>
+                        <th>Fecha de Entrada</th>
+                        <th>Número de Inicios</th>
+                        <th>Ver Detalle</th>
+                    </tr>
+                </thead>
+                <tbody id="tabla-datos">
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="detalleModal" tabindex="-1" aria-labelledby="detalleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="detalleModalLabel">Detalle</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <table class="table table-striped table-custom-modal">
+                        <thead>
+                            <tr>
+                                <th>Fecha de Entrada</th>
+                                <th>Hora de Entrada</th>
+                                <th>Hora de Salida</th>
+                                <th>Minutos en el Sistema</th>
+                            </tr>
+                        </thead>
+                        <tbody id="detalle-datos">
+                            <!-- Los datos se cargarán aquí dinámicamente -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(document).ready(function() {
+            let originalData = [];
+            // Cargar datos de la tabla desde el servidor
+            $.ajax({
+                url: '../datosD/ver_cantUSO.php',
+                type: 'GET',
+                dataType: 'json',
+                success: function(data) {
+                    originalData = data;
+                    mostrarDatosEnTabla(data);
+                },
+                error: function() {
+                    console.error('Error al cargar los datos.');
+                }
+            });
+            // Función para mostrar los datos en la tabla
+            function mostrarDatosEnTabla(data) {
+                let tablaDatos = $('#tabla-datos');
+                tablaDatos.empty();
+        
+                if (data.length === 0) {
+                    // Si no hay datos, mostramos un mensaje
+                    tablaDatos.append(`
+                        <tr>
+                            <td colspan="6" class="empty-message">Aún no hay registros de entradas.</td>
+                        </tr>
+                    `);
+                } else {
+                    // Si hay datos, los mostramos en la tabla
+                    data.forEach(function(item, index) {
+                        let fila = `
+                            <tr>
+                                <td>${index + 1}</td>
+                                <td>${item.nombre_est}</td>
+                                <td>${item.apellidos_est}</td>
+                                <td>${item.fecha_entrada}</td>
+                                <td>${item.numero_de_inicios}</td>
+                                <td><button class="btn-custom" onclick="mostrarModal(${item.Id_est}, '${item.fecha_entrada}')">Ver Detalle</button></td>
+                            </tr>
+                        `;
+                        tablaDatos.append(fila);
+                    });
+                }
+            }
+        
+            // Filtrar datos al escribir en el campo de búsqueda
+            $('#buscarNombreApellido').on('input', function() {
+                let query = $(this).val().toLowerCase();
+                let filteredData = originalData.filter(function(item) {
+                    return item.nombre_est.toLowerCase().includes(query) || item.apellidos_est.toLowerCase().includes(query);
+                });
+                mostrarDatosEnTabla(filteredData);
+            });
+        });
+        function mostrarModal(Id_est, fecha_entrada) {
+            var modal = $('#detalleModal');
+            modal.modal('show');
+            // Cargar detalles en el modal utilizando AJAX
+            $.ajax({
+                url: '../datosD/detalle_actividad.php',
+                type: 'GET',
+                data: {
+                    Id_est: Id_est,
+                    fecha_entrada: fecha_entrada
+                },
+                dataType: 'json',
+                success: function(data) {
+                    let detalleDatos = $('#detalle-datos');
+                    detalleDatos.empty();
+                    data.forEach(function(item) {
+                        let fila = `
+                            <tr>
+                                <td>${item.fecha_entrada}</td>
+                                <td>${item.hora_entrada}</td>
+                                <td>${item.hora_salida}</td>
+                                <td>${item.minutos_en_sistema}</td>
+                            </tr>
+                        `;
+                        detalleDatos.append(fila);
+                    });
+                }
+            });
+        }
+        /*funcion intro.js*/
+        document.addEventListener('DOMContentLoaded', function () {
+            document.getElementById('startTour').addEventListener('click', function (event) {
+                event.preventDefault();
+                introJs().setOptions({
+                    steps: [
+                        {
+                            intro: "Bienvenido al módulo de seguimiento de ingresos. Vamos a mostrarte cómo usar esta sección."
+                        },
+                        {
+                            element: document.querySelector('header h2'),
+                            intro: "Este es el título de la página que indica la cantidad de ingresos al sistema.",
+                            position: 'bottom'
+                        },
+                        {
+                            element: document.querySelector('.salir a'),
+                            intro: "Aquí puedes volver a la página principal si necesitas salir de esta sección.",
+                            position: 'left'
+                        },
+                        {
+                            element: document.querySelector('.table-container'),
+                            intro: "En esta tabla, podrás ver la lista de ingresos al sistema, incluyendo detalles como el nombre, apellidos, fecha de entrada, y número de inicios.",
+                            position: 'top'
+                        },
+                        {
+                            element: document.querySelector('.filter'),
+                            intro: "Aquí puedes buscar por nombre y apellido de los estudiantes.",
+                            position: 'bottom'
+                        },
+                        {
+                            element: document.querySelector('.table thead tr'),
+                            intro: "Esta es la cabecera de la tabla. Aquí se encuentran los nombres de las columnas que te ayudarán a identificar la información.",
+                            position: 'top'
+                        },
+                        {
+                            element: document.querySelector('#tabla-datos'),
+                            intro: "Aquí se mostrarán los datos de los ingresos. Cada fila contiene información relevante sobre cada ingreso al sistema.",
+                            position: 'bottom'
+                        },
+                        {
+                            // El botón "Ver Detalle"
+                            element: document.querySelector('.btn-custom'),
+                            intro: "Haz clic en este botón para ver más detalles sobre el ingreso seleccionado.",
+                            position: 'top'
+                        }
+                    ],
+                    tooltipClass: 'customTooltip', // Aplica la clase personalizada para el tooltip
+                    highlightClass: 'customHighlight', // Aplica la clase personalizada para el enfoque
+                    showStepNumbers: true, // Mostrar números de pasos en el tour
+                    scrollToElement: true, // Desplazar automáticamente al elemento en el tour
+                    exitOnOverlayClick: false // Evita que el tour se cierre al hacer clic en el overlay
+                }).start();
+            });
+        });
+    </script>
+</body>
+</html>

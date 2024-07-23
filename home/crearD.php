@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=0.8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.9">
     <link rel="stylesheet" href="../css/crearUsuarioD.css" />
 
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
@@ -35,50 +35,46 @@
 
         <!--FORMULARIO DE REGISTRO DATOS DOCENTE-->
         <form class="formulario-fr1" id="miFormulario" name="formulario" method="POST">
-            <!--opciones de los botones outputs
-            <h2 class="create-account">Registro</h2>-->
+            <!--opciones de los botones outputs-->
+            <h2 class="create-account">Registro de Datos del Docente</h2>
             <div class="ci">
                 <input type="text" id="ci" name="ci" placeholder="Cedula de Identidad" required />
                 <input type="date" id="nacimiento" name="nacimiento" placeholder="Fecha de nacimiento" required />
             </div>
             <div class="sexo-container">
                 <input type="radio" id="hombre" name="sexo" value="Masculino" required>
-                <label for="hombre" class="text-s">Chacha</label>
+                <label for="hombre" class="text-s">Chacha : Hombre</label>
                 <input type="radio" id="mujer" name="sexo" value="Femenino">
-                <label for="mujer" class="text-s">Warmi</label>
+                <label for="mujer" class="text-s">Warmi : Mujer</label>
             </div>
 
             <div class="datos-personales">
-                <input type="text" id="nombre" name="nombre" placeholder="Sutima" required />
-                <input type="text" id="apellidos" name="apellidos" placeholder="Sutima" required />
+                <input type="text" id="nombre" name="nombre" placeholder="Nombre completo" required />
+                <input type="text" id="apellidos" name="apellidos" placeholder="Apellidos" required />
             </div>
 
             <div class="datos-contacto">
-                <input type="tel" id="telefono" name="telefono" placeholder="Chililirima" required />
-                <input type="email" id="correo" name="correo" placeholder="Correo electronico" required />
+                <input type="tel" id="telefono" name="telefono" placeholder="Número de celular" required />
+                <input type="email" id="correo" name="correo" placeholder="Correo electrónico" required />
 
             </div>
 
             <div class="direccion">
-                <input type="text" id="direccion" name="direccion" placeholder="Direccion" required />
+                <input type="text" id="direccion" name="direccion" placeholder="Lugar de residencia" required />
             </div>
 
             <div class="pass">
                 <input type="password" id="password" class="password" name="password"
                     placeholder="Contraseña de usuario" required />
                     <i class='bx bxs-face-mask bx-sm bx-border'></i>
-
             </div>
 
-            <button class="botonG" id="guardar" name="guardar" type="submit"
-                formaction="../datosD/CrearD.php">Imaña</button>
-
-            <button class="botonA" id="adelante" name="adelante" type="submit">Adelante</button>
+            <button class="botonG" id="guardar" name="guardar" type="submit" formaction="../datosD/CrearD.php">Imaña : Guardar</button>
+            <button class="botonA" id="adelante" name="adelante" type="submit">Nairakkata : Adelante</button>
         </form>
         <!--formulario de registro asignatura-->
         <form id="formAsig" class="formAsig" method="POST">
-
-            <h2>verifica si tu nombre se encuentra en la base de datos</h2>
+            <h2>Verifica si tu nombre está registrado en la base de datos</h2>
             <div class="listDocente">
                 <i class='bx bx-search-alt bx-md bx-tada'></i>
                 <select id="docente" name="docente" required>
@@ -146,27 +142,25 @@
                 </div>
             </div>
             <div class="botones2">
-                <button class="botonG" id="guardar" name="guardar" type="submit"
-                    formaction="../datosD/crearAsig.php">Imaña</button>
-                <button class="boton1" id="back1" type="button">Atrás</button>
-                <button class="botonA" id="Adelante2" type="button">Siguiente</button>
+                <button class="botonS" id="guardar" name="guardar" type="submit"
+                    formaction="../datosD/crearAsig.php">Imaña : Guardar</button>
+                <button class="boton1" id="back1" type="button">Qhipäxa : Atrás</button>
+                <button class="botonA" id="Adelante2" type="button">Nairakkata : Siguiente</button>
             </div>
         </form>
 
         <!--FORMULARIO 3-->
         <form id="form3" class="form3">
             <div class="message">
-                <p>Ahora puedes iniciar sesion</p>
-                <a class="botonI" id="entrar" href="../login/logDocente.php">Mantaña</a>
+                <p>¡Registro completado con éxito! Ahora puedes iniciar sesión.</p>
+                <a class="botonI" id="entrar" href="../login/logDocente.php">Mantaña : Entrar</a>
             </div>
-            <div class="botones2">
-                <button class="boton2" id="back2" type="button">Atrás</button>
+            <div class="botones3">
+                <button class="boton2" id="back2" type="button">Qhipäxa : Atrás</button>
             </div>
         </form>
         <div class="volver">
-            <a href="../login/logDocente.php" class="volver1">
-                Salir
-            </a>
+            <a href="../login/logDocente.php" class="volver1">Cancelar registro</a>
         </div>
     </div>
     <script src="../js/NuevoD.js"></script>

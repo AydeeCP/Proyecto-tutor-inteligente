@@ -10,7 +10,11 @@
     
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $ci = $_SESSION['nombre_de_usuario'];
-        
+        $id_docente = $_POST['Id'];
+        // Imprimir el ID del docente para verificación
+        //echo "ID del docente: " . $id_docente . "<br>";
+        // Detener la ejecución temporalmente para verificación
+        //die();
         $ci = $_POST['ci'];
         $fecha=$_POST['nacimiento'];
         $sexo=$_POST['sexo'];
@@ -21,11 +25,11 @@
         $direccion=$_POST['direccion'];
         $password=$_POST['password'];
 
-        $sql = "UPDATE docente SET ci=?, fecha_nacimiento=?, sexo=?, nombre=?, apellido=?, telefono=?, correo=?, direccion=? , password=? WHERE ci=?";
+        $sql = "UPDATE docente SET ci=?, fecha_nacimiento=?, sexo=?, nombre=?, apellido=?, telefono=?, correo=?, direccion=? , password=? WHERE Id=?";
         $statement = mysqli_prepare($conexion, $sql);
     
         if ($statement) {
-            mysqli_stmt_bind_param($statement, "ssssssssss", $ci, $fecha, $sexo, $nombre, $apellido, $telefono, $correo, $direccion, $password, $ci);
+            mysqli_stmt_bind_param($statement, "sssssssssi", $ci, $fecha, $sexo, $nombre, $apellido, $telefono, $correo, $direccion, $password, $id_docente);
             mysqli_stmt_execute($statement);
     
             if (mysqli_stmt_affected_rows($statement) > 0) {

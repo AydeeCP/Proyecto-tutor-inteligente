@@ -19,13 +19,9 @@
             <!--icono de mostrar contraseña-->
             <i class='bx bxs-face-mask bx-border'></i>
         </div>
-
-
         <button class="botonE" id="entrar" name="entrar">Mantaña : Entrar</button>
             <div class="volver">
-                <a href="../index.html" class="volver1">
-                    Mistuña : Salir
-                </a>
+                <a href="../index.html" class="volver1">Mistuña : Salir</a>
             </div>
         <!--validacion del usuario no tocar PHP-->
         <?php
@@ -46,14 +42,10 @@
     </form>
 
     <div class="message">
-            <p>Si todavia no tienes cuenta haz click para registrarte</p>
+            <p>Si aún no tienes cuenta, haz clic aquí para registrarte.</p>
             <button class="sign-up-btn" onclick="window.location.href='../home/crearEst.php'">Registrarse</button>
     </div>
-
-
     <script src="../js/logE.js"></script>
-    <script>
 
-    </script>
 </body>
 </html>

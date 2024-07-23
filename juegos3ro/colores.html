@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../css/colores.css">
     <link rel="stylesheet" href="../css/stilo.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <title>Document</title>
+    <title>¿Qué color es?</title>
 </head>
 
 <body>
@@ -70,8 +70,7 @@
         <div id="opciones" class="opciones">
             <button class="juego3" onclick="checkAnswer()">Verificar</button>
             <button class="volverJ" id="volverJ" onclick="reiniciarJuego()" disabled>Volver a Jugar</button>
-            <a class="sal" id="miEnlace" href="../cursos/Tercero.php" onclick=" almacenarActividad('Gramatica','Colores','¿Qué color es?',palabrasAcertadas,vecesJugadas);">Salir</a>
-        </div>
+            <a class="sal" id="miEnlace" href="#" onclick="actualizarInsigniaYAlmacenar()">Salir</a>        </div>
     </div>
     <div id="mensajeFeedback" class="menR">
         <img id="feedbackImage" src="" alt="Feedback Image" width="150px">
@@ -87,7 +86,6 @@
             <h2>Insignia de <span id="medalla"> </span></h2>
         </div>
     </div>
-
     <script src="../js/juegoColores1.js"></script>
     <script src="../js/insignia.js"></script>
 </body>

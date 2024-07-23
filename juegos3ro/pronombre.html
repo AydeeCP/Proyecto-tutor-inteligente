@@ -77,7 +77,7 @@
             <i class='bx bx-info-circle bx-sm' id="infoIcon"></i>
         </div>
         <div class="instruccion">
-            <h2>Reemplaza los nombres por el pronombre correcto ejemplo ➡ Carlos: Jupa</h2>
+            <h2>Reemplaza los nombres por el pronombre correcto ejemplo <br> ➡ Carlos: Jupa</h2>
         </div>
         <div class="mostrarC">
             <p class="verd"><i class='bx bxs-check-circle bx-md'></i> <span id="correctas" class="correctas">0 </span>
@@ -136,8 +136,7 @@
         <div id="opciones" class="opciones">
             <button class="juego3" onclick="checkAnswer()">Comprobar</button>
             <button class="volverJ" id="volverJ" onclick="reiniciarJuego()" disabled>Volver a Jugar</button>
-            <a class="sal" id="miEnlace"  onclick=" almacenarActividad('Gramatica','Pronombres personales','Escribe el pronombre correcto',palabrasAcertadas,vecesJugadas);">Salir</a>
-            <!-- href="../cursos/Tercero.php" onclick=" almacenarActividad('Gramatica','Pronombres personales','Escribe el pronombre correcto',palabrasAcertadas,vecesJugadas);-->
+            <a class="sal" id="miEnlace"  onclick="actualizarInsigniaYAlmacenar();">Salir</a>
         </div>
     </div>
     <div id="mensajeFeedback" class="menR">
@@ -159,8 +158,8 @@
         <p>Utiliza el sufijo <span>NAKA</span> despues del pronombre si es necesario.</p>
     </div>
 </div>
-    <script src="../js/pronombre.js"></script>
     <script src="../js/insignia.js"></script>
+    <script src="../js/pronombre.js"></script>
 </body>
 
 </html>

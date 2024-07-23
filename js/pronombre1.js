@@ -1,14 +1,21 @@
 const oraciones = [
-    "Juan come pollo.",
-    "María lee un libro.",
-    "Pedro compra frutas.",
+    "Jiwasaxa nayrampiwa uñjtanxa.", //nosotros vemos con los ojos
+    "Nayaxa t'ant'a manq'asktha.", // Yo comi pan
+    "Pedro laranjanaka alaski.",//Pedro esta comprando naranjas
+    "Jiwasaxa aymara yatiqasktana.",//nosotros estamos aprendiendo aimara
+    "Jupaxa p'isqi phayaski.", //el esta cocinando p'isqhi
+    "Awtuxa janiwa utjkanti.", //no había auto
+    "Nayaxa millk'i asantha.", // yo traje leche
+    "Ricardo achunaka aljaski.", //Ricardo esta vendiendo frutas
+    "Tatajaxa isinaka t'axsuski.", // mi papá esta lavando su ropa
+    "Jumaxa informe qillqaskta." // tu estas escribiendo un informe.
 ];
 
 let palabrasAcertadas = 0;
 let oracionesIncorrectas = 0;
 let indiceOracionActual = 0;
 var vecesJugadas = 1;
-var totalPalabras=3;
+var totalPalabras=10;
 var containerDiv = document.querySelector(".container");
 var mensajeFinalDiv = document.getElementById("mensajeFinal");
 
@@ -21,6 +28,15 @@ document.addEventListener("DOMContentLoaded", function () {
     volverJ.addEventListener("click", volverJugar);
     iniciarJuego();
 });
+
+function reproducirAudio(sonido) {
+    var audio = new Audio("../audios/" + sonido + ".wav");
+    audio.play();
+    setTimeout(function () {
+    audio.pause();
+    audio.currentTime = 0;
+    }, 5000);
+}
 
 function iniciarJuego() {
     const oracionCorrecta = oraciones[indiceOracionActual];
@@ -51,7 +67,7 @@ function barajarPalabras(oracion) {
         return '';
     }
     const palabras = oracion.split(" ");
-    palabras.sort(() => Math.random() - 0.5);
+    palabras.sort(() => Math.random() - 0.7);
     return palabras.join(" ");
 }
 
@@ -69,18 +85,19 @@ function verificarRespuesta() {
         palabrasAcertadas++;
         console.log("¡Correcto!");
         imagenSrc = "../image/victory.gif";
-        mensaje = "¡Correcto!";
-        mostrarMensajeFeedback(mensaje, imagenSrc,'green',3000);
+        mensaje = "¡Waliki!";
+        reproducirAudio("incorrecto");
+        mostrarMensajeFeedback(mensaje, imagenSrc,'green',4000);
         document.getElementById("palabrasAcertadasInput").value = palabrasAcertadas;
 
     } else {
         oracionesIncorrectas++;
         imagenSrc = "../image/triste.gif";
-        mensaje = "¡Incorrecto!";
-        console.log("¡Incorrecto!");
-        mostrarMensajeFeedback(mensaje,imagenSrc,'red',3000);
+        mensaje = "¡Janiw walikiti!";
+        reproducirAudio("incorrecto");
+        //console.log("¡Incorrecto!");
+        mostrarMensajeFeedback(mensaje,imagenSrc,'red',4000);
         mostrarRetroalimentacion(oracionIngresada, oracionCorrecta);
-
     }
     console.log("Oraciones correctas: " + palabrasAcertadas);
     console.log("Oraciones incorrectas: " + oracionesIncorrectas);
@@ -129,15 +146,13 @@ function volverJugar(){
     vecesJugadas++;
     console.log("veces jugadas: " + vecesJugadas);
     document.getElementById("vecesJugadasInput").value = vecesJugadas;
-
     localStorage.setItem("vecesJugadas", vecesJugadas);
-
     iniciarJuego();
 }
 
 // salir de jugar
 function almacenarActividad(opcionNavbar, temaPracticado, juegoSeleccionado, palabrasAcertadas,vecesJugadas) {
-
+    var medalla = localStorage.getItem("insignia");
     var xhr = new XMLHttpRequest();
     xhr.open('POST', '../datosE/almacenar_actividad.php', true);
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
@@ -145,7 +160,6 @@ function almacenarActividad(opcionNavbar, temaPracticado, juegoSeleccionado, pal
         if(xhr.readyState == 4 && xhr.status == 200){
             console.log ('palabras acertadas : ', palabrasAcertadas);
             console.log('actividad almacenada veces jugadas:', vecesJugadas);
-            
             console.log('actividad almacenada', xhr.responseText);
         }
     };
@@ -153,6 +167,7 @@ function almacenarActividad(opcionNavbar, temaPracticado, juegoSeleccionado, pal
                 '&tema_practicado=' + encodeURIComponent(temaPracticado) + 
                 '&juego_seleccionado=' + encodeURIComponent(juegoSeleccionado)+
                 '&palabrasAcertadas=' + encodeURIComponent(palabrasAcertadas) +
-                '&vecesJugadas=' + encodeURIComponent(vecesJugadas);
+                '&vecesJugadas=' + encodeURIComponent(vecesJugadas)+
+                '&medalla=' + encodeURIComponent(medalla);
     xhr.send(params);
 }

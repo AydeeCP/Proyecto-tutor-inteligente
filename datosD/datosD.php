@@ -1,7 +1,6 @@
 <?php
 
 session_start();
-//verificacion si el usuario inicio sesion
 if(!isset($_SESSION['carnet'])){
     header("location: ../login/logDocente.php");
     exit(); 
@@ -24,7 +23,6 @@ if(mysqli_num_rows($resultado)>0){
         $saludo="Bienvenido";
     }
     echo $saludo." " .$usuario['nombre']." ".$usuario['apellido'];
-
 }else{
     echo"No se encontraron datos de usuario";
 }

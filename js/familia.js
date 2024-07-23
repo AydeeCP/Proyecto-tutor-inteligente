@@ -17,25 +17,48 @@ var totalPalabras = 10;
 
 
 function reproducirAudio(sonido) {
-    var audio = new Audio("../audios/" + sonido + ".mp3");
-    audio.play();
-    setTimeout(function () {
-    audio.pause();
-    audio.currentTime = 0;
-    }, 3000);
+  var audio = new Audio("../audios/" + sonido + ".wav");
+  audio.play();
+  setTimeout(function () {
+  audio.pause();
+  audio.currentTime = 0;
+  }, 5000);
 }
-
+// Evento click del botón de ayuda
 // Evento click del botón de ayuda
 document.getElementById("btnAyuda").addEventListener("click", function () {
   var imagenActual = imagenes[indiceImagenActual];
   switch (imagenActual) {
     case "imagen1":
-      reproducirAudio("lluvia");
+      reproducirAudio("abuelo");
       break;
     case "imagen2":
-      reproducirAudio("trueno");
+      reproducirAudio("abuela");
       break;
-    // Añade más casos para otras imágenes si es necesario
+    case "imagen3":
+      reproducirAudio("papa");
+      break;
+    case "imagen4":
+      reproducirAudio("mama");
+      break;
+    case "imagen5":
+      reproducirAudio("hermana");
+      break;
+    case "imagen6":
+      reproducirAudio("bebe");//
+      break;
+    case "imagen7":
+      reproducirAudio("hermano");//
+      break;
+    case "imagen8":
+      reproducirAudio("tio");//
+      break;
+    case "imagen9":
+      reproducirAudio("primo");
+      break;
+    case "imagen10":
+      reproducirAudio("tia");
+      break;
     default:
       break;
   }
@@ -60,12 +83,10 @@ function verificarRespuesta() {
       } else if (imagenActual.id === 'imagen3') {
         expresiones = [
             { palabra: 'tata', regex: /^tata$/i }
-            // Añadir más palabras y expresiones regulares según la imagen 2
         ];
     }else if (imagenActual.id === 'imagen4') {
         expresiones = [
             { palabra: 'mama', regex: /^mama$/i }
-            // Añadir más palabras y expresiones regulares según la imagen 2
         ];
     }else if (imagenActual.id === 'imagen5') {
         expresiones = [
@@ -77,7 +98,7 @@ function verificarRespuesta() {
         ];
     }else if(imagenActual.id === 'imagen7'){
         expresiones=[
-            {palabra: 'jila', regex:/^jila$/i }
+            {palabra: 'jilata', regex:/^jilata$/i }
         ];
     }else if(imagenActual.id === 'imagen8'){
         expresiones=[
@@ -85,7 +106,7 @@ function verificarRespuesta() {
         ];
     }else if(imagenActual.id === 'imagen9'){
         expresiones=[
-            {palabra: 'jakiri', regex:/^jakiri$/i }
+            {palabra: 'Jilaku', regex:/^jilaku$/i } //primo
         ];
     }else if(imagenActual.id === 'imagen10'){
       expresiones=[
@@ -105,7 +126,7 @@ function verificarRespuesta() {
     }
     if (esRespuestaCorrecta) {
         imagenSrc = "../image/victory.gif";
-        mensaje = "¡Correcto!";
+        mensaje = "¡Waliki!";
         /*REPRODUCIR AUDIO
         reproducirAudio('lluvia'); */
         correctas++;
@@ -114,14 +135,12 @@ function verificarRespuesta() {
         palabrasAcertadas++;
         document.getElementById("palabrasAcertadasInput").value = palabrasAcertadas;
         console.log("palabras acertadas:" + palabrasAcertadas);
-
         document.getElementById("respuesta").disabled=true;
-
         mostrarMensajeFeedback(mensaje, imagenSrc,'green',3000);
         //siguienteImagen();
     }else {
         imagenSrc = "../image/triste.gif";
-        mensaje = "¡Incorrecto!";
+        mensaje = "¡Janiw walikiti!";
         /*REPRODUCIR AUDIO reproducirAudio('lluvia');*/
         incorrectas++;
         document.getElementById("equivocadas").innerHTML = incorrectas;
@@ -136,8 +155,8 @@ function siguienteImagen() {
   var cantidad = document.getElementById("cantidad");
 
   cantidad.textContent = indiceImagenActual + 1 + 1 + " / " + imagenes.length;
-
   indiceImagenActual++;
+  
 
   if (indiceImagenActual === imagenes.length) {
     document.getElementById("resultado").style.display = "none";
@@ -145,8 +164,7 @@ function siguienteImagen() {
     containerDiv.style.display = "none";
 
     // Mostrar el div de mensajeFinal
-    
-    
+    mensajeFinalDiv.style.display = "block";
     var correc= document.getElementById('correctasF');
     var cant = document.getElementById('cantidadArray');
     correc.textContent=correctas;
@@ -285,24 +303,24 @@ function volverEmpezar() {
 
 
 function almacenarActividad(opcionNavbar, temaPracticado, juegoSeleccionado, palabrasAcertadas,vecesJugadas) {
-
+    var medalla = localStorage.getItem("insignia");
+    //console.log("medalla a enviar a la base de datos: ",medalla);
     var xhr = new XMLHttpRequest();
     xhr.open('POST', '../datosE/almacenar_actividad.php', true);
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     xhr.onreadystatechange=function() {
         if(xhr.readyState == 4 && xhr.status == 200){
-          
-            console.log ('palabras acertadas : ', palabrasAcertadas);
+            /*console.log ('palabras acertadas : ', palabrasAcertadas);
             console.log('actividad almacenada veces jugadas:', vecesJugadas);
-            
-            console.log('actividad almacenada', xhr.responseText);
+            console.log('actividad almacenada', xhr.responseText);*/
         }
     };
     
-    var params ='opcion_navbar=' + encodeURIComponent(opcionNavbar) + 
-                '&tema_practicado=' + encodeURIComponent(temaPracticado) + 
-                '&juego_seleccionado=' + encodeURIComponent(juegoSeleccionado)+
-                '&palabrasAcertadas=' + encodeURIComponent(palabrasAcertadas) +
-                '&vecesJugadas=' + encodeURIComponent(vecesJugadas);
+    var params ="opcion_navbar=" + encodeURIComponent(opcionNavbar) + 
+                "&tema_practicado=" + encodeURIComponent(temaPracticado) + 
+                "&juego_seleccionado=" + encodeURIComponent(juegoSeleccionado)+
+                "&palabrasAcertadas=" + encodeURIComponent(palabrasAcertadas) +
+                "&vecesJugadas=" + encodeURIComponent(vecesJugadas)+
+                "&medalla="+encodeURIComponent(medalla);
     xhr.send(params);
 }

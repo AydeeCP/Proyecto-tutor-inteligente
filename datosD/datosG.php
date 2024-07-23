@@ -13,9 +13,7 @@ if (!isset($_SESSION['nombre_de_usuario'])) {
 $nombre_usuario = $_SESSION['nombre_de_usuario'];
 
 // Consulta SQL para obtener los datos del docente
-$sql_docente = "SELECT *
-                FROM docente
-                WHERE ci = '$nombre_usuario'";
+$sql_docente = "SELECT * FROM docente WHERE ci = '$nombre_usuario'";
 
 $resultado_docente = $conexion->query($sql_docente);
 
@@ -33,16 +31,15 @@ if ($resultado_docente->num_rows > 0 && $resultado_asignatura->num_rows > 0) {
     $docente = array(
         'Id' => $row_docente['Id'],
         'ci' => $row_docente['ci'],
-        'fecha'=>$row_docente['fecha_nacimiento'],
-        'sexo'=>$row_docente['sexo'],
+        'fecha' => $row_docente['fecha_nacimiento'],
+        'sexo' => $row_docente['sexo'],
         'nombre' => $row_docente['nombre'],
         'apellido' => $row_docente['apellido'],
         'telefono' => $row_docente['telefono'],
-        'correo'=>$row_docente['correo'],
-        'direccion'=>$row_docente['direccion'],
-        'contraseña'=>$row_docente['password']
+        'correo' => $row_docente['correo'],
+        'direccion' => $row_docente['direccion'],
+        'contraseña' => $row_docente['password']
     );
-
     // Obtener los datos de la asignatura
     $row_asignatura = $resultado_asignatura->fetch_assoc();
     $asignatura = array(

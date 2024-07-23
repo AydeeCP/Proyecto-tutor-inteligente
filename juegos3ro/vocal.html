@@ -5,8 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/stilo.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-
-
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <title>Juego de palabras</title>
@@ -61,6 +59,7 @@
     <script src="../js/tercero.js"></script>
     <script>
         function almacenarActividad(opcionNavbar, temaPracticado, juegoSeleccionado, palabrasAcertadas,vecesJugadas) {
+            var medalla = localStorage.getItem("insignia");
 
             var xhr = new XMLHttpRequest();
             xhr.open('POST', '../datosE/almacenar_actividad.php', true);
@@ -70,15 +69,15 @@
                 
                     console.log ('palabras acertadas : ', palabrasAcertadas);
                     console.log('actividad almacenada veces jugadas:', vecesJugadas);
-                    
                     console.log('actividad almacenada', xhr.responseText);
                 }
             };
-            var params ='opcion_navbar=' + encodeURIComponent(opcionNavbar) + 
-                        '&tema_practicado=' + encodeURIComponent(temaPracticado) + 
-                        '&juego_seleccionado=' + encodeURIComponent(juegoSeleccionado)+
-                        '&palabrasAcertadas=' + encodeURIComponent(palabrasAcertadas) +
-                        '&vecesJugadas=' + encodeURIComponent(vecesJugadas);
+            var params ="opcion_navbar=" + encodeURIComponent(opcionNavbar) + 
+                        "&tema_practicado=" + encodeURIComponent(temaPracticado) + 
+                        "&juego_seleccionado=" + encodeURIComponent(juegoSeleccionado)+
+                        "&palabrasAcertadas=" + encodeURIComponent(palabrasAcertadas) +
+                        "&vecesJugadas=" + encodeURIComponent(vecesJugadas)+
+                        "&medalla="+encodeURIComponent(medalla);
             xhr.send(params);
         }
     </script>

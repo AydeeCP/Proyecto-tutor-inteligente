@@ -18,7 +18,7 @@ $(document).ready(function () {
     function mostrarPadresEnTabla(padres) {
         var padresTableContainer = $("#padresTableContainer");
         var padresTable = $('<table id="padresTable" class="table">'); 
-        var thead = $("<thead>").append("<tr><th>#</th><th>Cedula de identidad</th><th>Nombre</th><th>Apellidos</th><th>Celular</th><th>Correo electrónico</th> <th>Lugar de residencia</th>");
+        var thead = $("<thead>").append("<tr><th>#</th><th>Cedula de identidad</th><th>Nombre</th><th>Apellidos</th><th>Celular</th><th>Correo electrónico</th> <th>Lugar de residencia</th> <th>Nombre de estudiante</th><th>Apellidos</th>");
         var tbody = $("<tbody>");
         $.each(padres, function (index, padre) {
             var fila = $("<tr>");
@@ -29,6 +29,8 @@ $(document).ready(function () {
             fila.append("<td>" + padre.celular +"</td>");
             fila.append("<td>" + padre.correo_p + "</td>");
             fila.append("<td>" + padre.lugar_res+"</td>");
+            fila.append("<td>" + padre.nombre_est+"</td>");
+            fila.append("<td>" + padre.apellidos_est+"</td>");
             tbody.append(fila);
         });
         padresTable.append(thead, tbody);
@@ -53,19 +55,18 @@ $(document).ready(function () {
         
           // Escribir el texto con alineación centrada
         doc.text(title, titleX, 50, { overflow: "linebreak", align:"center" });
-    
         doc.autoTable({
             html: table,
             startY: 80,
             theme: 'grid',
-            headStyles: { fillColor: [68, 80, 136], textColor: [255, 255, 255], align: "center", halign: "center" },
+            headStyles: { fillColor: [20, 40, 52], textColor: [255, 255, 255], align: "center", halign: "center" },
             styles: {
                 cellPadding: 5,
                 fontSize: 12,
                 textColor: [0, 0, 0],
                 align: "center",
                 halign: "center",
-                lineColor: [68, 80, 136],
+                lineColor: [20, 40, 52],
                 lineWidth: 1
             }
         });

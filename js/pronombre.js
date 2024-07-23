@@ -8,20 +8,20 @@ class Automata {
 
     transition(letter) {
         if (!this.alphabet.includes(letter.toUpperCase())) {
-            console.log("Error: la letra", letter, "no está en el alfabeto");
+            //console.log("Error: la letra", letter, "no está en el alfabeto");
             return false; // La letra no está en el alfabeto
         }
         if (this.currentState < this.finalState && letter.toUpperCase() === this.word[this.currentState]) {
             this.currentState++;
-            console.log("Transición exitosa, estado actual:", this.currentState);
+            //console.log("Transición exitosa, estado actual:", this.currentState);
             return true;
         }
         return false;
     }
 
     isAccepted() {
-        console.log("Estado actual:", this.currentState);
-        console.log("Estado final:", this.finalState);
+        //console.log("Estado actual:", this.currentState);
+        //console.log("Estado final:", this.finalState);
         return this.currentState === this.finalState;
     }
 }
@@ -36,12 +36,11 @@ const pro = [
     { pronombre: "jiwasanaka", automata: new Automata("jiwasanaka", alphabet) },
     {pronombre: "jumanaka", automata:new Automata("jumanaka",alphabet)},
     { pronombre: "jumanaka",automata: new Automata("jumanaka", alphabet) },
-    { pronombre: "jupanaka", automata: new Automata("jumanaka", alphabet) },
+    { pronombre: "jumanaka", automata: new Automata("jumanaka", alphabet) },
     {pronombre: "jupa", automata:new Automata("jupa",alphabet)},
     { pronombre: "jumanaka",automata: new Automata("jumanaka", alphabet) },
     { pronombre: "jiwasanaka", automata: new Automata("jiwasanaka", alphabet) }
 ];
-
 
 var containerDiv = document.querySelector(".Contenedor3");
 var palabrasAcertadas = 0;
@@ -53,6 +52,15 @@ document.addEventListener("DOMContentLoaded",function(){
     deshabilitarEnlace();
 });
 
+function reproducirAudio(sonido) {
+    var audio = new Audio("../audios/" + sonido + ".wav");
+    audio.play();
+    setTimeout(function () {
+    audio.pause();
+    audio.currentTime = 0;
+    }, 5000);
+}
+
 function checkAnswer() {
     const answers = document.querySelectorAll('.answer');
     const inputs = document.querySelectorAll('.Contenedor3 .input-respuesta');
@@ -60,7 +68,7 @@ function checkAnswer() {
     let palabrasIncorrectas = 0;
 
     inputs.forEach((input, index) => {
-        console.log("Index de input:", index); 
+        //console.log("Index de input:", index); 
         const userInput = input.value.trim().toUpperCase();
         const colorData = pro[index]; 
 
@@ -84,9 +92,8 @@ function checkAnswer() {
             }
         }
 
-
         if (automata.isAccepted()) {
-            console.log("Transición exitosa para el pronombre:", colorData.pronombre);
+            //console.log("Transición exitosa para el pronombre:", colorData.pronombre);
             isCorrect = true;
         }
 
@@ -107,7 +114,8 @@ function checkAnswer() {
     if (palabrasCorrectas === inputs.length && palabrasIncorrectas === 0) {
         document.getElementById("correctas").innerHTML = palabrasCorrectas;
         document.getElementById("palabrasAcertadasInput").value=palabrasAcertadas;
-        mensaje = "¡Todas las respuestas son correctas!";
+        mensaje = "¡Waliki!";
+        reproducirAudio("correcto"); 
         mostrarMensajeFeedback(mensaje,'../image/victory.gif','green',3000);
         deshabilitarInputs();
         document.getElementById("volverJ").disabled = false;
@@ -116,7 +124,8 @@ function checkAnswer() {
     } else if (palabrasCorrectas === 0 && palabrasIncorrectas === inputs.length) {
         document.getElementById("equivocadas").innerHTML = palabrasIncorrectas;
         document.getElementById("palabrasAcertadasInput").value=palabrasAcertadas;
-        mensaje = "¡Todas las respuestas son incorrectas!";
+        mensaje = "¡Janiw walikiti!";
+        reproducirAudio("incorrecto");
         mostrarMensajeFeedback(mensaje,'../image/triste.gif','red',3000);
         deshabilitarInputs();
         document.getElementById("volverJ").disabled = false;
@@ -197,6 +206,38 @@ function reiniciarJuego() {
     deshabilitarEnlace();
 }
 
+/*FUNCION actualizarInsigniaYAlmacenar*/
+function actualizarInsigniaYAlmacenar(){
+    actualizarInsignia();
+
+    // Luego, obtiene la medalla actualizada desde localStorage
+    let medalla = localStorage.getItem("insignia");
+    console.log("insignia: " + medalla); // Imprimir la medalla para depurar
+
+    // Finalmente, llama a la función almacenarActividad con la medalla correcta
+    almacenarActividad('Gramática','Pronombres personales','Escribe el pronombre correcto',palabrasAcertadas,vecesJugadas,medalla);
+}
+
+function almacenarActividad(opcionNavbar, temaPracticado, juegoSeleccionado, palabrasAcertadas,vecesJugadas,medalla) {
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', '../datosE/almacenar_actividad.php', true);
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    xhr.onreadystatechange=function() {
+        if(xhr.readyState == 4 && xhr.status == 200){
+            console.log ('palabras acertadas : ', palabrasAcertadas);
+            console.log('actividad almacenada veces jugadas:', vecesJugadas);
+            console.log('actividad almacenada', xhr.responseText);
+        }
+    };
+    var params ='opcion_navbar=' + encodeURIComponent(opcionNavbar) + 
+                '&tema_practicado=' + encodeURIComponent(temaPracticado) + 
+                '&juego_seleccionado=' + encodeURIComponent(juegoSeleccionado)+
+                '&palabrasAcertadas=' + encodeURIComponent(palabrasAcertadas) +
+                '&vecesJugadas=' + encodeURIComponent(vecesJugadas)+
+                '&medalla='+ encodeURIComponent(medalla);
+    xhr.send(params);
+}
+
 /*BOTON SALIR*/
 document.addEventListener("DOMContentLoaded", function() {
 document.getElementById("miEnlace").addEventListener("click",function(event){
@@ -206,13 +247,13 @@ document.getElementById("miEnlace").addEventListener("click",function(event){
     correc.textContent=palabrasAcertadas;
     cant.textContent = pro.length;
     actualizarInsignia();
+    event.preventDefault();
     console.log(correc); // Agregado para depurar
     console.log(cant); // Agregado para depurar
     document.querySelector(".Contenedor3").style.display="none";
-    event.preventDefault();
     setTimeout(function() {
         window.location.href = "../cursos/tercero.php";
-    },5000);
+    },7000);
 });
 });
 
@@ -223,24 +264,3 @@ document.getElementById('infoIcon').addEventListener('click', function() {
 document.getElementById('infoModal').addEventListener('click', function() {
     document.getElementById('infoModal').style.display = 'none';
 });
-
-function almacenarActividad(opcionNavbar, temaPracticado, juegoSeleccionado, palabrasAcertadas,vecesJugadas) {
-
-    var xhr = new XMLHttpRequest();
-    xhr.open('POST', '../datosE/almacenar_actividad.php', true);
-    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-    xhr.onreadystatechange=function() {
-        if(xhr.readyState == 4 && xhr.status == 200){
-            console.log ('palabras acertadas : ', palabrasAcertadas);
-            console.log('actividad almacenada veces jugadas:', vecesJugadas);
-            
-            console.log('actividad almacenada', xhr.responseText);
-        }
-    };
-    var params ='opcion_navbar=' + encodeURIComponent(opcionNavbar) + 
-                '&tema_practicado=' + encodeURIComponent(temaPracticado) + 
-                '&juego_seleccionado=' + encodeURIComponent(juegoSeleccionado)+
-                '&palabrasAcertadas=' + encodeURIComponent(palabrasAcertadas) +
-                '&vecesJugadas=' + encodeURIComponent(vecesJugadas);
-    xhr.send(params);
-}

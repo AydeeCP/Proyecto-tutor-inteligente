@@ -5,7 +5,6 @@ class Automata {
     this.finalState = word.length;
     this.alfabeto = alfabeto;
   }
-
   transition(letter) {
     if (!this.alfabeto.includes(letter.toUpperCase())) {
       //console.log("Error: la letra", letter, "no está en el alfabeto");
@@ -21,7 +20,6 @@ class Automata {
     }
     return false;
   }
-
   isAccepted() {
     //console.log("Estado actual:", this.currentState);
     //console.log("Estado final:", this.finalState);
@@ -56,6 +54,14 @@ var palabrasCorrectas = 0;
 var palabrasIncorrectas = 0;
 var totalPalabras=10;
 
+function reproducirAudio(sonido) {
+  var audio = new Audio("../audios/" + sonido + ".wav");
+  audio.play();
+  setTimeout(function () {
+  audio.pause();
+  audio.currentTime = 0;
+  }, 5000);
+}
 function verificarPalabra(palabra) {
   console.log("Palabra a verificar:", palabra);
 
@@ -78,9 +84,11 @@ function verificarPalabra(palabra) {
     if (palabra.toUpperCase() === palabraAymara) {
       palabrasCorrectas++;
       //console.log("PALABRAS CORRECTAS: "+palabrasCorrectas);
-      console.log(`La palabra '${palabra}' es válida en Aymara.`);
+      //console.log(`La palabra '${palabra}' es válida en Aymara.`);
       imagenSrc = "../image/victory.gif";
-      mensaje = `La palabra '${palabra}' es válida en Aymara.`;
+      mensaje = `¡Waliki!`;
+      reproducirAudio("correcto"); 
+
       mostrarMensajeFeedback(mensaje, imagenSrc, "green", 3000);
       document.getElementById("palabrasAcertadasInput").value = palabrasCorrectas;
       document.getElementById("correctas").innerText=palabrasCorrectas;
@@ -92,7 +100,8 @@ function verificarPalabra(palabra) {
   //console.log("PALABRAS INCORRECTAS: " + palabrasIncorrectas);
   //document.getElementById("equivocadas").innerHTML = palabrasIncorrectas;
   imagenSrc = "../image/triste.gif";
-  mensaje = `La palabra '${palabra}' no es válida`;
+  mensaje = `Janiw walikiti`;
+  reproducirAudio("incorrecto");
   mostrarMensajeFeedback(mensaje,imagenSrc,'red',3000);
   //console.log(`La palabra '${palabra}' no es válida en ningún autómata.`);
   document.getElementById("equivocadas").innerText = palabrasIncorrectas;
@@ -131,12 +140,9 @@ function siguientePalabra() {
     correc.textContent = palabrasCorrectas;
     cant.textContent = palabras.length;
     document.getElementById("correctas").innerText=palabrasCorrectas;
-    
     actualizarInsignia();
-    
   } else {
     var currentWord = palabras[currentWordIndex];
-
     document.getElementById("dropBox").innerHTML = "";
     document.getElementById("spanishWord").innerText = currentWord.castellano;
     console.log("palabras castellano: " + currentWord.castellano);
@@ -207,15 +213,18 @@ function actualizarInsignia() {
   // Determinar qué insignia mostrar
   if (palabrasCorrectas === totalPalabras) {
     insignia = "oro";
-    console.log("Oro: " + palabrasCorrectas);
+    //console.log("Oro: " + palabrasCorrectas);
     med.textContent = insignia;
   } else if (palabrasCorrectas >= totalPalabras * 0.8) {
     insignia = "plata";
-    console.log("plata: " + palabrasCorrectas);
+    //console.log("plata: " + palabrasCorrectas);
     med.textContent = insignia;
   } else if (palabrasCorrectas >= totalPalabras * 0.5) {
     insignia = "bronce";
-    console.log("bronce: " + palabrasCorrectas);
+    med.textContent = insignia;
+  }else {
+    insignia = "ninguna";
+    //console.log("Ninguna insignia: " + palabrasCorrectas);
     med.textContent = insignia;
   }
 

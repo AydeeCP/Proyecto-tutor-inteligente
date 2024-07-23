@@ -56,19 +56,26 @@ var palabrasAcertadas = 0;
 var palabrasIncorrectas = 0;
 var totalPalabras = 10;
 
+function reproducirAudio(sonido) {
+    var audio = new Audio("../audios/" + sonido + ".wav");
+    audio.play();
+    setTimeout(function () {
+    audio.pause();
+    audio.currentTime = 0;
+    }, 5000);
+}
 function verificarPalabra(palabra) {
     console.log("Palabra a verificar:", palabra);
 
     for (const automata of automatas) {
         const { palabra: palabraAymara, automata: automataFinito } = automata;
         console.log("Palabra Aymara válida:", palabraAymara);
-        let estadoActual = automataFinito.currentState;
+        //let estadoActual = automataFinito.currentState;
         //console.log("Estado actual del autómata:", estadoActual);
         for (let i = 0; i < palabra.length; i++) {
             const letter = palabra[i];
             //console.log("Letra actual:", letter);
-
-            const transitionResult = automataFinito.transition(letter);
+            //const transitionResult = automataFinito.transition(letter);
             //console.log("¿Transición exitosa?", transitionResult);
             //console.log("Nuevo estado del autómata:", automataFinito.currentState);
         }
@@ -80,7 +87,9 @@ function verificarPalabra(palabra) {
             //console.log("PALABRAS CORRECTAS: "+palabrasCorrectas);
             console.log(`La palabra '${palabra}' es válida en Aymara.`);
             imagenSrc = "../image/victory.gif";
-            mensaje = `La palabra '${palabra}' es válida en Aymara.`;
+            mensaje = `¡Waliki!`;
+            reproducirAudio("correcto"); 
+
             mostrarMensajeFeedback(mensaje, imagenSrc, "green", 3000);
             document.getElementById("palabrasAcertadasInput").value =
             palabrasAcertadas;
@@ -93,7 +102,8 @@ function verificarPalabra(palabra) {
     //console.log("PALABRAS INCORRECTAS: " + palabrasIncorrectas);
     //document.getElementById("equivocadas").innerHTML = palabrasIncorrectas;
     imagenSrc = "../image/triste.gif";
-    mensaje = `La palabra '${palabra}' no es válida`;
+    mensaje = `¡Janiw walikiti!`;
+    reproducirAudio("incorrecto");
     mostrarMensajeFeedback(mensaje, imagenSrc, "red", 3000);
     //console.log(`La palabra '${palabra}' no es válida en ningún autómata.`);
     document.getElementById("equivocadas").innerText = palabrasIncorrectas;
@@ -263,23 +273,25 @@ document.getElementById("dropBox").addEventListener("dragover", function (ev) {
 });
 
 function almacenarActividad(opcionNavbar, temaPracticado, juegoSeleccionado, palabrasAcertadas,vecesJugadas) {
+    var medalla = localStorage.getItem("insignia");
 
     var xhr = new XMLHttpRequest();
     xhr.open('POST', '../datosE/almacenar_actividad.php', true);
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     xhr.onreadystatechange=function() {
         if(xhr.readyState == 4 && xhr.status == 200){
-            console.log ('palabras acertadas : ', palabrasAcertadas);
+            /*console.log ('palabras acertadas : ', palabrasAcertadas);
             console.log('actividad almacenada veces jugadas:', vecesJugadas);
             
-            console.log('actividad almacenada', xhr.responseText);
+            console.log('actividad almacenada', xhr.responseText);*/
         }
     };
     
-    var params ='opcion_navbar=' + encodeURIComponent(opcionNavbar) + 
-                '&tema_practicado=' + encodeURIComponent(temaPracticado) + 
-                '&juego_seleccionado=' + encodeURIComponent(juegoSeleccionado)+
-                '&palabrasAcertadas=' + encodeURIComponent(palabrasAcertadas) +
-                '&vecesJugadas=' + encodeURIComponent(vecesJugadas);
+    var params ="opcion_navbar=" + encodeURIComponent(opcionNavbar) + 
+                "&tema_practicado=" + encodeURIComponent(temaPracticado) + 
+                "&juego_seleccionado=" + encodeURIComponent(juegoSeleccionado)+
+                "&palabrasAcertadas=" + encodeURIComponent(palabrasAcertadas) +
+                "&vecesJugadas=" + encodeURIComponent(vecesJugadas)+
+                "&medalla="+encodeURIComponent(medalla);
     xhr.send(params);
 }

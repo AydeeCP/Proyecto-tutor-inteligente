@@ -1,228 +1,243 @@
 @import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,500;1,400&family=Kalam:wght@300;700&family=Roboto:wght@100;300&family=The+Nautigal:wght@400;700&family=Trispace:wght@300;400;500&display=swap');
-/*ayrami*/
-@import url('https://fonts.googleapis.cmaAsom/css2?family=Fira+Sans:ital,wght@0,500;1,400&family=Kalam:wght@300;700&family=Protest+Guerrilla&family=Roboto:wght@100;300&family=The+Nautigal:wght@400;700&family=Trispace:wght@300;400;500&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
 
 /*estilo de fondo de la pagina principal*/
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family:'Roboto yoto',sans-serif;
-    font-size:1rem ;
+    font-family: 'Roboto yoto', sans-serif;
+    font-size: 1rem;
     font-weight: normal;
 }
-body{
+
+body {
     height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(125deg,
-        hsl(21deg 82% 25%) 0%,
-        hsl(23deg 53% 38%) 6%,
-        hsl(26deg 46% 46%) 13%,
-        hsl(27deg 50% 54%) 19%,
-        hsl(28deg 63% 60%) 25%,
-        hsl(26deg 55% 62%) 31%,
-        hsl(24deg 48% 63%) 37%,
-        hsl(21deg 39% 64%) 44%,
-        hsl(17deg 31% 65%) 50%,
-        hsl(16deg 22% 60%) 56%,
-        hsl(13deg 14% 54%) 63%,
-        hsl(4deg 7% 48%) 69%,
-        hsl(260deg 3% 40%) 75%,
-        hsl(227deg 6% 42%) 81%,
-        hsl(219deg 9% 44%) 87%,
-        hsl(216deg 12% 45%) 94%,
-        hsl(214deg 14% 47%) 100%
-);
-    background-attachment: fixed;
-    background-size: cover;
-    
+    background: -webkit-linear-gradient(183deg, #808693,#43627a,#211c27);/* Chrome 10-25, Safari 5.1-6 */                          
+    background: linear-gradient(183deg, #808693,#43627a,#211c27);/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */                                             
     color: #f3f3f3;
 }
 
 /*diseño para la barra de progreso de registro*/
 
-.containerProg .pasos{
+.containerProg .pasos {
     height: auto;
-    margin : 0;
+    margin: 0;
     margin-bottom: 2rem;
-    display: flex; 
-    justify-content: space-between; 
+    display: flex;
+    justify-content: space-between;
     align-items: center;
     width: 100%;
     position: relative;
-/*  position: relative;*/
+    /*  position: relative;*/
 }
-.pasos .circle{
+
+.pasos .circle {
     display: flex;
     align-items: center;
     justify-content: center;
-    height:60px;
+    height: 60px;
     width: 60px;
-    color:#2f1c1ca8;
+    color: #2f1c1ca8;
     font-size: 22px;
-    font-weight:bold;
-    border-radius:  50%;
-    background:#fff;
-    border:7px solid #bded12;
+    font-weight: bold;
+    border-radius: 50%;
+    background: #fff;
+    border: 7px solid #bded12;
     transition: all 200ms ease;
     transition-delay: 0s;
 }
-.pasos .circle.active{
+
+.pasos .circle.active {
     transition-delay: 100ms;
     border-color: #162952;
     color: #162952;
 }
-.pasos .progreso{
+
+.pasos .progreso {
     position: absolute;
     height: 6px;
     width: 100%;
-    background-color:#e0e0e0;
+    background-color: #e0e0e0;
     z-index: -1;
 }
 
-.progreso .indicador{
-    position:absolute;
+.progreso .indicador {
+    position: absolute;
     height: 100%;
     width: 0%;
-    background-color:#162952;
-    transition:all 300ms ease;
+    background-color: #162952;
+    transition: all 300ms ease;
 }
 
 /*FORMULARIO DE INICIO DE SESION*/
 
-::placeholder{
-    color:#ead9d994;
+::placeholder {
+    color: #ead9d994;
     font-size: 1rem;
 }
+
 /*contenedor general form1 form2,etc*/
-.container-form{
+.container-form {
     position: relative;
     /*AUMENTO AQUI*/
 }
+
 /*registro*/
 
-.formulario-fr1{
+.formulario-fr1 {
     height: auto;
     padding: 1rem;
     border-radius: 1%;
     background-color: rgba(9, 9, 9, 0.707);
     text-align: center;
-
 }
+
+.formulario-fr1 h2 {
+    font-size: 1.3rem;
+    margin-bottom: .7rem;
+    text-align: left;
+}
+
 /*ingreso de datos formas de las cajas de texto*/
-.formulario-fr1 input{
+.formulario-fr1 input {
     width: 40%;
     display: block;
     margin: auto;
     background-color: transparent;
-    border-radius: 30px;
+    border-radius: 8px;
     border-color: #f89b1a;
     text-align: center;
     padding: .5rem;
 }
 
-.formulario-fr1 input:required:focus{
+.formulario-fr1 input:required:focus {
     outline-color: #eaf218;
 }
-.formulario-fr1 input:invalid{
+
+.formulario-fr1 input:invalid {
     box-shadow: none;
 }
+
 /*cambio de color de la caja de texto*/
 
-.formulario-fr1 input[type="text"], .formulario-fr1 input[type="password"], .formulario-fr1 input[type="tel"], .formulario-fr1 input[type="date"], .formulario-fr1 input[type="email"]{
-    color:#fffffff5;
+.formulario-fr1 input[type="text"],
+.formulario-fr1 input[type="password"],
+.formulario-fr1 input[type="tel"],
+.formulario-fr1 input[type="date"],
+.formulario-fr1 input[type="email"] {
+    color: #fffffff5;
 }
-.ci{
+
+.ci {
     display: flex;
 }
-.ci input{
+
+.ci input {
     margin: 10px 25px auto;
 }
-.ci input[type="date"]{
-    color:white;
-    font-size:1rem;
+
+.ci input[type="date"] {
+    color: white;
+    font-size: 1rem;
     font-weight: 2px;
 }
+
 /*sexo f m 05/02*/
 .sexo-container {
     display: flex;
     justify-content: center;
     margin-top: 20px;
 }
-.sexo-container input[type="radio"]{
+
+.sexo-container input[type="radio"] {
     display: none;
 }
-.text-s{
-    position:relative;
+
+.text-s {
+    position: relative;
     border: none;
     border-radius: 5px;
-    padding:10px 50px;
+    padding: 10px 50px;
     display: flex;
     align-items: center;
 }
-.text-s:before{
+
+.text-s:before {
     content: "";
     height: 15px;
     width: 15px;
-    border:2px solid #f89b1a;
+    border: 2px solid #f89b1a;
     border-radius: 50%;
     margin-right: 10px;
 }
-.sexo-container input[type="radio"]:checked + .text-s{
+
+.sexo-container input[type="radio"]:checked+.text-s {
     background-color: #f89b1a;
-    color:white;
+    color: white;
 }
-.sexo-container input[type="radio"]:checked + .text-s:before{
+
+.sexo-container input[type="radio"]:checked+.text-s:before {
     height: 10px;
     width: 10px;
-    border:5px solid white;
+    border: 5px solid white;
     background-color: rgba(9, 9, 9, 0.707);
 }
+
 /*datos personales nombre ap*/
-.datos-personales{
+.datos-personales {
     display: flex;
     margin-top: 20px;
 }
-.datos-contacto{
+
+.datos-contacto {
     display: flex;
     margin-top: 20px;
 }
-.direccion{
+
+.direccion {
     margin-top: 25px;
     margin-left: -100px;
     width: 150%;
     align-items: center;
 }
 
-.pass{
+.pass {
     display: flex;
     margin-top: 0.8rem;
     align-items: center;
     justify-content: center;
 }
-.pass i{
+
+.pass i {
     display: inline-block;
     position: relative;
     cursor: pointer;
     color: rgb(252, 176, 11);
     margin-right: 4rem;
 }
-.pass input{
+
+.pass input {
     margin-left: 5rem;
     width: 60%;
 }
 
-h2{
+h2 {
     font-size: 1.2rem;
-    font-weight:bold;
+    font-weight: bold;
 }
-/*botones de guardar datos y adelante FORMULARIO 1*/
 
-.botonG{
+/*botones de guardar datos y adelante FORMULARIO 1*/
+.botonG {
     margin-left: 3rem;
+}
+
+.botonG,
+.botonS {
     font-weight: bold;
     position: relative;
     padding: 1rem;
@@ -230,35 +245,39 @@ h2{
     color: rgb(0, 0, 0);
     border-radius: 1rem;
     border: none;
-    width: 6rem;
+    width: auto;
     align-items: center;
-    font-size:.9rem;
-    cursor:pointer;
-
+    font-size: .9rem;
+    cursor: pointer;
     z-index: 2;
-    border:none;
+    border: none;
     overflow: hidden;
 }
+
 /*cambio color*/
-.botonG::after {
+.botonG::after,
+.botonS::after {
     content: "";
     position: absolute;
     width: 100%;
     height: 100%;
     left: 0;
     top: 0;
-    background-color: #fff945f0;
-
+    background-color: rgb(140, 200, 15);
+    box-shadow: rgb(0, 0, 0, 0.2);
     z-index: -2;
     transition: background-color 3s ease;
     opacity: 0;
 }
 
-.botonG:hover::after {
-    opacity: 1; 
+.botonG:hover::after,
+.botonS:hover::after {
+    opacity: 1;
 }
+
 /*primer color*/
-.botonG::before {
+.botonG::before,
+.botonS::before {
     content: "";
     position: absolute;
     width: 100%;
@@ -266,71 +285,84 @@ h2{
     left: 0;
     bottom: -150%;
     border-radius: 30%;
-    background-color:#ceee15f0;
+    background-color: rgb(166, 230, 18);
     z-index: -1;
     transition: bottom 3s ease;
 }
-.botonG:hover::before{
+
+.botonG:hover::before,
+.botonS:hover::before {
     animation: guardar 3s linear both;
 }
+
+
+
 @keyframes guardar {
-    0%{
+    0% {
         transform: rotate(0deg);
     }
-    100%{
+
+    100% {
         bottom: 100px;
         transform: rotate(360deg);
-        
+
     }
 }
-.botonA{
+
+.botonA {
     padding: 1rem;
     font-weight: 400;
-    color:white;
+    color: white;
     background-color: rgb(11, 32, 60);
     border-radius: 1rem;
-    border:none;
+    border: none;
     outline: none;
-    width: 20%;
+    width: auto;
     cursor: pointer;
-    font-size:.9rem;
+    font-size: .9rem;
     font-weight: bold;
     margin: 2rem;
 
 }
 
-.botonA:hover{
+.botonA:hover {
     background-color: rgb(14, 46, 87);
-    box-shadow: 0 0 8px  rgb(14, 46, 87);
+    box-shadow: 0 0 8px rgb(14, 46, 87);
 }
 
 /*FORMULARIO 2*/
+.botones2 button {
+    margin-top: 0.8rem;
+    margin-left: 1rem;
+}
 
-.formAsig{
+.formAsig {
     height: auto;
-    width: 500px;
+    width: 550px;
+    padding: 5rem;
     display: none;
-    padding: 1rem;
+    padding: 0.9rem;
     border-radius: 1%;
     background-color: rgba(9, 9, 9, 0.707);
     text-align: center;
 }
 
-.formAsig input{
+.formAsig input {
     width: 40%;
     display: block;
     margin: auto;
     background-color: transparent;
-    border-radius: 30px;
+    border-radius: 8px;
     border-color: #f89b1a;
     text-align: center;
     padding: .5rem;
 }
 
-.formAsig input[type="text"]{
+.formAsig input[type="text"] {
     color: white;
 }
-.datos-aula{
+
+.datos-aula {
     display: flex;
     margin-top: 10px;
     margin-bottom: 1.5rem;
@@ -339,86 +371,93 @@ h2{
 /*datos paralelo*/
 
 .datos-aula input {
-    width: 200px; 
+    width: 200px;
     height: 40px
 }
 
-.datos-aula label{
+.datos-aula label {
     display: column;
     margin: 20px 10px 0 0;
     color: rgba(255, 255, 255, 0.358);
 }
+
 /*datos nivel del curso*/
 
-.curso{ 
-    
-    text-align:left;
+.curso {
+    text-align: left;
     display: flex;
     color: #ffffff;
 }
-.curso label{
+
+.curso label {
     margin: .8rem;
     display: flex;
-    margin-left:3.8rem;
+    margin-left: 3.8rem;
     margin-right: 1.5rem;
 }
 
 
 .cantidad {
     margin-top: .5rem;
-    text-align:left;
+    text-align: left;
     display: flex;
     color: #ffffff;
 }
 
-.cantidad label{
+.cantidad label {
     margin-left: 3.8rem;
     margin-right: 1.5rem;
     margin-top: .5rem;
 }
-.cantidad input{
-    height:30px;
+
+.cantidad input {
+    height: 30px;
     display: flex;
-    margin-left:-10px;
+    margin-left: -10px;
     position: relative;
     width: 5rem;
     border-radius: 10px;
 }
-.cantidad input[type=number]{
+
+.cantidad input[type=number] {
     color: #ffffff;
 }
+
 .turno {
     margin-top: .5rem;
     margin-left: 1.9rem;
-    text-align:left;
+    text-align: left;
     display: column;
     color: #ffffff;
 }
 
-.turno label{
+.turno label {
     margin-right: 1.5rem;
 }
-.paralelo label{
-    margin-right:1.5rem;
+
+.paralelo label {
+    margin-right: 1.5rem;
 }
 
-.paralelo{
+.paralelo {
     margin-top: .5rem;
     margin-left: 1.9rem;
-    text-align:left;
+    text-align: left;
     display: column;
     color: #ffffff;
 }
-.select-cont{
-    display:inline-block;
+
+.select-cont {
+    display: inline-block;
     position: relative;
-    width:60px;
+    width: 60px;
     height: 35px;
     /* arriba, izquierda derecha, abajo */
     margin: .4rem 50px .5rem 0;
-    
+
     justify-content: center;
 }
+
 .select-cont select {
     height: 100%;
     width: 230%;
@@ -427,21 +466,24 @@ h2{
     padding: 0 30px 0 10px;
     color: rgba(255, 255, 255, 0.816);
     border-color: #fbc500ce;
-    border-radius:8px;
+    border-radius: 8px;
     background-color: transparent;
 }
-.select-cont option{
-    background-color:rgba(230, 254, 182, 0.814);
+
+.select-cont option {
+    background-color: rgba(230, 254, 182, 0.814);
     color: #343b4a;
     font-size: .9rem;
 }
-.sel-lab label{ 
-    color:#ebf7f6;
+
+.sel-lab label {
+    color: #ebf7f6;
 }
-.select-icon{
+
+.select-icon {
     position: absolute;
     right: -60px;
-    top:50%;
+    top: 50%;
     transform: translateY(-50%);
     display: flex;
     align-items: center;
@@ -449,16 +491,18 @@ h2{
     pointer-events: none;
 }
 
-.select-icon i{
-    font-size:20px;
+.select-icon i {
+    font-size: 20px;
     color: #fec700e6;
 }
+
 /*DOCENTES LISTA*/
 /*select docente datos*/
-.listDocente i{
+.listDocente i {
     color: #e8bf07;
     font-weight: bold;
 }
+
 #docente {
     margin-top: 1rem;
     margin-bottom: 1rem;
@@ -466,46 +510,68 @@ h2{
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 7px;
-    background-color: #ffffffc5; 
-    color: #163871f7; 
+    background-color: #ffffffc5;
+    color: #163871f7;
     font-size: .9rem;
     font-weight: bold;
     cursor: pointer;
 }
+
 /* Estilos para las opciones del select */
 #docente option {
-    background-color: #ffffffc5; /* Color de fondo */
-    color: #0363f2; /* Color del texto */
-    font-size: 16px; /* Tamaño del texto */
+    background-color: #ffffffc5;
+    /* Color de fondo */
+    color: #0363f2;
+    /* Color del texto */
+    font-size: 16px;
+    /* Tamaño del texto */
 }
 
 /*boton de volver atras 1*/
 .boton1 {
-        margin-top: 5rem;
-        padding: 1rem;
-        font-weight: 400;
-        background-color: #ee5d47;
-        border-radius: 1rem;
-        border:none;
-        outline: none;
-        width: 20%;
-        cursor: pointer;
-        font-size:.9rem;
-        font-weight: bold;
-        color:rgb(255, 255, 255);
-        margin-left: 2rem;
-    
+    margin-top: 5rem;
+    padding: 1rem;
+    font-weight: 400;
+    background-color: #ea1212f8;
+    ;
+    border-radius: 1rem;
+    border: none;
+    outline: none;
+    width: auto;
+    cursor: pointer;
+    font-size: .9rem;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+    margin-left: 1rem;
 }
-.boton1:hover ,.boton2:hover{
-    background-color:#ee5d47;
-    box-shadow: 0 0 8px #fc725d;
+
+.boton1:hover,
+.boton2:hover {
+    background-color: #ff3636c3;
+    box-shadow: 0 0 8px #ff3636c3;
 }
+
 /*botnes formulario 2 margin top*/
-.botones2 button{
-    margin-top:.8rem;
+.botones2 {
+    padding-top: 10px;
+    margin-left: 0.1rem;
+    display: inline-block;
+    margin-right: 10px;
+    text-align: center;
 }
+
+.botones2 button {
+    padding: 0.5rem;
+    text-align: center;
+    height: 3rem;
+}
+
+.botones3 {
+    display: block;
+}
+
 /*FORMULARIO 3*/
-.form3{
+.form3 {
     height: auto;
     width: 500px;
     display: none;
@@ -516,12 +582,12 @@ h2{
 }
 
 /*boton iniciar sesion*/
-.botonI{
+.botonI {
     width: 100%;
     margin: auto;
-    border:solid thin white;
+    border: solid thin white;
     padding: .7rem;
-    border-radius:1rem;
+    border-radius: 1rem;
     border-color: transparent;
     background-color: #7eff14;
     font-weight: 700;
@@ -530,72 +596,83 @@ h2{
     color: #1c1c1c;
     text-decoration-line: none;
 }
-.botonI:hover{
+
+.botonI:hover {
     background-color: #83f327;
     box-shadow: 0 0 10px 0 #98ff43;
 
 }
-.message p{
+
+.message p {
     font-size: 1.5rem;
     padding: 1rem 0;
-    color:white;
+    color: white;
     font-weight: bold;
     margin-bottom: 1.5rem;
 }
 
-.boton2{
+.boton2 {
     margin-top: 5rem;
-    margin-left:-20rem;
+    margin-left: -20rem;
     padding: 1rem;
     font-weight: 400;
-    background-color: #ee5d47;
+    background-color: #ea1212f8;
     border-radius: 1rem;
-    border:none;
+    border: none;
     outline: none;
-    width: 20%;
+    width: auto;
     cursor: pointer;
-    font-size:.9rem;
+    font-size: .9rem;
     font-weight: bold;
-    color:rgb(255, 255, 255);
+    color: rgb(255, 255, 255);
 }
+
 /*salir de la pagina de registro*/
-.volver{
+.volver {
     display: block;
     justify-content: center;
-    background-color:rgb(183, 22, 8);
+    background-color: #1f1f1fd3;
     padding: 0.5rem;
     margin: 0.5rem;
     border-radius: 8px;
 }
-.volver1{
+
+.volver:hover {
+    background-color: #423e3eac;
+
+}
+
+.volver1 {
     text-align: center;
     text-decoration: none;
     display: block;
-    color:rgb(255, 255, 255);
+    color: rgb(255, 255, 255);
     font-size: 1rem;
-    font-family: "Trispace", sans-serif;
     font-optical-sizing: auto;
     font-weight: 700;
     font-style: bold;
 }
 
 @media screen and (max-width: 768px) {
-    *{
+    * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
-        font-family:'Roboto yoto',sans-serif;
-        font-size:0.8rem ;
+        font-family: 'Roboto yoto', sans-serif;
+        font-size: 0.8rem;
         font-weight: normal;
     }
-    .container-form{
+
+    .container-form {
         margin-left: 0rem;
     }
-    .pasos .circle{
-        height:45px;
-        width: 45px;
+
+    .pasos .circle {
+        height: 50px;
+        width: 50px;
     }
-    .formAsig{
+
+    .formAsig {
         height: auto;
         width: 350px;
         display: none;
@@ -604,27 +681,30 @@ h2{
         background-color: rgba(9, 9, 9, 0.707);
         text-align: center;
     }
-    .datos-aula{
+
+    .datos-aula {
         display: block;
         margin-top: 10px;
         justify-content: left;
     }
-    
-    .maAs{
+
+    .maAs {
         margin-top: 0.9rem;
     }
-    h2{
+
+    h2 {
         font-size: 0.9rem;
-        font-weight:bold;
+        font-weight: bold;
     }
-    .form3{
+
+    .form3 {
         width: auto;
     }
 
-    .boton2{
+    .boton2 {
         margin-top: 5rem;
-        margin-left:-15rem;
+        margin-left: -15rem;
         padding: 1rem;
     }
-    
+
 }

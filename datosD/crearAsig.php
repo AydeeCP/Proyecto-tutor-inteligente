@@ -4,7 +4,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Verificamos si se reciben los datos esperados
     if(isset($_POST['docente']) && isset($_POST['id_docente']) && isset($_POST['cod_materia']) && isset($_POST['materia']) && isset($_POST['paralelo']) && isset($_POST['cantidad']) && isset($_POST['turno'])) {
 
-
         // Obtenemos los datos del formulario
         $docente = $_POST['docente'];
         $id_docente = $_POST['id_docente'];
@@ -14,7 +13,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $paralelo = $_POST['paralelo'];
         $cantidad = $_POST['cantidad'];
         $turno = $_POST['turno'];
-
     
         include('../conexion/bd.php'); // Incluir el archivo de conexión
 

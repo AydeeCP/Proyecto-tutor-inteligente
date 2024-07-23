@@ -13,7 +13,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "ERROR: no se ha proporcionado el ID del docente";
         exit();
     }
-
     $idDocente = $_POST['id_docente'];
     $materia = $_POST['materia'];
     $curso = $_POST['curso'];
@@ -21,7 +20,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $cantidad = $_POST['cantidad'];
     $turno = $_POST['turno'];
     $cod_materia = $_POST['cod_materia'];
-
     $sql ="UPDATE asignatura SET nombre_materia=?, curso=?, paralelo=?, 
     cantAlumn=?, turno=?, codigo_asignatura=? WHERE Id= ?";
     $statement = mysqli_prepare($conexion, $sql);

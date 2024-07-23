@@ -1,0 +1,41 @@
+/* Estilo para los tooltips */
+.introjs-tooltip {
+    background-color: #333; /* Fondo oscuro para el tooltip */
+    color: black; /* Texto blanco */
+    border-radius: 5px; /* Bordes redondeados */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); /* Sombra sutil */
+    padding: 10px; /* Espaciado interno */
+    font-size: 14px; /* Tamaño de fuente */
+}
+.introjs-tooltip.custom-tooltip-class {
+    background-color: #072335;
+    color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-size: 20px;
+}
+
+#startTour {
+    display: inline-block;
+    padding: 10px 20px;
+    color: rgb(20, 30, 84); /* Color del texto */
+    font-size: 16px;
+    cursor: pointer;
+    text-decoration: none;
+    font-weight: bold;
+}
+#startTour:hover{
+    background-color: #07233538;
+    color:black;
+}
+
+@media screen and (max-width: 1200px) {
+    #startTour {
+        border-radius: 5px; /* Bordes redondeados */
+        font-size: 10px;
+        cursor: pointer;
+        text-decoration: none;
+    }
+    .introjs-tooltip.custom-tooltip-class {
+        font-size: 15px;
+    }
+}

@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Actividad de Aymara</title>
   <link rel="stylesheet" href="../css/abecedario.css" />
   <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+  <title>Ordenar las letras</title>
 </head>
 
 <body>
   <div id="cuadro" class="cuadro">
-    <h1>Ordena la palabra en Aymara</h1>
+    <h1>Forma la palabra en Aymara</h1>
     <div id="wordBox">
       <p id="spanishWord" class="castellano">PALABRA EN CASTELLANO</p>
     </div>
@@ -43,7 +43,6 @@
     <img id="feedbackImage" src="" alt="Feedback Image" width="150px" />
     <p id="feedbackMessage"></p>
   </div>
-
   <div class="mensajeF" id="mensajeF">
     <div class="insignia-container"></div>
     <h1>JUEGO TERMINADO</h1>
@@ -58,18 +57,13 @@
       Volver a Jugar
     </button>
     <a class="sali" id="Enlace" href="../cursos/tercero.php"
-      onclick="almacenarActividad('Gramatica','Abecedario','Ordena la palabra',palabrasCorrectas,vecesJugadas);">Salir</a>
+      onclick="almacenarActividad('Gramática','Abecedario','Ordena la palabra',palabrasCorrectas,vecesJugadas);">Salir</a>
   </div>
 
   <script src="../js/ordenarL.js"></script>
   <script>
-    function almacenarActividad(
-      opcionNavbar,
-      temaPracticado,
-      juegoSeleccionado,
-      palabrasCorrectas,
-      vecesJugadas
-    ) {
+    function almacenarActividad(opcionNavbar,temaPracticado,juegoSeleccionado,palabrasCorrectas,vecesJugadas) {
+      var medalla = localStorage.getItem("insignia");
       var xhr = new XMLHttpRequest();
       xhr.open("POST", "../datosE/almacenar_actividad.php", true);
       xhr.setRequestHeader(
@@ -80,11 +74,9 @@
         if (xhr.readyState == 4 && xhr.status == 200) {
           console.log("palabras acertadas : ", palabrasCorrectas);
           console.log("actividad almacenada veces jugadas:", vecesJugadas);
-
           console.log("actividad almacenada", xhr.responseText);
         }
       };
-
       var params =
         "opcion_navbar=" +
         encodeURIComponent(opcionNavbar) +
@@ -95,7 +87,8 @@
         "&palabrasAcertadas=" +
         encodeURIComponent(palabrasCorrectas) +
         "&vecesJugadas=" +
-        encodeURIComponent(vecesJugadas);
+        encodeURIComponent(vecesJugadas)+
+        "&medalla="+encodeURIComponent(medalla);
       xhr.send(params);
     }
   </script>

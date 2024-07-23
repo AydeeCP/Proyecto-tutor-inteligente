@@ -1,4 +1,4 @@
-/*2DO JUEGO 3ERO DE PRIMARIA*/
+/*JUEGO DE OBJETO 1*/
 
 var imagenes = ["imagen1", "imagen2","imagen3","imagen4","imagen5","imagen6","imagen7","imagen8","imagen9","imagen10"];
 
@@ -17,12 +17,12 @@ var totalPalabras = 10;
 
 
 function reproducirAudio(sonido) {
-    var audio = new Audio("../audios/" + sonido + ".mp3");
+    var audio = new Audio("../audios/" + sonido + ".wav");
     audio.play();
     setTimeout(function () {
     audio.pause();
     audio.currentTime = 0;
-    }, 3000);
+    }, 5000);
 }
 
 // Evento click del botón de ayuda
@@ -30,12 +30,35 @@ document.getElementById("btnAyuda").addEventListener("click", function () {
   var imagenActual = imagenes[indiceImagenActual];
   switch (imagenActual) {
     case "imagen1":
-      reproducirAudio("lluvia");
+      reproducirAudio("lapiz");
       break;
     case "imagen2":
-      reproducirAudio("trueno");
+      reproducirAudio("tajador");
       break;
-    // Añade más casos para otras imágenes si es necesario
+    case "imagen3":
+      reproducirAudio("silla");
+      break;
+    case "imagen4":
+      reproducirAudio("goma");
+      break;
+    case "imagen5":
+      reproducirAudio("mochila");
+      break;
+    case "imagen6":
+      reproducirAudio("hojs");
+      break;
+    case "imagen7":
+      reproducirAudio("regla");
+      break;
+    case "imagen8":
+      reproducirAudio("mesa");
+      break;
+    case "imagen9":
+      reproducirAudio("libro");
+      break;
+    case "imagen10":
+      reproducirAudio("calculadora");
+      break;
     default:
       break;
   }
@@ -54,30 +77,29 @@ function verificarRespuesta() {
           expresiones = [{ palabra: "qillqaña", regex: /^qillqaña$/i }];
       } else if (imagenActual.id === "imagen2") {
       expresiones = [
-          { palabra: "arichaña", regex: /^arichaña$/i }
+          { palabra: "arichaña", regex: /^arichaña$/i }//tajador
+         // { palabra: "arichaña", regex: /^(arichaña|borrador)$/i },
         // Añadir más palabras y expresiones regulares según la imagen 2
           ];
       } else if (imagenActual.id === 'imagen3') {
         expresiones = [
             { palabra: 'qunuña', regex: /^qunuña$/i }
-            // Añadir más palabras y expresiones regulares según la imagen 2
         ];
     }else if (imagenActual.id === 'imagen4') {
         expresiones = [
-            { palabra: 'phiskhuña', regex: /^phiskhuña$/i }
-            // Añadir más palabras y expresiones regulares según la imagen 2
+            { palabra: 'phiskhuña', regex: /^phiskhuña$/i }//goma
         ];
     }else if (imagenActual.id === 'imagen5') {
         expresiones = [
-            { palabra: "q'ipiña", regex: /^q'ipiña$/i }
+            { palabra: "q'ipiña", regex: /^q'ipiña$/i }//mochilla
         ];
     }else if (imagenActual.id === 'imagen6') {
         expresiones = [
-            { palabra: 'laphi', regex: /^laphi$/i }
+            { palabra: 'laphi', regex: /^laphi$/i } //hoja
         ];
     }else if(imagenActual.id === 'imagen7'){
         expresiones=[
-            {palabra: "ch'ikhachaña", regex:/^ch'ikhachaña$/i }
+            {palabra: "siqichaña", regex:/^siqichaña$/i }//regla
         ];
     }else if(imagenActual.id === 'imagen8'){
         expresiones=[
@@ -89,7 +111,7 @@ function verificarRespuesta() {
         ];
     }else if(imagenActual.id === 'imagen10'){
       expresiones=[
-        {palabra: 'jakhuña', regex:/^jakhuña$/}
+        {palabra: 'jakhuña', regex:/^jakhuña$/}//calculadora
       ];
     } else {
           imagenActual.id === "gifFinal";
@@ -105,9 +127,9 @@ function verificarRespuesta() {
     }
     if (esRespuestaCorrecta) {
         imagenSrc = "../image/victory.gif";
-        mensaje = "¡Correcto!";
-        /*REPRODUCIR AUDIO
-        reproducirAudio('lluvia'); */
+        mensaje = "¡Waliki!";
+        /*REPRODUCIR AUDIO*/
+        reproducirAudio('correcto'); 
         correctas++;
         document.getElementById("correctas").innerHTML = correctas;
         document.getElementById("btnSiguiente").disabled = false;
@@ -121,8 +143,8 @@ function verificarRespuesta() {
         //siguienteImagen();
     }else {
         imagenSrc = "../image/triste.gif";
-        mensaje = "¡Incorrecto!";
-        /*REPRODUCIR AUDIO reproducirAudio('lluvia');*/
+        mensaje = "¡Janiw walikiti!";
+        /*REPRODUCIR AUDIO */reproducirAudio("incorrecto");
         incorrectas++;
         document.getElementById("equivocadas").innerHTML = incorrectas;
         document.getElementById("btnSiguiente").disabled = false;
@@ -178,6 +200,7 @@ function siguienteImagen() {
     document.getElementById("feedbackImage").style.display = "block";
   }
 }
+
 function volverEmpezar() {
     indiceImagenActual = 0;
     palabrasAcertadas = 0;
@@ -218,6 +241,7 @@ function volverEmpezar() {
     localStorage.setItem("vecesJugadas", vecesJugadas);
       
 }
+
 function mostrarMensajeFeedback(mensaje, imagenSrc, color, duracion) {
   var mensajeFeedback = document.getElementById("mensajeFeedback");
   var feedbackImage = document.getElementById("feedbackImage");
@@ -232,9 +256,55 @@ function mostrarMensajeFeedback(mensaje, imagenSrc, color, duracion) {
         mensajeFeedback.style.display = "none";
         containerDiv.style.display = "block";
       }, duracion);
+}
+
+function actualizarInsignia() {
+  let insignia = "ninguna";
+  var med = document.getElementById("medalla");
+  // Determinar qué insignia mostrar
+  if (correctas === totalPalabras) {
+    insignia = "oro";
+    console.log("Oro: " + correctas);
+    med.textContent = insignia;
+  } else if (correctas >= totalPalabras * 0.8) {
+    insignia = "plata";
+    console.log("plata: " + correctas);
+    med.textContent = insignia;
+  } else if (correctas >= totalPalabras * 0.5) {
+    insignia = "bronce";
+    console.log("bronce: " + correctas);
+    med.textContent = insignia;
   }
 
+  // Almacenar la información de la insignia en localStorage
+  localStorage.setItem("insignia", insignia);
+  console.log("insignia: " + insignia);
+
+  // Obtener el contenedor de la insignia
+  const insigniaContainer = document.querySelector(".insignia-container");
+
+  // Limpiar el contenedor
+  insigniaContainer.innerHTML = "";
+
+  // Crear la imagen de la insignia y añadirla al contenedor
+  if (insignia != "ninguna") {
+    const insigniaImg = document.createElement("img");
+    insigniaImg.src = `../image/insignia_${insignia}.png`;
+    insigniaImg.alt = `${insignia}`;
+    insigniaImg.classList.add("insignia");
+    insigniaContainer.appendChild(insigniaImg);
+  }
+}
+
+window.onload = function () {
+  const estadoInsignia = localStorage.getItem("insignia");
+  if (estadoInsignia) {
+    actualizarInsignia(estadoInsignia);
+  }
+};
+
   function almacenarActividad(opcionNavbar, temaPracticado, juegoSeleccionado, palabrasAcertadas,vecesJugadas) {
+    var medalla = localStorage.getItem("insignia");
 
     var xhr = new XMLHttpRequest();
     xhr.open('POST', '../datosE/almacenar_actividad.php', true);
@@ -249,10 +319,11 @@ function mostrarMensajeFeedback(mensaje, imagenSrc, color, duracion) {
         }
     };
     
-    var params ='opcion_navbar=' + encodeURIComponent(opcionNavbar) + 
-                '&tema_practicado=' + encodeURIComponent(temaPracticado) + 
-                '&juego_seleccionado=' + encodeURIComponent(juegoSeleccionado)+
-                '&palabrasAcertadas=' + encodeURIComponent(palabrasAcertadas) +
-                '&vecesJugadas=' + encodeURIComponent(vecesJugadas);
+    var params ="opcion_navbar=" + encodeURIComponent(opcionNavbar) + 
+                "&tema_practicado=" + encodeURIComponent(temaPracticado) + 
+                "&juego_seleccionado=" + encodeURIComponent(juegoSeleccionado)+
+                "&palabrasAcertadas=" + encodeURIComponent(palabrasAcertadas) +
+                "&vecesJugadas=" + encodeURIComponent(vecesJugadas)+
+                "&medalla="+encodeURIComponent(medalla);
     xhr.send(params);
 }

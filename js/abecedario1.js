@@ -17,28 +17,51 @@ var totalPalabras = 10;
 
 
 function reproducirAudio(sonido) {
-    var audio = new Audio("../audios/" + sonido + ".mp3");
+    var audio = new Audio("../audios/" + sonido + ".wav");
     audio.play();
     setTimeout(function () {
     audio.pause();
     audio.currentTime = 0;
-    }, 3000);
+    }, 5000);
 }
-
 // Evento click del botón de ayuda
 document.getElementById("btnAyuda").addEventListener("click", function () {
-var imagenActual = imagenes[indiceImagenActual];
-switch (imagenActual) {
-    case "imagen1":
-        reproducirAudio("lluvia");
+    var imagenActual = imagenes[indiceImagenActual];
+    switch (imagenActual) {
+      case "imagen1":
+        reproducirAudio("condor");
         break;
-    case "imagen2":
-        reproducirAudio("trueno");
+      case "imagen2":
+        reproducirAudio("ojo");
         break;
-    default:
+      case "imagen3":
+        reproducirAudio("mariposa");
         break;
-  }
-});
+      case "imagen4":
+        reproducirAudio("llama");
+        break;
+      case "imagen5":
+        reproducirAudio("quinua");
+        break;
+      case "imagen6":
+        reproducirAudio("cocina b");
+        break;
+      case "imagen7":
+        reproducirAudio("zorro");
+        break;
+      case "imagen8":
+        reproducirAudio("lavar");
+        break;
+      case "imagen9":
+        reproducirAudio("conejo");
+        break;
+      case "imagen10":
+        reproducirAudio("gato");
+        break;
+      default:
+        break;
+    }
+  });
 
 function verificarRespuesta() {
     var imagenActual = document.getElementById(imagenes[indiceImagenActual]);
@@ -50,50 +73,48 @@ function verificarRespuesta() {
     // Expresiones regulares para las respuestas esperadas según la imagen actual
     var expresiones = [];
     if (imagenActual.id === "imagen1") {
-        expresiones = [{ palabra: "mallku", regex: /^mallku$/i }];
+        expresiones = [{ palabra: "mallku", regex: /^mallku$/i }];//condor
     } else if (imagenActual.id === "imagen2") {
         expresiones = [
-        { palabra: "nayra", regex: /^nayra$/i }
+        { palabra: "nayra", regex: /^nayra$/i }//ojo
         // Añadir más palabras y expresiones regulares según la imagen 2
         ];
     } else if (imagenActual.id === 'imagen3') {
         expresiones = [
-            { palabra: 'pilpintu', regex: /^pilpintu$/i }
-            // Añadir más palabras y expresiones regulares según la imagen 2
+            { palabra: 'pilpintu', regex: /^pilpintu$/i }//mariposa
         ];
     }else if (imagenActual.id === 'imagen4') {
         expresiones = [
-            { palabra: 'qarwa', regex: /^qarwa$/i }
-            // Añadir más palabras y expresiones regulares según la imagen 2
+            { palabra: 'qarwa', regex: /^qarwa$/i }//llama
         ];
     }else if (imagenActual.id === 'imagen5') {
         expresiones = [
-            { palabra: "p'isqi", regex: /^p\'isqi$/i }
+            { palabra: "p'isqi", regex: /^p\'isqi$/i }//comida de quinua
         ];
     }else if (imagenActual.id === 'imagen6') {
-        expresiones = [  {palabra: 'qhiri', regex:/^qhiri$/i }
+        expresiones = [  {palabra: 'qhiri', regex:/^qhiri$/i }//cocina de barro
         ];
     }else if(imagenActual.id === 'imagen7'){
         expresiones=[
-            {palabra: 'tiwula', regex:/^tiwula$/i }
+            {palabra: 'tiwula', regex:/^tiwula$/i }//zorro
         ];
     }else if(imagenActual.id === 'imagen8'){
         expresiones=[
-        {palabra: "t'axsuña", regex:/^t\'axsuña$/i }
+        {palabra: "t'axsuña", regex:/^t\'axsuña$/i }//lavar
         ];
     }else if(imagenActual.id === 'imagen9'){
         expresiones=[
-            {palabra: "wank'u", regex:/^wank\'u$/i }
+            {palabra: "wank'u", regex:/^wank\'u$/i }//conejo
         ];
     }else if(imagenActual.id === 'imagen10'){
-      expresiones=[
-        {palabra: 'phisi', regex:/^phisi$/}
-      ];
+        expresiones=[
+            {palabra: 'phisi', regex:/^phisi$/}//gato
+        ];
     } else {
-          imagenActual.id === "gifFinal";
-          vecesJugadas++;
-          console.log("veces jugadas: " + vecesJugadas);
-      }
+        imagenActual.id === "gifFinal";
+        vecesJugadas++;
+        console.log("veces jugadas: " + vecesJugadas);
+    }
   // Verificar la respuesta ingresada con cada expresión regular
     for (var i = 0; i < expresiones.length; i++) {
         if (expresiones[i].regex.test(respuestaInput)) {
@@ -103,9 +124,9 @@ function verificarRespuesta() {
     }
     if (esRespuestaCorrecta) {
         imagenSrc = "../image/victory.gif";
-        mensaje = "¡Correcto!";
-        /*REPRODUCIR AUDIO
-        reproducirAudio('lluvia'); */
+        mensaje = "¡Waliki!";
+        /*REPRODUCIR AUDIO*/
+        reproducirAudio("correcto"); 
         correctas++;
         document.getElementById("correctas").innerHTML = correctas;
         document.getElementById("btnSiguiente").disabled = false;
@@ -119,8 +140,9 @@ function verificarRespuesta() {
         //siguienteImagen();
     }else {
         imagenSrc = "../image/triste.gif";
-        mensaje = "¡Incorrecto!";
-        /*REPRODUCIR AUDIO reproducirAudio('lluvia');*/
+        mensaje = "¡Janiwa walikiti!";
+        /*REPRODUCIR AUDIO */
+        reproducirAudio("incorrecto");
         incorrectas++;
         document.getElementById("equivocadas").innerHTML = incorrectas;
         document.getElementById("btnSiguiente").disabled = false;
@@ -131,13 +153,13 @@ function verificarRespuesta() {
 }
 
 function siguienteImagen() {
-  var cantidad = document.getElementById("cantidad");
+    var cantidad = document.getElementById("cantidad");
 
-  cantidad.textContent = indiceImagenActual + 1 + 1 + " / " + imagenes.length;
+    cantidad.textContent = indiceImagenActual + 1 + 1 + " / " + imagenes.length;
 
-  indiceImagenActual++;
+    indiceImagenActual++;
 
-  if (indiceImagenActual === imagenes.length) {
+    if (indiceImagenActual === imagenes.length) {
     document.getElementById("resultado").style.display = "none";
 
     containerDiv.style.display = "none";
@@ -193,8 +215,6 @@ function mostrarMensajeFeedback(mensaje, imagenSrc, color, duracion) {
       }, duracion);
 }
 
-
-
 function volverEmpezar() {
     indiceImagenActual = 0;
     palabrasAcertadas = 0;
@@ -233,11 +253,10 @@ function volverEmpezar() {
     document.getElementById("vecesJugadasInput").value = vecesJugadas;
 
     localStorage.setItem("vecesJugadas", vecesJugadas);
-      
 }
 
-
 function almacenarActividad(opcionNavbar, temaPracticado, juegoSeleccionado, palabrasAcertadas,vecesJugadas) {
+    var medalla = localStorage.getItem("insignia");
 
     var xhr = new XMLHttpRequest();
     xhr.open('POST', '../datosE/almacenar_actividad.php', true);
@@ -249,11 +268,11 @@ function almacenarActividad(opcionNavbar, temaPracticado, juegoSeleccionado, pal
             console.log('actividad almacenada', xhr.responseText);
         }
     };
-    
     var params ='opcion_navbar=' + encodeURIComponent(opcionNavbar) + 
                 '&tema_practicado=' + encodeURIComponent(temaPracticado) + 
                 '&juego_seleccionado=' + encodeURIComponent(juegoSeleccionado)+
                 '&palabrasAcertadas=' + encodeURIComponent(palabrasAcertadas) +
-                '&vecesJugadas=' + encodeURIComponent(vecesJugadas);
+                '&vecesJugadas=' + encodeURIComponent(vecesJugadas)+
+                '&medalla='+encodeURIComponent(medalla);
     xhr.send(params);
 }

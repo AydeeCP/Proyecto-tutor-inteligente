@@ -1,3 +1,6 @@
+body{
+    background-color: #1919193b;
+}
 .titulo{
     display:column;
     align-items: center;
@@ -6,12 +9,31 @@
     margin-top: 3rem;
     margin-bottom: 1rem;
 }
-
 h1{
+    font-weight: bold;
     text-align: center;
     margin-top:2rem;
+    margin-bottom: 0.4rem;
 }
-
+.salir {
+    margin-top: 0;
+    margin-right: 1rem;
+    text-align: right; /* Alinea el texto a la derecha */
+}
+.salir a{
+    font-family: "Rubik", sans-serif;
+    text-decoration: none;
+    color:rgb(91, 84, 84);
+    font-size: 1rem;
+    font-weight:bold;
+}
+.salir a:hover, .salir i:hover{
+    color:rgb(247, 232, 232);
+}
+.salir i{
+    color:rgb(91, 84, 84);
+    margin-right: 5px; 
+}
 
 .button {
     font-weight: bold;
@@ -53,4 +75,10 @@ h1{
 
 #table tbody tr:nth-child(odd) {
     background-color: #f2f2f2; /* Color de fondo de las filas impares */
+}
+@media screen and (max-width: 600px) { 
+    h1{
+        font-size:1.7rem;
+        font-weight: bold;
+    }
 }

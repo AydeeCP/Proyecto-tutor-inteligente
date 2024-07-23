@@ -5,18 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/grama3.css" />
-
-
     <title>Tercero de primaria</title>
 </head>
-
 <body>
-
     <div class="contenido">
+        <a href="#" id="startContenidoTour">Iniciar Tour del Contenido</a>
         <!--vocales-->
-        <div class="vocales" id="tema-vocales">
+        <div class="vocales" onmouseover="playSound('../audios/vocal.wav')" onmouseout="stopSound()" id="tema-vocales">
             <img src="../image/vocales.jpg" alt="image" width="250">
-            <a href="#">VOCALES</a>
+            <a href="#">SALLANAKA : Vocales</a>
             <ul>
                 <li><a href="../juegos3ro/vocal.html">* Adivina la palabra</a></li>
                 <li><a href="../juegos3ro/vocal2.html">* Adivina la imagen</a></li>
@@ -27,12 +24,12 @@
             <a href="#">ABECEDARIO</a>
             <div class="game-abc">
                 <ul>
-                    <li><a href="../juegos3ro/abecedario.html">* Forma la palabra</a></li>
+                    <li><a href="../juegos3ro/abecedario.html">* Ordena la palabra</a></li>
                     <li><a href="../juegos3ro/abecedario1.html">* Adivina la imagen</a></li>
                 </ul>
             </div>
         </div>
-        <div class="color" onmouseover="playSound('../audios/Colores.mp3')" onmouseout="stopSound()">
+        <div class="color" onmouseover="playSound('../audios/colores.wav')" onmouseout="stopSound()">
             <img src="../image/colores.jpg" alt="image" width="250">
             <a href="#">SAMINAKA : Colores</a>
             <div class="game-abc">
@@ -42,7 +39,7 @@
                 </ul>
             </div>
         </div>
-        <div class="familia" onmouseover="playSound('../audios/Familia.mp3')" onmouseout="stopSound()">
+        <div class="familia" onmouseover="playSound('../audios/familia.wav')" onmouseout="stopSound()">
             <img src="../image/familia.jpg" alt="image" width="250">
             <a href="#">WILA MASI : Familia</a>
             <div class="game-familia">
@@ -52,7 +49,7 @@
                 </ul>
             </div>
         </div>
-        <div class="saludo" onmouseover="playSound('../audios/Saludos.mp3')" onmouseout="stopSound()">
+        <div class="saludo" onmouseover="playSound('../audios/saludos.wav')" onmouseout="stopSound()">
             <img src="../image/saludo.jpg" alt="image" width="250">
             <a href="#">ARUM TANAKA : Saludos</a>
             <div class="game-saludo">
@@ -62,7 +59,7 @@
                 </ul>
             </div>
         </div>
-        <div class="pronombres" onmouseover="playSound('../audios/Pronombres.mp3')" onmouseout="stopSound()">
+        <div class="pronombres" onmouseover="playSound('../audios/pronombres.wav')" onmouseout="stopSound()">
             <img src="../image/pr.jpg" alt="image" width="250">
             <a href="#">SUTILANTINAKA <br> Pronombres personales</a>
             <div class="game-pronombres">
@@ -74,18 +71,17 @@
         </div>
         <div class="objetos" onmouseover="playSound('../audios/Objetos.mp3')" onmouseout="stopSound()">
             <img src="../image/objetos.jpg" alt="image" width="250">
-            <a href="#">Objetos</a>
+            <a href="#">YÄNAKA : Objetos</a>
             <div class="game-objetos">
                 <ul>
-                    <li><a href="#">* ¿Qué objeto ves?</a></li>
-                    <li><a href="#">* Completa la oracion</a></li>
+                    <li><a href="../juegos3ro/objetos.html">* ¿Qué objeto ves?</a></li>
+                    <li><a href="../juegos3ro/objetos2.html">* Adivina la palabra</a></li>
                 </ul>
             </div>
         </div>
     </div>
 
     <script src="../js/tercero.js"></script>
-
 </body>
 
 </html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.5">
+    <title>Logros Obtenidos</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/logros.css">
+    <link rel="stylesheet" href="../css/introJs.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="../js/logro.js"></script>
+    <!-- Incluir Intro.js desde un CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intro.js/5.1.0/introjs.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intro.js/5.1.0/intro.min.js"></script>
+</head>
+
+<body>
+    <div class="container mt-4">
+        <div class="inform">
+            <a href="#" id="startTour"><i class='bx bxs-info-circle bx-sm bx-flashing-hover'></i> Iniciar Tour</a>
+        </div>
+        <h2>Listado de logros</h2>
+        <div class="row">
+            <div class="col-md-3" data-intro="Selecciona la vista general o individual para los logros." data-step="1">
+                <label for="vistaSelect">Selecciona vista:</label>
+                <select id="vistaSelect" class="form-control mb-3" onchange="cambiarVista()">
+                    <option value="general">General</option>
+                    <option value="individual">Individual</option>
+                </select>
+            </div>
+            <div class="col-md-3" data-intro="Selecciona el tema para filtrar los logros." data-step="2">
+                <label for="temaSelect">Selecciona tema:</label>
+                <select id="temaSelect" class="form-control mb-3" onchange="filtrarLogros()">
+                    <option value="todos">Todos</option>
+                    <option value="Vocales">Vocales</option>
+                    <option value="Abecedario">Abecedario</option>
+                    <option value="Colores">Colores</option>
+                    <option value="Familia">Familia</option>
+                    <option value="Saludos">Saludos</option>
+                    <option value="Pronombres personales">Pronombres personales</option>
+                    <option value="Objetos">Objetos</option>
+                </select>
+            </div>
+            <div class="col-md-3" data-intro="Selecciona el equivalente de medalla para filtrar los logros." data-step="3">
+                <label for="equivalenteSelect">Selecciona equivalente de medalla:</label>
+                <select id="equivalenteSelect" class="form-control mb-3" onchange="filtrarLogros()">
+                    <option value="todos">Todos</option>
+                    <option value="A">A</option>
+                    <option value="O">O</option>
+                    <option value="E">E</option>
+                </select>
+            </div>
+            <div class="col-md-3" data-intro="Selecciona un estudiante para filtrar los logros individuales." data-step="4">
+                <label for="estudianteSelect">Selecciona estudiante:</label>
+                <select id="estudianteSelect" class="form-control mb-3" onchange="filtrarLogros()" disabled>
+                    <option value="todos">Todos</option>
+                </select>
+            </div>
+        </div>
+        <div class="text-center mt-4">
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#logrosModal" data-intro="Haz clic aquí para ver el gráfico de logros." data-step="5">
+                Ver Gráfico de Logros
+            </button>
+        </div>
+    </div>
+    <div id="mensajeErrorMedallas"></div>
+    <div id="medallasTableContainer"></div>
+    <div class="salir">
+        <a href="../home/homeD.php"><i class='bx bxs-left-arrow-square bx-md bx-fade-left-hover'></i>Volver atrás</a></li>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="logrosModal" tabindex="-1" role="dialog" aria-labelledby="logrosModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="logrosModalLabel">Gráfico de Logros</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <canvas id="logrosChart"></canvas>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function startIntro() {
+            introJs().setOptions({
+                steps: [
+                    {
+                        element: '[data-step="1"]',
+                        intro: "Selecciona la vista general o individual para los logros.",
+                        position: 'bottom'
+                    },
+                    {
+                        element: '[data-step="2"]',
+                        intro: "Selecciona el tema para filtrar los logros.",
+                        position: 'bottom'
+                    },
+                    {
+                        element: '[data-step="3"]',
+                        intro: "Selecciona el equivalente de medalla para filtrar los logros.",
+                        position: 'bottom'
+                    },
+                    {
+                        element: '[data-step="4"]',
+                        intro: "Selecciona un estudiante para filtrar los logros individuales.",
+                        position: 'bottom'
+                    },
+                    {
+                        element: '[data-step="5"]',
+                        intro: "Haz clic aquí para ver el gráfico de logros.",
+                        position: 'top'
+                    }
+                ],
+                tooltipClass: 'customTooltip'
+            }).start();
+        }
+
+        document.getElementById('startTour').addEventListener('click', function(event) {
+            event.preventDefault(); // Previene el comportamiento por defecto del enlace
+            startIntro();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
+body{
+    background-color: rgba(123, 121, 121, 0.402);
+    font-family: "Rubik", sans-serif;
+    font-optical-sizing: auto;
+    height: 100%;
+    margin: 0 auto;
+    display: column;
+    justify-content: center; 
+    align-items: center; 
+}
+.principal {
+    margin: 0 auto;
+    background-color: rgba(177, 179, 177, 0.671);
+    width:700px;
+    margin-top: 2rem;
+    margin-bottom: 0.5rem;
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    border-radius: 5px;
+}
+.principal h1{
+    text-align: center;
+    margin-bottom:0;
+    color: rgb(30,53,99);
+}
+.contenedorP{
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.contenedorP > div{
+    margin: 20px;
+    border-radius: 5px;
+    text-align: center;
+}
+.contenedorP img{
+    padding: 1rem;
+}
+.datos{
+    background-color: rgba(46,15,87,0.776);
+    width: auto;
+    cursor:pointer;
+}
+.datos:hover{
+    background-color:rgba(84,64,109,0.925);
+    box-shadow: 0 0 10px rgba(57,57,59,0.922);
+}
+.enlace{
+    padding-bottom: 1rem;
+}
+.contenedorP a{
+    font-weight:500;
+    font-size: 1.5rem;
+    color:white;
+    text-decoration:none;
+}
+.padresL{
+    background-color: rgb(78, 135, 139);
+    width: auto;
+}
+.padresL:hover{
+    background-color: rgba(35, 109, 114, 0.76);
+    box-shadow: 0 0 10px rgba(57, 57, 59, 0.922);  
+}
+.estudianteL{
+    background-color: rgba(5, 19, 38, 0.893);
+    width: auto;
+}
+.estudianteL:hover{
+    background-color: rgba(24, 59, 108, 0.893);
+    box-shadow: 0 0 10px  rgba(57, 57, 59, 0.922);  
+
+}
+.seguimiento{
+    background-color: #274024;
+    width: auto;
+}
+.seguimiento:hover{
+    background-color: #3b5c38;
+    box-shadow: 0 0 10px rgba(5, 19, 38, 0.893);
+}
+.salir {
+    margin-top: 0;
+    margin-right: 1rem;
+    text-align: right; /* Alinea el texto a la derecha */
+}
+.salir a{
+    font-family: "Rubik", sans-serif;
+    text-decoration: none;
+    color:#575050;
+    font-size: 1rem;
+    font-weight:bold;
+}
+.salir i{
+    color:rgb(87, 86, 86);
+}
+/* Estilos para el icono */
+.salir i {
+    margin-right: 5px; 
+}
+@media screen and (max-width: 600px) { 
+    .principal{
+        width:300px;
+    }
+    h1{
+        font-size:1.5rem;
+    }
+    img{
+        width: 200px;
+        height: 180px;
+    }
+}

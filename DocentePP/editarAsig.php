@@ -42,17 +42,14 @@ if(isset($_GET['Id'])) {
             </select><br><br>
             <label for="cantidad">Cantidad de alumnos</label>
             <input type="number" name="cantidad" id="cantidad" min="1" step="0"><br><br>
-
             <label for="turno">Turno: </label>
             <select name="turno" id="turno" class="let">
                 <option value="Mañana">Mañana</option>
                 <option value="Tarde">Tarde</option>
                 <option value="Noche">Noche</option>
             </select><br><br>
-
             <label for="codigo">Codigo asignatura: </label>
             <input type="text" placeholder="codigo materia" name="cod_materia" id="cod_materia" value=""><br><br>
-
             <br>
             <div class="opc">
                 <input type="hidden" name="id_docente" value="<?php echo $idDocente; ?>">
@@ -60,7 +57,6 @@ if(isset($_GET['Id'])) {
                 <a href="../DocentePP/verDatos.php">Cancelar</a>
             </div>
         </form>
-
     </div>
     <script>
         // Cuando el documento esté listo

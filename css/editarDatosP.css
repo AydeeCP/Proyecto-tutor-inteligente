@@ -1,0 +1,140 @@
+body{
+    background-color: #19191953;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+h1{
+    text-align:center;
+    color: rgb(255, 255, 255);
+}
+/*Edicion de datos padre*/
+.editP, .editEst, .editCur{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    margin: 0 auto;
+    background-color: rgba(7, 41, 77, 0.804);
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 10px rgba(57, 46, 46, 0.922); 
+    padding-bottom: 1rem;
+    padding-left: 4rem;
+    padding-right: 1rem;
+    width: 30rem;
+}
+.forMEP, .formEditarEstudiante, .formEditarCurso{
+    flex-direction: column;
+}
+.forMEP label, .formEditarEstudiante label, .formEditarCurso label{
+    color:rgb(242, 243, 249);
+    font-size: 1.1rem;
+    padding-right: 1rem;
+    font-weight: bold;
+}
+.forMEP input, .formEditarEstudiante input, .formEditarCurso input{
+    background-color: rgba(13, 34, 44, 0.813);
+    border-radius: 0.3rem;
+    border: none;
+    font-size: 1rem;
+    color: white;
+    padding-left: 1rem;
+    height: 1.5rem;
+    width: auto;
+}
+.formEditarEstudiante select{
+    background-color:rgba(13, 34, 44, 0.813);
+    border:none;
+    border-radius:0.3rem;
+    font-size: 1rem;
+    height:2rem;
+    color: white;
+    width: 8rem;
+}
+.opciones{
+    padding-left: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+}
+.opciones a{
+    margin-top: 2rem;
+    margin-left: 2rem;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    border-radius: 4px;
+    background-color: rgb(128, 128, 128);
+    color:rgb(255, 255, 255);
+    display: inline-block; 
+    width: 150px; 
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    height: 1.3rem;
+    padding:0.5rem;
+}
+#editarDP, #guardarC, #editarCur{
+    margin-top: 2rem;
+    background-color:rgb(166, 230, 18);
+    padding: 0.5rem;
+    height: 1.3rem;
+    color: rgb(41, 40, 40);
+    font-size:1rem;
+    font-weight: bold;
+    cursor: pointer;
+    width: 150px;
+    height: 40px;
+}
+.opciones a:hover{
+    background-color: rgb(105, 105, 105);
+    box-shadow: rgb(0, 0, 0, 0.2); 
+}
+#editarDP:hover, #guardarC:hover, #editarCur:hover{
+    background-color: rgb(140, 200, 15);
+    box-shadow:rgb(0, 0, 0, 0.2);
+}
+/*Edicion de datos estudiante*/
+
+/*RESPONSIVE*/
+@media screen and (max-width: 600px) { 
+    .editP {
+        width: 22rem;
+        margin: 0 auto;
+        flex: 1 0 100%;
+        padding-top: 0.9rem;
+        flex-direction: column;
+        padding-right: 0.2rem;
+        padding-left: 0.5rem;
+    }
+    h1{
+        font-size: 1.5rem;
+    }
+    .editP label{
+        font-size: 0.9rem;
+        padding-right: 0.1rem;
+    }
+    .forMEP input{
+        font-size: 0.9rem;
+        padding-left: 1rem;
+        height: 1.5rem;
+        width: 11rem;
+    }
+    .forMEP select{
+        font-size: 0.9rem;
+        height:1.5rem;
+    }
+    #editarDP{
+        padding: 0.2rem;
+        height: 1.1rem;
+        font-size:0.8rem;
+        width: 120px;
+        height: 30px;
+        margin-left: 0.1rem;
+    }
+    .opciones a{
+        width: 110px; 
+        font-size: 0.9rem;
+        height: 20px;
+        padding-top: 0.3rem;
+        padding-bottom: 0.3rem;
+    }
+}
