@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/videos.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
     <title>Entretenimiento</title>
 </head>
 <body>
@@ -13,87 +14,79 @@
         <div class="salir">
             <a href="../cursos/Tercero.php"><i class='bx bxs-left-arrow-square bx-md bx-fade-left-hover'></i>Volver atrás</a></li>
         </div>
-        <div class="row" id="row">
-            <div class="col">
-                <div class="feature-img">
-                    <img src="../image/abc.jpg" width="100%" alt="">
-                    <img src="../play.png" class="play-btn" onclick="playVideo('https://drive.google.com/file/d/1dGRTtfULL1iuRISAxh7IPEyHqsHh7ILb/view?usp=sharing')" alt="">
+            <div class="row" id="row">
+                <div class="col">
+                    <div class="feature-img">
+                        <img src="../image/abc.jpg" width="100%" alt="">
+                        <img src="../play.png" class="play-btn" onclick="playVideo('abecedario.mp4')" alt="">
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="small-img-row">
+                        <div class="small-img">
+                            <img src="../image/colores.jpg" alt="">
+                            <img src="../play.png" class="play-btn" onclick="playVideo('colores.mp4')" alt="">
+                        </div>
+                        <p>SAMINAKA : COLORES </p>
+                    </div>
+                    <div class="small-img-row">
+                        <div class="small-img">
+                            <img src="../image/familia.jpg" alt="">
+                            <img src="../play.png" class="play-btn" onclick="playVideo('familia.mp4')" alt="">
+                        </div>
+                        <p>WILA MASI : FAMILIA</p>
+                    </div>
+                    <div class="small-img-row">
+                        <div class="small-img">
+                            <img src="../image/saludo.jpg" alt="">
+                            <img src="../play.png" class="play-btn" onclick="playVideo('saludos.mp4')" alt="">
+                        </div>
+                        <p>ARUM TANAKA : TIPOS DE SALUDOS</p>
+                    </div>
+                    <div class="small-img-row">
+                        <div class="small-img">
+                            <img src="../image/pr.jpg" alt="">
+                            <img src="../play.png" class="play-btn" onclick="playVideo('pronombres.mp4')" alt="">
+                        </div>
+                        <p>SUTILANTINAKA : PRONOMBRES PERSONALES</p>
+                    </div>
+                    <div class="small-img-row">
+                        <div class="small-img">
+                            <img src="../image/objetos.jpg" alt="">
+                            <img src="../play.png" class="play-btn" onclick="playVideo('objetosClase.mp4')" alt="">
+                        </div>
+                        <p>OBJETOS DE CLASES<br> </p>
+                    </div>
                 </div>
             </div>
-            <div class="col">
-                <div class="small-img-row">
-                    <div class="small-img">
-                        <img src="../image/colores.jpg" alt="">
-                        <img src="../play.png" class="play-btn" onclick="playVideo('https://drive.google.com/file/d/19Q_sV6MBmFEkYNvVR9Xf6NSSSCobrsF4/view?usp=sharing'); return false;">
-                    </div>
-                    <p>SAMINAKA : COLORES </p>
-                </div>
-                <div class="small-img-row">
-                    <div class="small-img">
-                        <img src="../image/familia.jpg" alt="">
-                        <img src="../play.png" class="play-btn" onclick="playVideo('https://drive.google.com/file/d/1frVsl4qMbNzwdVceVj1sskUEBlJJhqN4/view?usp=sharing')" alt="">
-                    </div>
-                    <p>WILA MASI : FAMILIA</p>
-                </div>
-                <div class="small-img-row">
-                    <div class="small-img">
-                        <img src="../image/saludo.jpg" alt="">
-                        <img src="../play.png" class="play-btn" onclick="playVideo('https://drive.google.com/uc?id=YOUR_FILE_ID_4')" alt="">
-                    </div>
-                    <p>ARUM TANAKA : TIPOS DE SALUDOS</p>
-                </div>
-                <div class="small-img-row">
-                    <div class="small-img">
-                        <img src="../image/pr.jpg" alt="">
-                        <img src="../play.png" class="play-btn" onclick="playVideo('https://drive.google.com/uc?id=YOUR_FILE_ID_5')" alt="">
-                    </div>
-                    <p>SUTILANTINAKA : PRONOMBRES PERSONALES</p>
-                </div>
-                <div class="small-img-row">
-                    <div class="small-img">
-                        <img src="../image/objetos.jpg" alt="">
-                        <img src="../play.png" class="play-btn" onclick="playVideo('https://drive.google.com/uc?id=YOUR_FILE_ID_6')" alt="">
-                    </div>
-                    <p>OBJETOS DE CLASES<br> </p>
-                </div>
-                <div class="small-img-row">
-                    <div class="small-img">
-                        <img src="../image/objetoscasa.png" alt="">
-                        <img src="../play.png" class="play-btn" onclick="playVideo('https://drive.google.com/uc?id=YOUR_FILE_ID_7')" alt="">
-                    </div>
-                    <p>OBJETOS DE COCINA<br> </p>
-                </div>
-            </div>
-        </div>
     </div>
     <div class="video-player" id="videoPlayer">
-        <video width="100%" controls id="myVideo">
-            <source src="" type="video/mp4">
+        <video width="100%" controls  id="myVideo">
+            <source src="abecedario.mp4" type="video/mp4">
         </video>
         <img src="../close.png" class="close-btn" onclick="stopVideo()" alt="">
     </div>
 
     <script>
-        var videoPlayer = document.getElementById("videoPlayer");
+        var videoPLayer=document.getElementById("videoPlayer");
         var myVideo = document.getElementById("myVideo");
-        var row = document.getElementById("row");
+        var row = document.getElementById("row")
 
         function stopVideo() {
             myVideo.pause();
             videoPlayer.style.display = "none";
-            row.style.display = "flex";
+            row.style.display = "flex"; 
         }
-
-        function playVideo(file) {
-            myVideo.src = file;
+        function playVideo(file){
+            myVideo.src=file;
             myVideo.play();
-            videoPlayer.style.display = "block";
+            videoPLayer.style.display="block";
             row.style.display = "none";
         }
-
         myVideo.addEventListener('ended', function() {
             stopVideo();
         });
+
     </script>
 </body>
 </html>
