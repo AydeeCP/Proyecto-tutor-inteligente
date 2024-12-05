@@ -66,7 +66,7 @@
                 clearInterval(interval);
                 window.location.href="logEst.php";
             }else{
-                countdownElement.textContent = "Intentalo en "+timeLeft + " segundos";
+                countdownElement.textContent = "Inténtalo en "+timeLeft + " segundos";
                 timeLeft--;
             }
         },1000);

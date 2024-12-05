@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function reproducirAudio(sonido) {
-    var audio = new Audio("../audios/" + sonido + ".wav");
+    var audio = new Audio("../audios/" + sonido + ".mp3");
     audio.play();
     setTimeout(function () {
     audio.pause();

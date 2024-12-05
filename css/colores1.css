@@ -1,0 +1,579 @@
+@import url('https://fonts.googleapis.com/css2?family=Concert+One&family=Fjalla+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Concert+One&family=Fjalla+One&family=Seymour+One&display=swap');
+*{
+    box-sizing: border-box;
+}
+
+body{
+    height:100vh;
+    background-color: #a5b959;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 800 400'%3E%3Cdefs%3E%3CradialGradient id='a' cx='396' cy='281' r='514' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%23C5DD89'/%3E%3Cstop offset='1' stop-color='%2382A115'/%3E%3C/radialGradient%3E%3ClinearGradient id='b' gradientUnits='userSpaceOnUse' x1='400' y1='148' x2='400' y2='333'%3E%3Cstop offset='0' stop-color='%23FCFFA9' stop-opacity='0'/%3E%3Cstop offset='1' stop-color='%23FCFFA9' stop-opacity='0.5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23a)' width='800' height='400'/%3E%3Cg fill-opacity='0.4'%3E%3Ccircle fill='url(%23b)' cx='267.5' cy='61' r='300'/%3E%3Ccircle fill='url(%23b)' cx='532.5' cy='61' r='300'/%3E%3Ccircle fill='url(%23b)' cx='400' cy='30' r='300'/%3E%3C/g%3E%3C/svg%3E");
+    background-attachment: fixed;
+    background-size: cover;
+    font-family: "Helvetica Neue",sans-serif;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contenedor {
+    width: 90%; /* Utiliza porcentaje para que el contenedor se ajuste al ancho del viewport */
+    max-width: 550px; /* Establece un ancho máximo para evitar que el contenedor se vuelva demasiado grande */
+    height: auto;
+    background: #f5f5f5;
+    border: none;
+    border-radius: 8px;
+    padding: 7px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    text-align: center;
+}
+.despedida{
+    display: none;
+    border-radius: 5px;
+    width: 80%;
+    max-width: 550px;
+    height:auto;
+    text-align: center;
+    background-color: rgb(230, 247, 185);
+    display: none;
+}
+
+.despedida h1{
+    text-align:center;
+    font-size:2rem;
+    font-weight: bold;
+    color:#1e299b;
+    font-family: "Seymour One", sans-serif;    
+    letter-spacing: 2.5px;
+}
+#salirV{
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size:1rem;
+    border: none;
+    cursor:pointer;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+#salirV:hover{
+    background-color:rgba(239, 61, 30, 0.774);
+}
+
+.word-container {
+    font-family: Arial, sans-serif;
+    font-size: 24px;
+    color: rgba(0, 0, 0, 0.852);
+    justify-content: center;
+    align-items: center;
+    font-family: "Seymour One", sans-serif;
+}
+.letter-box {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    border: 4px solid rgb(46, 95, 160);
+    border-radius: 3px;
+    margin-right: 5px;
+    text-align: center;
+    line-height: 50px;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 4px 4px 10px rgb(46, 95, 160);
+    font-family: "Seymour One", sans-serif;
+}
+p{
+    text-align: left;
+}
+
+/*IMAGEN 16*/
+#imagen2, #imagen3, #imagen4, #imagen5, #imagen6, #imagen7, #imagen8, #imagen9, #imagen10,#imagen11, #imagen12, #imagen13,#imagen14, #imagen15,#imagen16,#imagen17{
+    height:230px;
+    width: 220px;
+}
+.message{
+    text-align: center;
+    margin-bottom:2rem;
+    font-size:1.2rem;
+    font-weight: bold;
+}
+
+.botones {
+    width: 90%; /* Utiliza porcentaje para que los botones se ajusten al ancho del viewport */
+    max-width: 450px; /* Establece un ancho máximo para evitar que los botones se vuelvan demasiado grandes */
+    display: flex;
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 15px;
+    justify-content: center; /* Centra los botones horizontalmente */
+    flex-wrap: wrap;
+}
+
+.contenedor input[type="text"]{
+    background-color:rgb(132, 133, 134);
+    border:none;
+    padding: 10px;
+    margin-right: 1px;
+    border-radius: 5px;
+    width:100px;
+    height: 3rem;
+    color: rgb(255, 255, 255);
+    font-weight: 100;
+    font-size: 1.5rem;
+    text-align: center;
+    margin-bottom: 1px;
+}
+
+.btnj1, .btnj2, .btn4{
+    padding: 10px 20px;
+    margin: 5px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    color: #efebeb;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.btnj1 {
+    background-color: #2196F3;
+}
+
+.btnj2 {
+    color:rgb(255, 255, 255);
+    background-color: #fc690e;
+}
+
+.btn4 {
+    background-color: #F44336;
+    color: #fff;
+}
+
+.mostrar{
+    margin-bottom: 15px;
+}
+/*PISTAS E INTENTOS RESTANTES*/
+.ayudas{
+    padding-left: 0.5rem;
+    color:#3461cd;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+#intento{
+    text-align: center;
+}
+#hint img {
+    width: 200px; /* Ancho deseado */
+    height: 150px; /* Alto deseado */
+}
+
+#hint , #attempts{
+    
+    font-size:1.2rem;
+    color:rgb(56, 71, 172);
+}
+.palabras{
+    background-color: rgba(47, 123, 161, 0.918);
+    border-radius: 8px;
+    width: 350px;
+    margin: 0 auto;
+}
+.palabras h2{
+    padding: 3px;
+    font-size: 1.3rem;
+    color: white;  
+    font-family: "Seymour One", sans-serif;
+}
+
+
+/*--------------------------ESTILOS PARA EL SEGUNDO JUEGO--------------------------------------*/
+
+.container  {
+    width: 90%; /* Usar un porcentaje del ancho del viewport en lugar de un valor fijo en píxeles */
+    max-width: 550px; /* Establecer un ancho máximo */
+    height: auto;
+    background: #f5f5f5;
+    border:none;
+    border-radius: 8px;
+    padding: 7px;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 50px;
+}
+/* Estilos para el título */
+h1 {
+    margin-bottom: 20px;
+    color: #150c66;
+    font-size: 2.1rem;
+    font-family: "Fjalla One", sans-serif;
+    font-weight: 650;
+    font-style: normal;
+}
+
+/* Estilos para la cantidad */
+div #cantidad {
+    border: 2px solid #f98220;
+    background-color: #f98220;
+    border-radius: 5px;
+    height: 45px;
+    width: 90px;
+    margin: 0 auto; /* Centrar horizontalmente */
+    margin-bottom: 20px; /* Añadir espacio inferior */
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #000000;
+    
+}
+#cantidad{
+    padding: 10px;
+    font-size: 1.3rem;
+    font-weight: bold;
+    color:rgb(3, 27, 145);
+    align-items: center;
+}
+img {
+    /*mix-blend-mode: multiply;*/
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 1.4rem;
+    width:250px;
+    height: 200px;
+    height: auto;
+    border-radius: 6px;
+}
+
+.di input[type="text"] {
+    padding: 10px;
+    margin-right: 1px;
+    border-radius: 5px;
+    width:200px;
+    background-color: #ff4c6a;
+    border: none;
+    height: 3rem;
+    color: rgb(255, 255, 255);
+    font-family: "Concert One", sans-serif;
+    font-weight: 100;
+    font-size: 1.7rem;
+    text-align: center;
+}
+.di input:hover{
+    box-shadow:0 2px #fb7c91 ;
+    background-color: #fb7c91;
+}
+
+.di{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/*palabras correctas e incorrectas*/ /*juego UNO y DOS*/
+.mostrarM, .mostrar, .mostrarC{
+    width: 150px;
+    background-color: rgba(197, 197, 197, 0.97);
+    height: auto;
+    display: flex;
+    margin: 0 auto;
+    margin-bottom: 15px;
+}
+
+.botones{
+    display: flex;
+}
+.di{
+    margin: 0 auto;
+}
+.verd{
+    margin-left: 5px;
+    margin-right: 5px;
+    color: #508420;
+    font-weight: bold;
+    font-size:1.4rem;
+    margin: 0 auto;
+}
+.wrong{
+    margin-left: 5px;
+    margin-right: 5px;
+    color: #ed3b09;
+    font-weight: bold;
+    font-size:1.4rem;
+    margin: 0 auto;
+}
+button {
+    padding: 10px 20px;
+    margin-left: 10px;
+    color: #fff;
+    border: none;
+    border-radius: 13px;
+    cursor: pointer;
+    margin-bottom: 1rem;
+    justify-content: space-between;
+    font-family:fantasy;
+    font-weight: 400;
+    font-size: 1.1rem;
+}
+.btn{
+    display:inline-block;
+    background-color: #37580e;
+}
+.btn:hover {
+    background-color: #457011;;
+
+}
+.btnayuda{
+    color: rgb(63, 61, 61);
+    background-color: rgb(255, 186, 13);   
+}
+.btnayuda:hover{
+    background-color: rgb(243, 194, 69);   
+}
+.hidden {
+    display: none;
+}
+
+#btnSiguiente:enabled{
+    background-color: rgba(47, 123, 161, 0.918);
+    color: rgb(244, 244, 244);
+}
+
+button.btn1{
+    background-color:rgba(96, 91, 95, 0.36);
+    color: white;
+}
+
+.menR, #mensajeFinal{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    font-family: "Seymour One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 2rem;
+    text-align: center;
+    background-color: rgb(230, 247, 185);
+    border-radius: 8px;
+    z-index: 1000;
+    width: 400px;
+    display: none;
+}
+
+.menR img{
+    width: 200px;
+}
+
+#mensajeFinal img {
+    max-width: 200px;
+    margin-bottom: 20px;
+}
+#mensajeFinal p{
+    color: rgb(48, 64, 15);
+    font-size: 20px;
+    font-weight:bold;
+    text-align: center;
+}
+
+/*BOTON DE VOLVER A JUGAR*/
+.btn2 {
+    padding: 10px 20px;
+    margin-left: 10px;
+    color: white;
+    border: none;
+    border-radius: 13px;
+    cursor: pointer;
+    margin-bottom: 1rem;
+    justify-content: space-between;
+    font-family:fantasy;
+    font-weight: 400;
+    font-size: 1.1rem;
+    background-color: #fc690e;
+}
+
+.btn3{
+        font-style: normal;
+        font-size: 1rem;
+        text-align: center;
+        display: inline-block;
+        padding: 10px 20px; /* Ajusta el relleno según sea necesario */
+        background-color: #F44336;
+        color: #fff;
+        text-decoration: none; /* Quitar subrayado predeterminado de los enlaces */
+        border: none;
+        border-radius: 8px; /* Agregar bordes redondeados */
+        cursor: pointer;
+}
+
+.result{
+    background-color: rgba(47, 123, 161, 0.918);
+    border-radius: 8px;
+    width: 300px;
+    margin: 0 auto;
+}
+.result h2{
+    padding: 3px;
+    font-size: 1rem;
+    color: white;  
+}
+#mensajeFinal h1{
+    font-family: "Seymour One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 1.5rem;
+}
+#feedbackMessage{
+    text-align: center;
+}
+/*MODELO RESPONSIVO*/
+@media screen and (max-width: 768px) {
+    .despedida{
+        margin-top: -10rem;
+        padding-bottom: 1.5rem;
+    }
+    .despedida img{
+        width:200px;
+        height: auto;
+    }
+    #despedida h1{
+        font-family: "Seymour One", sans-serif;
+        font-size:1.5rem;
+    }
+    #salirV{
+        margin-top: 20px;
+        padding: 10px 20px;
+        font-size:0.9rem;
+    }
+    .contenedor {
+        margin-top:-5rem;
+    }
+    h2 {
+        font-size: 1.5rem; /* Reduce el tamaño del título */
+    }
+    .word-container {
+        padding-top: 1px;
+        font-size: 18px;
+        color: rgba(0, 0, 0, 0.852);
+    }
+    .letter-box {
+        width: 45px;
+        height: 45px;
+        box-shadow: 4px 4px 7px rgb(46, 95, 160);
+    }
+    h3 {
+        font-size: 1rem; /* Reduce el tamaño del texto */
+    }
+    h3 span {
+        font-size: 1.1rem; /* Reduce el tamaño del texto en negrita */
+    }
+    .message{
+        margin-bottom:1.5rem;
+        font-size:1rem;
+        font-weight: bold;
+    }
+    .ayudas{
+        font-size: 1rem;
+    }
+    
+    .container input[type="text"] {
+        padding:0;
+        height: 2.5rem;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        font-weight: bold;
+        font-size:1rem;
+        margin-bottom: 0.8rem;
+    }
+    .palabras{
+        font-family: "Seymour One", sans-serif;
+        margin: 1.5rem;
+        width: auto;
+    }
+
+    .palabras h2 {
+        padding: 2px;
+        font-size: 1.2rem;
+    }
+    /*SEGUNDO JUEGO*/
+    .container {
+        margin-top:-5rem;
+        width: 350px;
+        height:auto;
+        /*max-width: none;*/
+        padding-top: 0.1rem;
+        padding-bottom: 0.1rem; 
+    }
+    h1 {
+        font-size: 1.5rem; 
+    }
+    
+    div #cantidad {
+        margin-bottom: 15px; 
+    }
+    .botones{
+        margin-bottom:0.1rem;
+    }
+    button {
+        font-size: 1rem; /* Reducir el tamaño de fuente de los botones */
+        padding: 8px 16px; /* Reducir el relleno de los botones */
+        margin-left: 5px; /* Ajustar el margen izquierdo */
+        margin-right: 5px; /* Ajustar el margen derecho */
+    }
+}
+
+@media screen and (max-width: 1440px) {
+    .contenedor{
+        margin-top:-2.5rem;
+        padding-bottom: 1px;
+        margin-bottom: 3rem;
+        padding-bottom: 0.1rem;
+    }
+    .despedida{
+        margin-top:-4.5rem;
+    }
+    .contenedor h1{
+        margin-top:0rem;
+        padding-bottom: 1px;
+    }
+    .container{
+        margin-top:-4rem;
+        margin-bottom:1rem;
+        padding-bottom: 0.1rem;
+    }
+    .container input[type="text"] {
+        padding: 1px;
+        height: 3rem;
+        font-size:0.8rem;
+        margin-top: 0.1rem;
+        margin-bottom: 0.1rem;
+    }
+    .container h1{
+        font-size:1.5rem;
+        margin-top:0rem;
+        padding-bottom: 1px;
+    }
+    div #cantidad {
+        margin-top:0.1rem;
+    }
+    #cantidad{
+        font-weight: bold;
+    }
+    .Contenedor3{
+        margin-top:-5rem;
+    }
+    .menR img{
+        width: 150px;
+    }
+    .insignia-container{
+        padding-top:1rem;
+        width:300px;
+        height: auto;
+        margin: 0 auto;
+        align-items: center;
+        justify-content: center;
+    }
+    #despedida h1, .palabras h2{
+        font-family: "Seymour One", sans-serif;
+    }
+    .palabras{
+        width: auto;
+        margin:1.2rem;
+    }
+}

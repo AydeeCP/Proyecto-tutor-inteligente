@@ -11,7 +11,7 @@
     <div class="contenido">
         <a href="#" id="startContenidoTour">Iniciar Tour del Contenido</a>
         <!--vocales-->
-        <div class="vocales" onmouseover="playSound('../audios/vocal.wav')" onmouseout="stopSound()" id="tema-vocales">
+        <div class="vocales" onmouseover="playSound('../audios/vocales.mp3')" onmouseout="stopSound()" id="tema-vocales">
             <img src="../image/vocales.jpg" alt="image" width="250">
             <a href="#">SALLANAKA : Vocales</a>
             <ul>
@@ -29,7 +29,7 @@
                 </ul>
             </div>
         </div>
-        <div class="color" onmouseover="playSound('../audios/colores.wav')" onmouseout="stopSound()">
+        <div class="color" onmouseover="playSound('../audios/colores.mp3')" onmouseout="stopSound()">
             <img src="../image/colores.jpg" alt="image" width="250">
             <a href="#">SAMINAKA : Colores</a>
             <div class="game-abc">
@@ -39,7 +39,7 @@
                 </ul>
             </div>
         </div>
-        <div class="familia" onmouseover="playSound('../audios/familia.wav')" onmouseout="stopSound()">
+        <div class="familia" onmouseover="playSound('../audios/familia.mp3')" onmouseout="stopSound()">
             <img src="../image/familia.jpg" alt="image" width="250">
             <a href="#">WILA MASI : Familia</a>
             <div class="game-familia">
@@ -49,7 +49,7 @@
                 </ul>
             </div>
         </div>
-        <div class="saludo" onmouseover="playSound('../audios/saludos.wav')" onmouseout="stopSound()">
+        <div class="saludo" onmouseover="playSound('../audios/saludos.mp3')" onmouseout="stopSound()">
             <img src="../image/saludo.jpg" alt="image" width="250">
             <a href="#">ARUM TANAKA : Saludos</a>
             <div class="game-saludo">
@@ -59,7 +59,7 @@
                 </ul>
             </div>
         </div>
-        <div class="pronombres" onmouseover="playSound('../audios/pronombres.wav')" onmouseout="stopSound()">
+        <div class="pronombres" onmouseover="playSound('../audios/pronombres.mp3')" onmouseout="stopSound()">
             <img src="../image/pr.jpg" alt="image" width="250">
             <a href="#">SUTILANTINAKA <br> Pronombres personales</a>
             <div class="game-pronombres">
@@ -69,7 +69,7 @@
                 </ul>
             </div>
         </div>
-        <div class="objetos" onmouseover="playSound('../audios/Objetos.mp3')" onmouseout="stopSound()">
+        <div class="objetos" onmouseover="playSound('../audios/objetos.mp3')" onmouseout="stopSound()">
             <img src="../image/objetos.jpg" alt="image" width="250">
             <a href="#">YÄNAKA : Objetos</a>
             <div class="game-objetos">

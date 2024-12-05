@@ -40,7 +40,7 @@
                 <input type="text" id="ci" name="ci" placeholder="Cédula de identidad" />
                 <input type="text" id="nombre" name="nombre" placeholder="Nombre completo">
                 <input type="text" id="apellidos" name="apellidos" placeholder="Apellidos" />
-                <input type="tel" id="telefono" name="telefono" placeholder="Número de celular" />
+                <input type="number" id="telefono" name="telefono" placeholder="Número de celular" />
                 <input type="email" id="correo" name="correo" placeholder="Correo electrónico"  />
                 <input type="text" id="residencia" name="residencia" placeholder="Lugar que residencia" />
             </div>

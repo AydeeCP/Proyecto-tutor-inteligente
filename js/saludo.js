@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded",function(){
     deshabilitarEnlace();
 });
 function reproducirAudio(sonido) {
-    var audio = new Audio("../audios/" + sonido + ".wav");
+    var audio = new Audio("../audios/" + sonido + ".mp3");
     audio.play();
     setTimeout(function () {
     audio.pause();
@@ -110,7 +110,6 @@ function checkAnswer() {
         document.getElementById("palabrasAcertadasInput").value=palabrasAcertadas;
         mensaje = "¡Waliki!";
         reproducirAudio("correcto"); 
-
         mostrarMensajeFeedback(mensaje,'../image/victory.gif','green',3000);
         deshabilitarInputs();
         document.getElementById("volverJ").disabled = false;
@@ -121,7 +120,7 @@ function checkAnswer() {
         document.getElementById("palabrasAcertadasInput").value=palabrasAcertadas;
         mensaje = "¡Janiw walikiti!";
         reproducirAudio("incorrecto");
-        mostrarMensajeFeedback(mensaje,'../image/triste.gif','red',3000);
+        mostrarMensajeFeedback(mensaje,'../image/triste.gif','red',4000);
         deshabilitarInputs();
         document.getElementById("volverJ").disabled = false;
         document.getElementById('volverJ').classList.add('b-activado');

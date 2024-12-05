@@ -60,7 +60,6 @@
     <script>
         function almacenarActividad(opcionNavbar, temaPracticado, juegoSeleccionado, palabrasAcertadas,vecesJugadas) {
             var medalla = localStorage.getItem("insignia");
-
             var xhr = new XMLHttpRequest();
             xhr.open('POST', '../datosE/almacenar_actividad.php', true);
             xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');

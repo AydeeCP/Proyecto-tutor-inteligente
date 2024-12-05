@@ -312,6 +312,7 @@ body{
 .curso{
     margin-left: -10px;
 }
+
 /*FORMULARIO 4 INICIRAR SESION*/
 .formulario4{
     display: none;
@@ -369,7 +370,6 @@ body{
 }
 
 /*BOTON INICIAR SESION*/
-
 .botonI{
     width: 350%;
     margin: auto;
@@ -441,7 +441,6 @@ body{
     animation: guardar 3s linear both;
 }
 
-
 @keyframes guardar {
     0%{
         transform: rotate(0deg);
@@ -457,9 +456,11 @@ body{
     display: block;
     justify-content: center;
     background-color:#1f1f1fd3;
+    font-size: 1.5px;
+    width: 93%;
     padding: 0.5rem;
     margin: 0.5rem;
-    border-radius: 8px;
+    border-radius: 5rem;
 }
 .volver:hover{
     background-color:#423e3eac;
@@ -469,32 +470,36 @@ body{
     text-align: center;
     text-decoration: none;
     display: block;
-    color:rgb(255, 255, 255);
+    color:rgb(243, 228, 228);
     font-size: 1rem;
     font-family: "Trispace", sans-serif;
     font-optical-sizing: auto;
     font-weight: 700;
     font-style: bold;
 }
-
-@media screen and (max-width: 768px) {
-    *{
-        margin: 0;
-    }
-    .container-form{
-        margin: 0 auto;
-        position: relative;
-        margin-top:7rem;
-        margin-left: 1rem;
+@media screen and (max-width: 1440px) {
+    .container-form {
+        display: flex;
+        flex-direction: column; /* Asegura que los formularios estén en columna */
         justify-content: center;
         align-items: center;
+        margin: 0 auto;
+        width: 100%;
+        max-width: 500px; /* Limita el ancho máximo */
+        height: auto;
+        position: relative;
+        overflow: hidden; /* Evita que el contenido desbordado sea visible */
     }
+
     .containerProg {
         display: flex;
         justify-content: center;
         align-items: center;
         position: relative;
+        width: 100%;
+        max-width: 500px;
     }
+
     .pasos{
         display: flex;
         justify-content: center;
@@ -503,25 +508,29 @@ body{
         overflow: auto;
         padding-left: 0;
     }
-    .pasos .circle{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 45px;
-        width: 45px;
-        font-size: 20px;
-        border-width: 5px;
-        margin: 0 5px;
-        transition: all 200ms ease;
-        transition-delay: 0s;
+    .pasos .progreso{
+        position: absolute;
+        height: 6px;
+        width: 100%;
+
+        z-index: -1;
     }
-    .pasos .circle:first-child{
-        margin-left:2rem;
+    .indicador{
+        position:absolute;
+        height: 100%;
+        width: 0%;
+        transition:all 300ms ease;
+    }
+    .formulario1, .formulario2, .formulario3, .formulario4 {
+        padding: 20px;
+        width: 100%; /* ocupacion de todo el contenedor */
+        box-sizing: border-box;
+        position: relative; /* Evita desplazamientos inesperados */
     }
 
-    .formulario1, .formulario2, .formulario3, .formulario4{
-        padding-left: 3rem;
-        padding: 20px;
+    .formulario4 {
+        display: none; 
+        margin: 0 auto; /* Centrar el formulario horizontalmente */
     }
     .volver{
         padding: 0.4rem;
@@ -529,8 +538,13 @@ body{
     }
     
     .volver1{
-        font-size: 0.8rem;
-
+        font-size: 0.9rem;
+        color:rgb(243, 228, 228);
     }
 
+}
+@media screen and (min-width: 769px) {
+    body {
+        background-attachment: fixed;
+    }
 }

@@ -42,6 +42,9 @@ if (isset($_SESSION['nombre_de_usuario'])) {
 
     if ($resultado->num_rows > 0) {
         while ($row = $resultado->fetch_assoc()) {
+            // Formatear la fecha para que solo muestre la fecha sin la hora
+            $fechaActividad = date("Y-m-d", strtotime($row['fecha_actividad']));
+
             $actividades[] = array(
                 'cantidad' => $contador++,
                 'nombre_est' => $row['nombre_est'],
@@ -51,7 +54,7 @@ if (isset($_SESSION['nombre_de_usuario'])) {
                 'juego_seleccionado' => $row['juego_seleccionado'],
                 'palabrasAcertadas' => $row['palabrasAcertadas'],
                 'vecesJugadas' => $row['vecesJugadas'],
-                'fecha_actividad' => $row['fecha_actividad']
+                'fecha_actividad' => $fechaActividad
             );
         }
         echo json_encode(array('success' => true, 'actividades' => $actividades));

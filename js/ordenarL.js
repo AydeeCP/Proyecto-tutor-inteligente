@@ -55,7 +55,7 @@ var palabrasIncorrectas = 0;
 var totalPalabras=10;
 
 function reproducirAudio(sonido) {
-  var audio = new Audio("../audios/" + sonido + ".wav");
+  var audio = new Audio("../audios/" + sonido + ".mp3");
   audio.play();
   setTimeout(function () {
   audio.pause();
@@ -102,7 +102,7 @@ function verificarPalabra(palabra) {
   imagenSrc = "../image/triste.gif";
   mensaje = `Janiw walikiti`;
   reproducirAudio("incorrecto");
-  mostrarMensajeFeedback(mensaje,imagenSrc,'red',3000);
+  mostrarMensajeFeedback(mensaje,imagenSrc,'red',4000);
   //console.log(`La palabra '${palabra}' no es válida en ningún autómata.`);
   document.getElementById("equivocadas").innerText = palabrasIncorrectas;
   document.getElementById("sig").disabled = false;

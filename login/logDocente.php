@@ -20,7 +20,7 @@
     <form class="formulario" action="../datosD/validarD.php" method="POST">
         <!--opciones de los botones outputs-->
         <h2 class="create-account">Yatichiri : Profesor</h2>
-        <input type="text" placeholder="Cedula de identidad" id="username" name="carnet" required />
+        <input type="text" placeholder="Cédula de identidad" id="username" name="carnet" required />
         <div class="pass">
             <input type="password" placeholder="Contraseña" id="password" name="password" autocomplete="current-password" required />
             <i class='bx bxs-face-mask bx-sm bx-border'></i>

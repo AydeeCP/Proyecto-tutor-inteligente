@@ -14,7 +14,6 @@ if (isset($_POST['id_estudiante'])) {
             FROM actividad_estudiante ae
             JOIN estudiantes e ON ae.Id_est = e.Id_est
             WHERE ae.Id_est = ?";
-
     // Preparar la consulta
     $stmt = $conexion->prepare($sql);
     if ($stmt === false) {
@@ -34,6 +33,9 @@ if (isset($_POST['id_estudiante'])) {
 
     if ($resultado->num_rows > 0) {
         while ($row = $resultado->fetch_assoc()) {
+            // Formatear la fecha para que solo muestre la fecha sin la hora
+            $fechaActividad = date("Y-m-d", strtotime($row['fecha_actividad']));
+
             $actividades[] = array(
                 'cantidad' => $contador++,
                 'nombre_est' => $row['nombre_est'],
@@ -43,7 +45,7 @@ if (isset($_POST['id_estudiante'])) {
                 'juego_seleccionado' => $row['juego_seleccionado'],
                 'palabrasAcertadas' => $row['palabrasAcertadas'],
                 'vecesJugadas' => $row['vecesJugadas'],
-                'fecha_actividad' => $row['fecha_actividad']
+                'fecha_actividad' =>$fechaActividad
             );
         }
         echo json_encode(array('success' => true, 'actividades' => $actividades));

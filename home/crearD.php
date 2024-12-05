@@ -54,7 +54,7 @@
             </div>
 
             <div class="datos-contacto">
-                <input type="tel" id="telefono" name="telefono" placeholder="Número de celular" required />
+                <input type="number" id="telefono" name="telefono" placeholder="Número de celular" required />
                 <input type="email" id="correo" name="correo" placeholder="Correo electrónico" required />
 
             </div>

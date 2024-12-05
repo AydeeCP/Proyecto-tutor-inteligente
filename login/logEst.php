@@ -15,7 +15,7 @@
         <h2 class="cuenta">Yatiqiri : Estudiante</h2>
         <input type="text" placeholder="Suti : Nombre" id="user" name="user" required >
         <div class="pass">
-            <input type="password" placeholder="Cedula de identidad" id="contrasena" name="contrasena" required>
+            <input type="password" placeholder="Cédula de identidad" id="contrasena" name="contrasena" required>
             <!--icono de mostrar contraseña-->
             <i class='bx bxs-face-mask bx-border'></i>
         </div>

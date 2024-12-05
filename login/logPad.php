@@ -8,7 +8,7 @@
 </head>
 <body>
     <form action="../padres/validarPad.php" method="POST" class="formulario">
-        <h2>Número de cedula de identidad</h2>
+        <h2>Número de cédula de identidad</h2>
         <input type="text" id="cedula" name="cedula" required>
         <button type="submit" class="botonE" id="entrar" name="entrar">Mantaña : Entrar</button>
         <div class="volver">

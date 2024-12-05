@@ -9,8 +9,8 @@ if (!isset($_SESSION['contrasena'])) {
 include('../conexion/bd.php');
 
 $contrasena = $_SESSION['contrasena'];
-$cedula_est = ''; // Aquí almacenaremos la cédula de identidad
-$Id_est = null; // Aquí almacenaremos el Id_est obtenido
+$cedula_est = ''; //  cédula de identidad del estudiante
+$Id_est = null; //  Id_est del est. obtenido
 
 // Consulta para obtener la cédula de identidad
 $consulta_cedula = "SELECT cedula_est FROM estudiantes WHERE cedula_est = ?";
@@ -54,7 +54,7 @@ if ($Id_est === null) {
     exit();
 }
 
-echo "Id_est obtenido: $Id_est<br>";
+//echo "Id_est obtenido: $Id_est<br>";
 
 // Aquí obtendrás los datos del formulario
 $q1 = $_POST['qSocial1'] ?? '';
@@ -63,12 +63,12 @@ $q3 = $_POST['qSocial3'] ?? '';
 $q4 = $_POST['qSocial4'] ?? '';
 $q5 = $_POST['qSocial5'] ?? '';
 
-echo "Datos del formulario:<br>";
-echo "qSocial1: $q1<br>";
-echo "qSocial2: $q2<br>";
-echo "qSocial3: $q3<br>";
-echo "qSocial4: $q4<br>";
-echo "qSocial5: $q5<br>";
+//echo "Datos del formulario:<br>";
+//echo "qSocial1: $q1<br>";
+//echo "qSocial2: $q2<br>";
+//echo "qSocial3: $q3<br>";
+//echo "qSocial4: $q4<br>";
+//echo "qSocial5: $q5<br>";
 
 // Inserción en la tabla respuestas
 $insert_query = "INSERT INTO respuestas (Id_est, qSocial1, qSocial2, qSocial3, qSocial4, qSocial5) VALUES (?, ?, ?, ?, ?, ?)";
@@ -77,7 +77,7 @@ $insert_statement = mysqli_prepare($conexion, $insert_query);
 if ($insert_statement) {
     mysqli_stmt_bind_param($insert_statement, "isssss", $Id_est, $q1, $q2, $q3, $q4, $q5);
     if (mysqli_stmt_execute($insert_statement)) {
-        echo "Datos insertados correctamente";
+        echo '<script>alert("Formulario completado correctamente"); window.location.href="../cursos/Tercero.php";</script>';
         $_SESSION['formulario_enviado'] = true;
     } else {
         echo "Error al ejecutar la consulta de inserción: " . mysqli_stmt_error($insert_statement);

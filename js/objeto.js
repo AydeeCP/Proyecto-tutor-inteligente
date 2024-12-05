@@ -17,7 +17,7 @@ var totalPalabras = 10;
 
 
 function reproducirAudio(sonido) {
-    var audio = new Audio("../audios/" + sonido + ".wav");
+    var audio = new Audio("../audios/" + sonido + ".mp3");
     audio.play();
     setTimeout(function () {
     audio.pause();
@@ -148,7 +148,7 @@ function verificarRespuesta() {
         incorrectas++;
         document.getElementById("equivocadas").innerHTML = incorrectas;
         document.getElementById("btnSiguiente").disabled = false;
-        mostrarMensajeFeedback(mensaje,imagenSrc,'red',3000);
+        mostrarMensajeFeedback(mensaje,imagenSrc,'red',4000);
     }
     document.getElementById("respuesta").disabled=false;
     document.getElementById("respuesta").value="";
