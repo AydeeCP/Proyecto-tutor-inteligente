@@ -43,29 +43,8 @@ if ($idEstudiante !== '' && $idCurso !== '') {
         $vecesJugadas = isset($_POST['vecesJugadas']) ? intval($_POST['vecesJugadas']) : 0;
         $medalla =$_POST['medalla'];
         
-        // Definir una condición para elegir entre fechas aleatorias y fecha actual
-        $usarFechaAleatoria = false; // Puedes cambiar esto a false para usar la fecha actual
 
-        if ($usarFechaAleatoria) {
-            // Generar una fecha aleatoria entre el 21 de mayo y el 21 de junio
-            $start_date = strtotime("2024-06-04");
-            $end_date = strtotime("2024-06-04");
-
-            if ($start_date > $end_date) {
-                die("Fecha de inicio está después de la fecha de fin");
-            }
-
-            $random_timestamp = mt_rand($start_date, $end_date);
-
-            // Ajustar la fecha aleatoria para tener la hora actual
-            $fechaAleatoria = date("Y-m-d", $random_timestamp);
-            $horaActual = date("H:i:s");
-            $fechaActividad = $fechaAleatoria . ' ' . $horaActual;
-        } else {
-            // Usar la fecha y hora actual
-            $fechaActividad = date("Y-m-d H:i:s");
-        }
-
+        $fechaActividad = date("Y-m-d H:i:s");
         // Mostrar datos antes de insertar
             /*echo "<h3>Datos a Insertar:</h3>";
             echo "<p>Id Estudiante: " . htmlspecialchars($idEstudiante) . "</p>";

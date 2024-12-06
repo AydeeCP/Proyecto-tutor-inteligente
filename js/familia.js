@@ -127,8 +127,8 @@ function verificarRespuesta() {
     if (esRespuestaCorrecta) {
         imagenSrc = "../image/victory.gif";
         mensaje = "¡Waliki!";
-        /*REPRODUCIR AUDIO
-        reproducirAudio('lluvia'); */
+        /*REPRODUCIR AUDIO*/
+        reproducirAudio("correcto"); 
         correctas++;
         document.getElementById("correctas").innerHTML = correctas;
         document.getElementById("btnSiguiente").disabled = false;
@@ -140,8 +140,9 @@ function verificarRespuesta() {
         //siguienteImagen();
     }else {
         imagenSrc = "../image/triste.gif";
-        mensaje = "¡Janiw walikiti!";
+        mensaje = "¡Janiwa walikiti!";
         /*REPRODUCIR AUDIO reproducirAudio('lluvia');*/
+        reproducirAudio("incorrecto"); 
         incorrectas++;
         document.getElementById("equivocadas").innerHTML = incorrectas;
         document.getElementById("btnSiguiente").disabled = false;

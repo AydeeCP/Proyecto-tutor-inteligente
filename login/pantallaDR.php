@@ -46,7 +46,7 @@
                 clearInterval(interval);
                 window.location.href = "logDocente.php"; 
             } else {
-                countdownElement.textContent = "Intentalo en "+timeLeft + " segundos";
+                countdownElement.textContent = "Inténtalo en "+timeLeft + " segundos";
                 timeLeft--;
             }
         }, 1000);

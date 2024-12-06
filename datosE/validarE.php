@@ -54,22 +54,9 @@ if ($statement) {
         mysqli_stmt_bind_result($statement,$Id_est,$cedula_est,$nombre_est,$apellidos_est,$nombre_curso);
 
         mysqli_stmt_fetch($statement);
-        // Determinar si usar fechas aleatorias o la fecha actual
-        $usarFechasAleatorias = false; // Cambia esto a true si deseas usar fechas aleatorias
-
-        if ($usarFechasAleatorias) {
-            // Generar una fecha aleatoria entre el 21 de mayo y el 21 de junio de 2024
-            $start_date = strtotime("2024-06-04");
-            $end_date = strtotime("2024-06-04");
-
-            $random_timestamp = mt_rand($start_date, $end_date);
-            $fecha_entrada = date("Y-m-d", $random_timestamp);
-        } else {
-            // Usar la fecha actual
-            $fecha_entrada = date("Y-m-d");
-        }
-
-        // Siempre usar la hora actual
+        
+        $fecha_entrada = date("Y-m-d");
+        
         $hora_entrada = date("H:i:s");
 
         // Insertar en la base de datos

@@ -4,6 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=0.7">
     <link rel="stylesheet" href="../css/EstPadre.css">
+    <style>
+        button.disabled {
+            background-color: grey;
+            cursor: not-allowed;
+        }
+    </style>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <title>Datos Estudiante</title>
@@ -13,7 +19,7 @@
     <div class="container" id="container">
         <div id="datosEst" class="datosEst"></div>
         <div class="editar">
-            <button id="eliminarDatosRelacionados" class="eliminarDatosRelacionados">Eliminar Datos</button>
+            <button id="eliminarDatosRelacionados" class="eliminarDatosRelacionados"  >Eliminar Datos</button>
             <a href="../home/homePad.php"><i class='bx bxs-left-arrow-square bx-md bx-fade-left-hover'></i> Volver atrás</a>
         </div>
     </div>
@@ -33,6 +39,7 @@
             $('#eliminarDatosRelacionados').on('click', function() { 
                 var idEstudiante = $('#id_est').val();
                 //console.log('Id_est:', idEstudiante);
+                boton.prop('disabled', true);
                 if (idEstudiante && confirm('¿Estás seguro que deseas eliminar todos los datos relacionados a este estudiante? Esta acción no se puede deshacer.')) {
                     eliminarDatosRelacionados(idEstudiante); 
                 } else {

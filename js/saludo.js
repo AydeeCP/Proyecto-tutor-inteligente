@@ -4,6 +4,7 @@ class Automata {
         this.currentState = 0;
         this.finalState = word.length;
         this.alphabet = alphabet;
+    
     }
 
     transition(letter) {

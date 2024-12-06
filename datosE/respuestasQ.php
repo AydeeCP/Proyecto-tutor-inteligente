@@ -63,6 +63,7 @@ $q3 = $_POST['qSocial3'] ?? '';
 $q4 = $_POST['qSocial4'] ?? '';
 $q5 = $_POST['qSocial5'] ?? '';
 
+
 //echo "Datos del formulario:<br>";
 //echo "qSocial1: $q1<br>";
 //echo "qSocial2: $q2<br>";
@@ -71,7 +72,6 @@ $q5 = $_POST['qSocial5'] ?? '';
 //echo "qSocial5: $q5<br>";
 
 // Inserción en la tabla respuestas
-$insert_query = "INSERT INTO respuestas (Id_est, qSocial1, qSocial2, qSocial3, qSocial4, qSocial5) VALUES (?, ?, ?, ?, ?, ?)";
 $insert_statement = mysqli_prepare($conexion, $insert_query);
 
 if ($insert_statement) {

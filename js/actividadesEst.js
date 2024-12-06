@@ -121,24 +121,24 @@ $(document).ready(function () {
     doc.text(title, titleX, 50, { overflow: "linebreak", align: "center" });
 
     doc.autoTable({
-      html: table,
-      startY: 80,
-      theme: "grid",
-      headStyles: {
+    html: table,
+    startY: 80,
+    theme: "grid",
+    headStyles: {
         fillColor: [20, 40, 52],
         textColor: [255, 255, 255],
         align: "center",
         halign: "center",
-      },
-      styles: {
+    },
+    styles: {
         cellPadding: 5,
-        fontSize: 12,
+        fontSize: 10,
         textColor: [0, 0, 0],
         align: "center",
         halign: "center",
-        lineColor: [68, 80, 136],
+        lineColor: [20, 40, 52],
         lineWidth: 1,
-      },
+        },
     });
 
     // Guardar el PDF

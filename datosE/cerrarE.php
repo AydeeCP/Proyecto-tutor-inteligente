@@ -6,22 +6,8 @@ if(isset($_SESSION['Id_est'])){
     $Id_est = $_SESSION['Id_est'];
     include('../conexion/bd.php');
 
-    // Determinar si usar fechas aleatorias o la fecha actual
-    $usarFechasAleatorias = false; // Cambia esto a true si deseas usar fechas aleatorias
+    $fecha_salida = date("Y-m-d");
 
-    if ($usarFechasAleatorias) {
-        // Generar una fecha aleatoria entre el 21 de mayo y el 21 de junio de 2024
-        $start_date = strtotime("2024-06-04");
-        $end_date = strtotime("2024-06-04");
-
-        $random_timestamp = mt_rand($start_date, $end_date);
-        $fecha_salida = date("Y-m-d", $random_timestamp);
-    } else {
-        // Usar la fecha actual
-        $fecha_salida = date("Y-m-d");
-    }
-
-    // Siempre usar la hora actual
     $hora_salida = date("H:i:s");
 
     // Actualizar la hora de salida en la base de datos
